@@ -1,0 +1,46 @@
+
+*.right { text-align:right; }
+
+h1, blockquote, *.palatino, *.serif {
+    font-family:"palatino linotype",
+                "palatino lt std",
+                "palatino lt pro",
+                palatino,
+                "urw palladio l",
+                palladio,
+                "zapf calligraphic 801",
+                "zapf calligraphic",
+                "book antiqua",
+                z-antiqua,
+                aldus;
+    font-weight:normal; }
+
+*.blueserif { font-family:serif; color:#039; font-size:108%; }
+
+blockquote { font-style:italic; font-size:small; }
+h1 { font-size: 1.5em; font-weight:normal; }
+h2 { font-weight:normal; font-family:serif; color:#039; }
+
+dt { font-family: serif; font-size:108%; }
+
+dl.red dt { color:red; }
+dl.red a:link    { color:#900; }
+dl.red a:visited { color:#600; }
+dl.red a:focus   { color:#400; }
+
+*.caps {  letter-spacing:0.15em; text-transform:uppercase; font-variant:small-caps; }
+*.smallcaps { letter-spacing:0.15em; text-transform:lowercase; font-variant:small-caps; }
+
+*.blue   { color:#039; }
+*.red    { color:red; }
+*.maroon { color:#AD1737; }
+
+a:link    { color:#039; text-decoration:none; }
+a:visited { color:#666; text-decoration:none; }
+
+a:focus   { color:#444; text-decoration:underline; }
+a:hover   { text-decoration:underline; }
+a:active  { text-decoration:underline; }
+
+span.block { margin:0.5em; padding:0.5em 2em;
+            background-color:#EEE; }

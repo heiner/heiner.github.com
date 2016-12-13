@@ -26,6 +26,14 @@ permalink: /publications/
 
     Mol. Biol. Evol. 29 (1), 7--11 (2012) &middot; doi: [10.1093/molbev/msr173](http://dx.doi.org/10.1093/molbev/msr173)
 
+## Non peer-reviewed articles
+
+*   Charles Beattie, Joel Z. Leibo, Denis Teplyashin, Tom Ward, Marcus Wainwright, Heinrich Küttler, Andrew Lefrancq, Simon Green, Víctor Valdés, Amir Sadik, Julian Schrittwieser, Keith Anderson, Sarah York, Max Cant, Adam Cain, Adrian Bolton, Stephen Gaffney, Helen King, Demis Hassabis, Shane Legg, Stig Petersen
+
+    [**DeepMind Lab**](https://arxiv.org/abs/1612.03801)
+    
+    [arXiv:1612.03801](https://arxiv.org/abs/1612.03801)
+
 ## Theses
 
 *   Heinrich Küttler. [Anderson's orthogonality catastrophe](http://edoc.ub.uni-muenchen.de/17442/). Dissertation. LMU München, Fakultät für Mathematik, Informatik und Statistik, 2014.

@@ -1,0 +1,51 @@
+---
+layout: post
+title:  "Dylanchords"
+date:   2016-12-25 14:50:34 +0100
+---
+
+Ahh... dylanchords.com. A long time ago, when the internet was in its
+puberty and I just ridded myself of >>Music<< as a subject in school,
+you were there for me. A website in the style of the times, which
+filled my youthful admiration of Dylan with an actual, achievable,
+purpose: To teach myself to play the guitar (after a fashion). I
+scanned those songs for the [evil F
+chord](http://dylanchords.info/roadmaps.htm#fingering) and other
+cryptic nastiness (Bm7-5?!), printed out and tried to recreate one
+after another (after a fashion). Soon enough I tuned
+my borrowed guitar in Open D tuning and played a heartfelt
+_Buckets of Rain_. I felt sad but proud, the family went from
+amused to annoyed, and my guitar skills from pre-beginner to amateur.
+
+The guitar, Dylan, and dylanchords.com would stay with the through
+university. Printing out old-style HTML would take a detour through an
+arguably more [old-styled system](https://en.wikipedia.org/wiki/TeX),
+and that mere process helped convince a number of people that I had
+sufficient interest in >>culture<< to be worth their time. Today,
+the [resulting](http://kuettler.org/seal/) >>project<< is dormant, and
+made obsolete by more [recent](http://www.apple.com/iphone/)
+[technology](https://madeby.google.com/phone/).
+
+And yet, dylanchords stayed with me. The .com domain name effectively
+moved to another one for reasons that don't seem to matter so much
+now, and these days, picking up an instrument isn't something I do
+daily anymore. Or even weekly. But dylanchords still seems to
+matter. Recently, even the choice of subject has [arguably been
+vindicated](https://www.nobelprize.org/nobel_prizes/literature/laureates/2016/dylan-facts.html).
+
+It being Christmas today, it feels right to thank the creator. No, not
+that one. Eyolf Østrem has >>tabbed<< around 900 songs, with patience
+and skill that others couldn't even think of displaying, to not even
+mention giving away all this work for free. *Thank you*, Eyolf
+Chordmaster. We don't always
+[agree](http://oestrem.com/thingstwice/2010/06/neighbourhood-bully-indeed/). It
+doesn't matter. Thanks for your work. It inspired me, I'm sure it
+inspired many others.
+
+Merry Christmas.
+
+For further convenience, I've started hosting a jekyll-generated,
+mobile-enabled version of Eyolf's chordwork at
+[dylaniki.org](http://dylaniki.org) ([code at
+github](https://github.com/heiner/dylaniki/tree/gh-pages)). I find it
+useful for looking up songs from the phone, and maybe others feel the same.

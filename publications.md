@@ -28,10 +28,16 @@ permalink: /publications/
 
 ## Non peer-reviewed articles
 
+*   Oriol Vinyals, Timo Ewalds, Sergey Bartunov, Petko Georgiev, Alexander Sasha Vezhnevets, Michelle Yeo, Alireza Makhzani, Heinrich Küttler, John Agapiou, Julian Schrittwieser, John Quan, Stephen Gaffney, Stig Petersen, Karen Simonyan, Tom Schaul, Hado van Hasselt, David Silver, Timothy Lillicrap, Kevin Calderone, Paul Keet, Anthony Brunasso, David Lawrence, Anders Ekermo, Jacob Repp, Rodney Tsing
+
+    [**StarCraft II: A New Challenge for Reinforcement Learning**](https://arxiv.org/abs/1708.04782)
+
+    [arXiv:1708.04782](https://arxiv.org/abs/1708.04782)
+
 *   Charles Beattie, Joel Z. Leibo, Denis Teplyashin, Tom Ward, Marcus Wainwright, Heinrich Küttler, Andrew Lefrancq, Simon Green, Víctor Valdés, Amir Sadik, Julian Schrittwieser, Keith Anderson, Sarah York, Max Cant, Adam Cain, Adrian Bolton, Stephen Gaffney, Helen King, Demis Hassabis, Shane Legg, Stig Petersen
 
     [**DeepMind Lab**](https://arxiv.org/abs/1612.03801)
-    
+
     [arXiv:1612.03801](https://arxiv.org/abs/1612.03801)
 
 ## Theses

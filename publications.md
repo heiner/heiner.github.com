@@ -43,4 +43,4 @@ permalink: /publications/
 ## Theses
 
 *   Heinrich Küttler. [Anderson's orthogonality catastrophe](http://edoc.ub.uni-muenchen.de/17442/). Dissertation. LMU München, Fakultät für Mathematik, Informatik und Statistik, 2014.
-*   Heinrich Küttle. Gauss-Abschätzungen für holomorphe Halbgruppen, und uniform elliptische Operatoren. Diplomarbeit. Technische Universität Dresden, Fachrichtung Mathematik, 2009.
+*   Heinrich Küttler. Gauss-Abschätzungen für holomorphe Halbgruppen, und uniform elliptische Operatoren. Diplomarbeit. Technische Universität Dresden, Fachrichtung Mathematik, 2009.

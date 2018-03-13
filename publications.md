@@ -30,9 +30,9 @@ permalink: /publications/
 
 *   Simon Schmitt, Jonathan J. Hudson, Augustin Zidek, Simon Osindero, Carl Doersch, Wojciech M. Czarnecki, Joel Z. Leibo, Heinrich Küttler, Andrew Zisserman, Karen Simonyan, S. M. Ali Eslami
 
-   [**Kickstarting Deep Reinforcement Learning**](https://arxiv.org/abs/1803.03835)
+    [**Kickstarting Deep Reinforcement Learning**](https://arxiv.org/abs/1803.03835)
 
-   [arXiv:1803.03835](https://arxiv.org/abs/1803.03835)
+    [arXiv:1803.03835](https://arxiv.org/abs/1803.03835)
 
 *   Oriol Vinyals, Timo Ewalds, Sergey Bartunov, Petko Georgiev, Alexander Sasha Vezhnevets, Michelle Yeo, Alireza Makhzani, Heinrich Küttler, John Agapiou, Julian Schrittwieser, John Quan, Stephen Gaffney, Stig Petersen, Karen Simonyan, Tom Schaul, Hado van Hasselt, David Silver, Timothy Lillicrap, Kevin Calderone, Paul Keet, Anthony Brunasso, David Lawrence, Anders Ekermo, Jacob Repp, Rodney Tsing
 

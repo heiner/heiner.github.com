@@ -140,6 +140,17 @@ a:visited { color: #205caa; }
   background-color: #fff;
 }
 
+blockquote.yuge {
+  font-size: 100px;
+  opacity: .6;
+  letter-spacing: -1px;
+  margin: 15px 0;
+  line-height: 1;
+}
+
+.page-content .right {
+  float: right;
+}
 
 /* Home styles */
 /* ----------------------------------------------------------*/

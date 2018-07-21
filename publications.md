@@ -4,6 +4,8 @@ title: Publications
 permalink: /publications/
 ---
 
+([Google Scholar](https://scholar.google.co.uk/citations?user=ruq4zIMAAAAJ){:target="_blank"})
+
 *   Martin Gebert, Heinrich Küttler, Peter Müller, Peter Otte
 
     [**The exponent in the orthogonality catastrophe for Fermi gases**](http://www.ems-ph.org/journals/show_abstract.php?issn=1664-039X&vol=6&iss=3&rank=7)

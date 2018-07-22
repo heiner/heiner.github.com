@@ -4,7 +4,9 @@ title: Publications
 permalink: /publications/
 ---
 
-([Google Scholar](https://scholar.google.co.uk/citations?user=ruq4zIMAAAAJ){:target="_blank"})
+<div class="right">
+  <a href="https://scholar.google.co.uk/citations?user=ruq4zIMAAAAJ" target="_blank">Google Scholar</a>
+</div>
 
 *   Martin Gebert, Heinrich Küttler, Peter Müller, Peter Otte
 
@@ -28,7 +30,7 @@ permalink: /publications/
 
     Mol. Biol. Evol. 29 (1), 7--11 (2012) &middot; doi: [10.1093/molbev/msr173](http://dx.doi.org/10.1093/molbev/msr173)
 
-## Non peer-reviewed articles
+#### Preprints
 
 *   Simon Schmitt, Jonathan J. Hudson, Augustin Zidek, Simon Osindero, Carl Doersch, Wojciech M. Czarnecki, Joel Z. Leibo, Heinrich Küttler, Andrew Zisserman, Karen Simonyan, S. M. Ali Eslami
 
@@ -48,7 +50,7 @@ permalink: /publications/
 
     [arXiv:1612.03801](https://arxiv.org/abs/1612.03801)
 
-## Theses
+#### Theses
 
 *   Heinrich Küttler. [Anderson's orthogonality catastrophe](http://edoc.ub.uni-muenchen.de/17442/). Dissertation. LMU München, Fakultät für Mathematik, Informatik und Statistik, 2014.
 *   Heinrich Küttler. Gauss-Abschätzungen für holomorphe Halbgruppen, und uniform elliptische Operatoren. Diplomarbeit. Technische Universität Dresden, Fachrichtung Mathematik, 2009.

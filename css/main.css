@@ -149,7 +149,7 @@ blockquote.yuge {
 }
 
 .page-content .right {
-  float: right;
+  text-align: right;
 }
 
 /* Home styles */

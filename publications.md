@@ -5,7 +5,7 @@ permalink: /publications/
 ---
 
 <div class="right">
-  <a href="https://scholar.google.co.uk/citations?user=ruq4zIMAAAAJ" target="_blank">Google Scholar</a>
+  <a href="https://scholar.google.co.uk/citations?user=dE-JkuIAAAAJ" target="_blank">Google Scholar</a>
 </div>
 
 *   Martin Gebert, Heinrich Küttler, Peter Müller, Peter Otte

@@ -72,6 +72,11 @@ Not quite incidentelly, the annuity factor also shows up in formulas
 for computing the equivalent annual cost from the net present
 value. We won't go into that here.
 
+Note that the condition to fully pay back $$S_0$$ does not in practice
+constrain us very much -- if less is paid back, say $$S_1$$, we would
+do the calculation with $$S_1$$ in place of $$S_0$$ and add a regular
+interest payment of $$p(S_0 - S_1)$$.
+
 ## Months and years
 
 Typically we'll make a monthly payment over many years. This is where

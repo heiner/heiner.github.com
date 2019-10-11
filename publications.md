@@ -5,6 +5,7 @@ permalink: /publications/
 ---
 
 <div class="right">
+  <a href="https://arxiv.org/a/kuttler_h_1.html" target="_blank">arXiv</a> &middot;
   <a href="https://scholar.google.co.uk/citations?user=dE-JkuIAAAAJ" target="_blank">Google Scholar</a>
 </div>
 
@@ -31,6 +32,18 @@ permalink: /publications/
     Mol. Biol. Evol. 29 (1), 7--11 (2012) &middot; doi: [10.1093/molbev/msr173](http://dx.doi.org/10.1093/molbev/msr173)
 
 #### Preprints
+
+* Viswanath Sivakumar, Tim Rocktäschel, Alexander H. Miller, Heinrich Küttler, Nantas Nardelli, Mike Rabbat, Joelle Pineau, Sebastian Riedel
+
+    [**MVFST-RL: An Asynchronous RL Framework for Congestion Control with Delayed Actions**](https://arxiv.org/abs/1910.04054)
+
+    [arXiv:1910.04054](https://arxiv.org/abs/1910.04054)
+
+* Heinrich Küttler, Nantas Nardelli, Thibaut Lavril, Marco Selvatici, Viswanath Sivakumar, Tim Rocktäschel, Edward Grefenstette
+
+    [**TorchBeast: A PyTorch Platform for Distributed RL**](https://arxiv.org/abs/1910.03552)
+
+    [arXiv:1910.03552](https://arxiv.org/abs/1910.03552)
 
 *   Simon Schmitt, Jonathan J. Hudson, Augustin Zidek, Simon Osindero, Carl Doersch, Wojciech M. Czarnecki, Joel Z. Leibo, Heinrich Küttler, Andrew Zisserman, Karen Simonyan, S. M. Ali Eslami
 

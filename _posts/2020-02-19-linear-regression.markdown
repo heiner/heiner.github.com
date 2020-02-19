@@ -85,15 +85,22 @@ predict a warship's draft from its length and beam is that $$y$$
 is not too far from $$\im A$$ as a subspace of $$\R^n$$
 either. Specifically, the $$\abs{\dotid}_2$$-distance is
 
-$$\dist(\{y\}, \im A) = \abs{y - P y}_2$$
+$$\dist(\{y\}, \im A) = \min_{y'\in\im A}\abs{y - y'}_2 = \abs{y - P y}_2$$
 
 where $$P\from\R^n\to\im A$$ is the orthogonal projection. We can call
 $$Py$$ the model's prediction, and Lemma 2 above tells us how to
 compute $$P$$ from $$A$$, namely $$P = A(A^\top A)^{-1}A^\top$$. Moreover, the
-normal equation tells us which linear combination of $$x_1$$ and $$x_2$$
+normal equation tells us which linear combination[^1] of $$x_1$$ and $$x_2$$
 computes $$Py$$:
 
-$$Py = A(A^\top A)^{-1}A^\top y = Ab \;\text{ with }\; b = (A^\top A)^{-1}A^\top y\in\R^2.$$
+$$Py = A(A^\top A)^{-1}A^\top y = Ab \;\text{ with }\; b = (A^\top
+A)^{-1}A^\top y\in\R^2.$$
+
+[^1]: In situations with very many feature vectors, computing the
+    inverse $$(A^\top A)^{-1}$$ may no longer be the best way of
+    finding $$b$$. Instead, one could try to minimize $$\abs{y-Ab}_2$$
+    in another way, e.g. via gradient descent. This is how "linear
+    layers" in machine learning are trained.
 
 Thus, if we are given an additional warship's length and beam as a
 vector $$a\in\R^2$$, the model's prediction of its draft will be

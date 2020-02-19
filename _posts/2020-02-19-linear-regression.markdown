@@ -159,8 +159,10 @@ model prediction: 5.738140993529072
 However, trying to predict crew sizes changes that, see the [Colab for
 details](https://colab.research.google.com/drive/1lPXUxTBDrRC8aZ7MqZZDkvKaUz5Ogh5b){:target="_blank"}.
 
-Of course, we could use more than two or three feature vectors as part
-of the *design matrix* $$A$$.
+Of course, we can use more than two or three feature vectors as part
+of the *design matrix* $$A$$, as long as they are linearly
+independent, which is is typically the case in practice with enough
+examples $$n$$.
 
 Using a matrix $$Y\in\R^{n\times m}$$ in place of
 $$y\in\R^n$$ the same math allows us to succinctly treat the

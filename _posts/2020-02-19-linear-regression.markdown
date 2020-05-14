@@ -3,6 +3,15 @@ layout: post
 title:  "On linear regression"
 ---
 
+<small>[Edit 14 May 2020: Thanks to Marcus Waurick for pointing out $$A$$
+needs to be closed for Lemmas 1 and 2 to be true in
+general. Unfortunately, there seems no easy way of doing linear
+regression in general Hilbert spaces (no equivalent of $$\1$$,
+although the idea of using weighted $$L_2$$ spaces and writing a
+blog post on _Linear Regression in Hilbert spaces with Morgenstern
+norm_ has a certain ring to it.]</small>
+
+
 Apropos of nothing, this is a post about linear regression. There's a
 whole world of information on that out there, but little with the
 right point of view: The Hilbert space perspective. That might not
@@ -17,7 +26,7 @@ post will discuss the CAPM, French-Fama models and efficient markets as examples
 ## Two lemmas.
 
 Let $$\H_1$$, $$\H_2$$ be Hilbert spaces and $$A\in L(\H_1,\H_2)$$ be
-a linear operator.
+a closed linear operator.
 
 **Lemma 1.**&nbsp; $$\H_2 = \im A\oplus\ker A^*$$ in the sense of direct sums
 of Hilbert spaces.

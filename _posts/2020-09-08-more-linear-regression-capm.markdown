@@ -46,14 +46,14 @@ a portfolio manager's ability to increase returns by successfully
 predicting future prices for a _given level of riskiness_. For
 instance, if stock market returns are positive in expectation, a
 leveraged portfolio could outperform an unleveraged portfolio without
-any special forecasting ability on the manager's side. Conversely, a
+any special forecasting ability on the manager's part. Conversely, a
 classical [60/40 mix of stocks and
 bonds](https://www.investopedia.com/articles/financial-advisors/011916/why-6040-portfolio-no-longer-good-enough.asp){:target="_blank"}
 would likely do worse than a 100% equity portfolio in this case, but
 may still be preferable due to its reduced risk. We won't go into
 detail how risk is measured, but we should mention that under certain
 assumptions, it is precisely its riskiness that causes a given asset
-to yield a higher returns (_ceteris paribus_, and on average): If
+to yield higher returns (_ceteris paribus_, and on average): If
 investors are risk-averse, they will need to be compensated for
 taking on the additional risk of a specific asset compared to some
 other asset, and higher expected future returns (expected future
@@ -99,8 +99,7 @@ could look like this:
 | 6 January 1970  | |  0.62%  | 0.029%    |
 |              |&#8942;|      |
 
-For the risk-free rate, one could use the 1 month treasury bill rate;
-some care needs to be taken to properly get annualized numbers. All these
+For the risk-free rate, one could use the treasury bill rate. All these
 numbers can in principle be retrieved from the historical
 records (and in practice downloaded from [Kenneth French's
 homepage](https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html){:target="_blank"}).
@@ -121,12 +120,12 @@ want to model, and we want $$\beta$$ to scale the non risk-free
 portion of the market portfolio.
 
 **Example.**&nbsp; For a classic 60/40
-portfolio with 60% whole market and 40% risk free return (historically
+portfolio with 60% whole market and 40% risk-free return (historically
 not realistic for private investors, but easy to compute) we have
 
 $$R - R_F= 0.6R_M + 0.4R_F - R_F = 0.6(R_M - R_F)\in\R^{n\times 1}$$
 
-and therefore, by the [normal equation]({% post_url 2020-02-19-linear-regression %}){:target="_blank"}),
+and therefore, by the [normal equation]({% post_url 2020-02-19-linear-regression %}){:target="_blank"},
 
 $$\beta = \bigl((R_M - R_F)^\top (R_M - R_F)\bigr)^{-1}
           (R_M - R_F)^\top (R - R_F) = 0.6.$$
@@ -220,7 +219,7 @@ $420?)
 
 For our purposes though, all of this has been taken care of and
 [Kenneth French's
-homepage](https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html){:target="_blank"})
+homepage](https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html){:target="_blank"}
 has the data, including data for each trading day, in usable
 formats.
 
@@ -369,9 +368,9 @@ linear regression to project onto?
 
 ## Fama & French (1993): More factors.
 
-During the 1980s at the latest, research
-into financial economics noticed that certain segments of the market
-outperformed other sections, and thus the market as a whole, on
+By the 1980s, research
+into financial economics had noticed that certain segments of the market
+outperformed other segments, and thus the market as a whole, on
 average. There are several possible explanations for this effect with
 different implications for the future. For example: Are these segments
 of the market just inherently riskier such that rational traders
@@ -379,14 +378,14 @@ demand higher expected returns via sufficiently low prices for these
 stocks? Or were traders
 just irrationally disinterested in some 'unsexy' firms and have
 perhaps caught on by now (or not, hence TSLA)? The latter is the
-behavioural explanation, while the former relates tends to be put
+behavioural explanation, while the former tends to be put
 forth by proponents of the [Efficient-market hypothesis
 (EMH)](https://en.wikipedia.org/wiki/Efficient-market_hypothesis){:target="_blank"},
 which includes
 [Jensen](https://en.wikipedia.org/wiki/The_Superinvestors_of_Graham-and-Doddsville){:target="_blank"}
 as well as Fama and French.
 We won't be getting into this now. Let's instead take
-a look at which 'easily' identifiable subsections of the market have
+a look at which 'easily' identifiable segments of the market have
 historically outperformed.
 
 Citing previous literature, Fama & French (1993) mention _size_
@@ -403,13 +402,13 @@ variables. This approach contributed to their being awarded the
 Nobel (Memorial) Prize in Economic Sciences in 2013. The specific
 construction goes as follows:
 
-Take all stocks in the overall market and order them their size
+Take all stocks in the overall market and order them by their size
 (i.e., market capitalization). Then take the top and bottom halves and
 call them "_big_" (_B_) and "_small_" (_S_), respectively.
 
 Next, again take all stocks in the overall market and order them by
 book-to-market equity. Then take the bottom 30% ("_low_", _L_), the middle 40%
-("_medium_", _M_) and the top 30$ ("_high_", _H_). In both cases, some care
+("_medium_", _M_), and the top 30$ ("_high_", _H_). In both cases, some care
 needs to be taken: E.g., how to handle firms dropping in and out of the
 market, how to define book equity properly in the presence of deferred
 taxes, and other effects.
@@ -438,7 +437,7 @@ _book-to-market equity_ portfolio:
   factor.
 
 Additionally, the authors also use the _market portfolio_ as "market
-return minus risk free return (one-month treasury bill rate)" in the
+return minus risk-free return (one-month treasury bill rate)" in the
 same way as Jensen (1968).
 
 #### An aside
@@ -493,7 +492,7 @@ since 1993?
 As a further aside, accumulating this data and analyzing it was a true
 feat in 1993. These days, we can do the same using the internet and
 a few lines of Python (or, spoiler alert, using just a
-[website](https://www.portfoliovisualizer.com/)){:target="_blank"}.
+[website](https://www.portfoliovisualizer.com/){:target="_blank"}).
 
 #### Back to modelling
 

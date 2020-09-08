@@ -1,0 +1,26 @@
+
+ul.simplelist {
+    list-style-type:none;
+    margin: 0;
+    padding-left: 0em;
+}
+
+.simplelist li {
+    padding-left: 2em;
+    text-indent: -2em;
+    list-style: none;
+    margin: 0;
+}
+
+.smallcaps {
+    font-variant-caps: all-small-caps;
+    font-variant-numeric: oldstyle-nums;
+}
+
+.spaced {
+    letter-spacing: 2px;
+}
+
+.paddedright {
+    padding-right: 1em;
+}

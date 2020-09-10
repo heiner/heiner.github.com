@@ -16,10 +16,11 @@
 title: heiner.ai
 email:
 description: > # this means to ignore newlines until "baseurl:"
-  
+
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://heiner.ai"  # the base hostname & protocol for your site
+url: "https://heiner.ai"  # the base hostname & protocol for your site
 github_username: heiner
+twitter_username: HeinrichKuttler
 
 # Build settings
 markdown: kramdown

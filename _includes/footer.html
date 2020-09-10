@@ -8,6 +8,15 @@
       <ul>
         <li>{{ site.title }}</li>
         <!-- <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li> -->
+        {% if page.url contains "/blog/" %}
+        <li>
+          <div class="dropdown">
+            <span class="onlynormal">&#x25B8;</span><span class="onlyhover">&#x25BE;</span> blogroll of the unread
+            <div class="dropdown-content">
+              <a href="https://bitsrc.org/blog/">Strings over &Sigma;</a>
+            </div>
+          </div>
+        </li>{% endif %}
       </ul>
     </div>
 

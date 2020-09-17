@@ -33,6 +33,24 @@ permalink: /publications/
 
 #### Preprints
 
+* Heinrich Küttler, Nantas Nardelli, Alexander H. Miller, Roberta Raileanu, Marco Selvatici, Edward Grefenstette, Tim Rocktäschel
+
+    [**The NetHack Learning Environment**](https://arxiv.org/abs/2006.13760)
+
+    [arXiv:2006.13760](https://arxiv.org/abs/2006.13760)
+
+* Andres Campero, Roberta Raileanu, Heinrich Küttler, Joshua B. Tenenbaum, Tim Rocktäschel, Edward Grefenstette
+
+    [**Learning with AMIGo: Adversarially Motivated Intrinsic Goals**](https://arxiv.org/abs/2006.12122)
+
+    [arXiv:2006.12122](https://arxiv.org/abs/2006.12122)
+
+* Patrick Lewis, Ethan Perez, Aleksandara Piktus, Fabio Petroni, Vladimir Karpukhin, Naman Goyal, Heinrich Küttler, Mike Lewis, Wen-tau Yih, Tim Rocktäschel, Sebastian Riedel, Douwe Kiela
+
+    [**Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks**](https://arxiv.org/abs/2005.11401)
+
+    [arXiv:2005.11401](https://arxiv.org/abs/2005.11401)
+
 * Viswanath Sivakumar, Tim Rocktäschel, Alexander H. Miller, Heinrich Küttler, Nantas Nardelli, Mike Rabbat, Joelle Pineau, Sebastian Riedel
 
     [**MVFST-RL: An Asynchronous RL Framework for Congestion Control with Delayed Actions**](https://arxiv.org/abs/1910.04054)

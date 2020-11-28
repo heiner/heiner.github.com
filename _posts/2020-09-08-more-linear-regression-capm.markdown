@@ -408,7 +408,7 @@ call them "_big_" (_B_) and "_small_" (_S_), respectively.
 
 Next, again take all stocks in the overall market and order them by
 book-to-market equity. Then take the bottom 30% ("_low_", _L_), the middle 40%
-("_medium_", _M_), and the top 30$ ("_high_", _H_). In both cases, some care
+("_medium_", _M_), and the top 30% ("_high_", _H_). In both cases, some care
 needs to be taken: E.g., how to handle firms dropping in and out of the
 market, how to define book equity properly in the presence of deferred
 taxes, and other effects.

@@ -4,7 +4,7 @@ title:  "On linear regression"
 ---
 
 <small>[Edit 14 May 2020: Thanks to Marcus Waurick for pointing out $$A$$
-needs to be closed for Lemmas 1 and 2 to be true in
+needs to have close range for Lemmas 1 and 2 to be true in
 general. Unfortunately, there seems no easy way of doing linear
 regression in general Hilbert spaces (no equivalent of $$\1$$,
 although the idea of using weighted $$L_2$$ spaces and writing a
@@ -26,7 +26,7 @@ post will discuss the CAPM, French-Fama models and efficient markets as examples
 ## Two lemmas.
 
 Let $$\H_1$$, $$\H_2$$ be Hilbert spaces and $$A\in L(\H_1,\H_2)$$ be
-a closed linear operator.
+a linear operator with closed range (i.e., $$\overline{\im A} = \im A$$).
 
 **Lemma 1.**&nbsp; $$\H_2 = \im A\oplus\ker A^*$$ in the sense of direct sums
 of Hilbert spaces.

@@ -9,6 +9,30 @@ permalink: /publications/
   <a href="https://scholar.google.co.uk/citations?user=dE-JkuIAAAAJ" target="_blank">Google Scholar</a>
 </div>
 
+* Sewon Min, Jordan Boyd-Graber, Chris Alberti, Danqi Chen, Eunsol Choi, Michael Collins, Kelvin Guu, Hannaneh Hajishirzi, Kenton Lee, Jennimaria Palomaki, Colin Raffel, Adam Roberts, Tom Kwiatkowski, Patrick Lewis, Yuxiang Wu, Heinrich Küttler, Linqing Liu, Pasquale Minervini, Pontus Stenetorp, Sebastian Riedel, Sohee Yang, Minjoon Seo, Gautier Izacard, Fabio Petroni, Lucas Hosseini, Nicola De Cao, Edouard Grave, Ikuya Yamada, Sonse Shimaoka, Masatoshi Suzuki, Shumpei Miyawaki, Shun Sato, Ryo Takahashi, Jun Suzuki, Martin Fajcik, Martin Docekal, Karel Ondrej, Pavel Smrz, Hao Cheng, Yelong Shen, Xiaodong Liu, Pengcheng He, Weizhu Chen, Jianfeng Gao, Barlas Oguz, Xilun Chen, Vladimir Karpukhin, Stan Peshterliev, Dmytro Okhonko, Michael Schlichtkrull, Sonal Gupta, Yashar Mehdad, Wen-tau Yih
+
+    [**NeurIPS 2020 EfficientQA Competition: Systems, Analyses and Lessons Learned**](https://arxiv.org/abs/2101.00133)
+
+    [NeurIPS 2020](https://efficientqa.github.io/) &middot; [arXiv:2101.00133](https://arxiv.org/abs/2101.00133)
+
+* Heinrich Küttler, Nantas Nardelli, Alexander H. Miller, Roberta Raileanu, Marco Selvatici, Edward Grefenstette, Tim Rocktäschel
+
+    [**The NetHack Learning Environment**](https://arxiv.org/abs/2006.13760)
+
+    [NeurIPS 2020](http://proceedings.neurips.cc/paper/2020/file/569ff987c643b4bedf504efda8f786c2-Paper.pdf) &middot; [arXiv:2006.13760](https://arxiv.org/abs/2006.13760)
+
+* Andres Campero, Roberta Raileanu, Heinrich Küttler, Joshua B. Tenenbaum, Tim Rocktäschel, Edward Grefenstette
+
+    [**Learning with AMIGo: Adversarially Motivated Intrinsic Goals**](https://arxiv.org/abs/2006.12122)
+
+    [ICLR 2021](https://iclr.cc/Conferences/2021/Schedule?showEvent=2781) &middot; [arXiv:2006.12122](https://arxiv.org/abs/2006.12122)
+
+* Patrick Lewis, Ethan Perez, Aleksandara Piktus, Fabio Petroni, Vladimir Karpukhin, Naman Goyal, Heinrich Küttler, Mike Lewis, Wen-tau Yih, Tim Rocktäschel, Sebastian Riedel, Douwe Kiela
+
+    [**Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks**](https://arxiv.org/abs/2005.11401)
+
+    [NeurIPS 2020](http://proceedings.neurips.cc/paper/2020/file/6b493230205f780e1bc26945df7481e5-Paper.pdf) &middot; [arXiv:2005.11401](https://arxiv.org/abs/2005.11401)
+
 *   Martin Gebert, Heinrich Küttler, Peter Müller, Peter Otte
 
     [**The exponent in the orthogonality catastrophe for Fermi gases**](http://www.ems-ph.org/journals/show_abstract.php?issn=1664-039X&vol=6&iss=3&rank=7)
@@ -33,23 +57,11 @@ permalink: /publications/
 
 #### Preprints
 
-* Heinrich Küttler, Nantas Nardelli, Alexander H. Miller, Roberta Raileanu, Marco Selvatici, Edward Grefenstette, Tim Rocktäschel
+* Patrick Lewis, Yuxiang Wu, Linqing Liu, Pasquale Minervini, Heinrich Küttler, Aleksandra Piktus, Pontus Stenetorp, Sebastian Riedel
 
-    [**The NetHack Learning Environment**](https://arxiv.org/abs/2006.13760)
+    [**PAQ: 65 million probably-asked questions and what you can do with them**](https://arxiv.org/abs/2102.07033)
 
-    [arXiv:2006.13760](https://arxiv.org/abs/2006.13760)
-
-* Andres Campero, Roberta Raileanu, Heinrich Küttler, Joshua B. Tenenbaum, Tim Rocktäschel, Edward Grefenstette
-
-    [**Learning with AMIGo: Adversarially Motivated Intrinsic Goals**](https://arxiv.org/abs/2006.12122)
-
-    [arXiv:2006.12122](https://arxiv.org/abs/2006.12122)
-
-* Patrick Lewis, Ethan Perez, Aleksandara Piktus, Fabio Petroni, Vladimir Karpukhin, Naman Goyal, Heinrich Küttler, Mike Lewis, Wen-tau Yih, Tim Rocktäschel, Sebastian Riedel, Douwe Kiela
-
-    [**Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks**](https://arxiv.org/abs/2005.11401)
-
-    [arXiv:2005.11401](https://arxiv.org/abs/2005.11401)
+    [arXiv:2102.07033](https://arxiv.org/abs/2102.07033)
 
 * Viswanath Sivakumar, Tim Rocktäschel, Alexander H. Miller, Heinrich Küttler, Nantas Nardelli, Mike Rabbat, Joelle Pineau, Sebastian Riedel
 

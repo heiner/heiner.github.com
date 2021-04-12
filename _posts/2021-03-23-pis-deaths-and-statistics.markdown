@@ -359,7 +359,7 @@ year-on-year increase in the mortality rate: From the data above we
 would estimate $$b=0.1$$. Milevsky suggests using $$1/b = 9.5$$ years
 and calls this the _dispersion coefficient of human life_.
 
-As the model value of human life Milevsky suggests using $$t_m=87.25$$
+As the modal value of human life Milevsky suggests using $$t_m=87.25$$
 for the general population in North America. Obviously $$t_m$$ was lower
 in Gompertz's time; for a population of healthy females in a modern
 society Milevsky suggests using up to $$t_m=90$$.

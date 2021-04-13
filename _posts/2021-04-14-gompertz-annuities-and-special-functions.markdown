@@ -21,7 +21,7 @@ with a more mathy twist.
 A standard idea in finance is that getting $$\$1000$$ today is worth more
 than getting $$\$1000$$ in a year from now. This should be true even if
 these are inflation-adjusted dollars: If we assume some bank will give
-us the expected rate of inflation as their interest rate if we deposit
+us the expected rate of inflation as their interest rate when we deposit
 the $$\$1000$$, we could just do that and create the "$$\$1000$$ a year
 from now" situation. Ignoring the dilemma of choice, the first situation
 gives us more options and should therefore be worth more to us.
@@ -65,12 +65,12 @@ $$a$$ per month is $$a$$ times an _annuity factor_, in this case
 $$\af(r)=1 + \frac{1}{r}$$.
 
 The same is true if the annuity runs out after a fixed number of
-periods. However, as a component of retirement planning, annuities
+periods. However, as a component for retirement planning, annuities
 that pay for the rest of ones natural life (or the life of ones
 spouse) tend to be a better option, as they
 help covering _longevity risk_. In fact, annuities are (in theory,
-although maybe not psychologically in practice) a great component for
-retirement planning as they allow pensioners to take more risk with
+although maybe not psychologically in practice) a great component of a
+retirement plan as they allow pensioners to take more risk with
 the rest of their funds, e.g., stay invested in the stock market
 where expected returns are higher (but so is the variance of returns).
 
@@ -84,12 +84,13 @@ forever), but how much less exactly?
 Our answer, of course, is the survival function of the Gompertz
 distribution, as per the [last blog
 post](/blog/2021/03/23/pis-deaths-and-statistics.html#plugging-it-all-together). Of
-course this depends on the current age of the pensioner. As per the
-last blog post, the survival function of the Gompertz distribution,
+course this depends on the current age of the pensioner: The survival
+function of the Gompertz distribution,
 conditioned on having lived until year $$t_0$$, is
 
 $$
 p_{t_0}(t) := \exp\bigl(- e^{b(t_0-t_m)} (e^{bt} - 1)\bigr)
+\where{t\ge 0}
 $$
 
 where $$b \approx 1/9.5$$ is the inverse dispersion coefficient and
@@ -113,8 +114,8 @@ This is equation #3 in Milevsky's book _The 7 Most Important Equations
 for Your Retirement_.
 
 Some insurance contracts allow the pensioner to decide between a lump
-sum payment or an annuity; this formula can help to decide between
-these options. Some contracts provide payments until death, but with a
+sum payment or an annuity; this formula can help to compare these two
+options. Some contracts provide payments until death, but with a
 minimum of (say) 10 years. Replacing $$p_{t_0}(0), \ldots,
 p_{t_0}(9)$$ with $$1$$ in $$\eqref{discraf}$$ would model this situation.
 
@@ -139,28 +140,35 @@ $$r=7.25\%$$. The present value of that annuity is $$\$1.51$$. If the
 payment every 5 years is $$\$50.000$$ instead, the present value of the
 annuity at age 65 is $$1.507\cdot \$50.000 = \$ 75369.90$$.
 
-The example uses every 5 years in order to not be unduly
-long. Typically, annuities will pay monthly. Even in a spreadsheet,
-this becomes somewhat annoying.
-Here's an [example in Google
-sheets](https://docs.google.com/spreadsheets/d/1IvtfyU9qddNthHRmai9soHpTad79aNgUU_GRnEQlukU/edit#gid=2051005501). Notice
-that the difference actually matters.
+The example uses 5 year intervals in order to not get unduly
+long. But typically, annuities will pay monthly. Computing the sum in
+a spreadsheet then becomes somewhat annoying:
+Here's an [monthly example in Google
+sheets](https://docs.google.com/spreadsheets/d/1IvtfyU9qddNthHRmai9soHpTad79aNgUU_GRnEQlukU/edit#gid=2051005501). (Notice
+that the difference to the [5 year interval
+version](https://docs.google.com/spreadsheets/d/1IvtfyU9qddNthHRmai9soHpTad79aNgUU_GRnEQlukU/edit#gid=0)
+actually matters: In the latter case, one gets the money for five
+years in advance; in the former case one gets it only for the current
+month. A lot can happen in 5 years.)
 
 I wasn't quite satisfied with this.
 
 ### The hunt for a closed-form solution
 
 Equation $$\eqref{discraf}$$ is nice and all, but it would be much
-better to have a closed-form solution for it. Since $$p_{t_0}$$ is a
-doubly-exponential function, this isn't immediately obvious. In fact,
-I don't know a closed-form solution for $$\eqref{discraf}$$[^1].
+better to have a closed-form expression for it. Since $$p_{t_0}$$ is a
+doubly-exponential function, the solution isn't immediately
+obvious. In fact, I don't know a closed-form solution for
+$$\eqref{discraf}$$[^1].
 
 [^1]: Although coming to think of this perhaps
     [Abel-Plana](https://en.wikipedia.org/wiki/Abel%E2%80%93Plana_formula)
-    might help? I don't know if I want to try.
+    might help? Eyeballing our function $$f(z) =
+    p_{t_0}(z)e^{-z\ln(1+r)}$$ it might apply, but the $$\int_0^\infty
+    \frac{f(iy) - f(-iy)}{e^{2\pi y} - 1}\,dy$$ integral looks _hard_.
 
 But let's imagine a world with continuous banking, where instead of
-once a month I get a small portion of my annuity every moment. The
+once a month we get a small portion of our annuity every moment. The
 continuous annuity factor would then be
 
 $$
@@ -181,11 +189,13 @@ where $$\eta = e^{b(t_0 - t_m)}$$ as in the last blog post.[^2]
     explanation.
 
 This, too, doesn't look super easy. In fact, it's not solvable with
-"elemantary" functions. But somewhere within the large zoo of [special
-functions](https://dlmf.nist.gov/) there is a right one for us here.
+"elemantary" functions. But somewhere within the [large zoo of special
+functions](https://dlmf.nist.gov/) there is the right one for us.
 
-In this case, Wikipedia already tells us what the moment-generating
-function (aka Laplace transform) of the Gompertz distribution is:
+In this case, [Wikipedia already tells
+us](https://en.wikipedia.org/wiki/Gompertz_distribution) that the
+moment-generating function (aka Laplace transform) of the Gompertz
+distribution is
 
 $$
 \E(e^{-tx})
@@ -228,10 +238,18 @@ $$
 \tag{G.2}
 $$
 
+<div class="centered">
+<img src="/img/af.svg" alt="pdf" style="width:70%;"/>
+<br />
+The annuity factor \(\af_c(r, t_0)\) for different interest rates
+\(r\) and starting ages \(t_0\). Retiring early is expensive.
+<a href="/img/af.gp">Gnuplot source</a>
+</div>
+
 ### Trying to use this
 
 Formula $$\eqref{contaf-gef}$$ is in fact a closed-form solution to
-our problem. So let's try to use this in a computations with
+our problem. So let's try to use it in a computation with
 Python. [SciPy has the generalized exponential integral
 function](https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.expn.html),
 so this should be easy:
@@ -261,15 +279,15 @@ gompertz_discount.py:10: RuntimeWarning: floating point number truncated to an i
 ```
 
 Ah, dang! Even though the generalized exponential function is part of
-SciPy, the implementation there only supports integer order.
+SciPy, the implementation there only supports integer orders.
 
-We'll have to visit the special functions zoo a bit longer.
+We'll have to visit the special functions zoo for a bit longer.
 
 #### More zoo animals: The incomplete gamma function
 
 The classic reference for special functions is [Abramowitz and
 Stegun](https://en.wikipedia.org/wiki/Abramowitz_and_Stegun). Wikipedia
-has a fun quote about it from the (American) National Institute of
+has a quote about it from the (American) National Institute of
 Standards and Technology:
 
 > More than 1,000 pages long, the Handbook of Mathematical Functions
@@ -286,7 +304,7 @@ In the internet age, the [Digital Library of Mathematical Functions
 classic work and it is very useful for situations like the one we are
 in now.
 
-In fact, looking at [equation (8.19.1)](https://dlmf.nist.gov/8.19#E1)
+In fact, looking at [equation 8.19.1](https://dlmf.nist.gov/8.19#E1)
 in DLMF, we see that the generalized exponential integral is nothing
 but the (upper) incomplete gamma function:
 
@@ -320,7 +338,8 @@ $$
 
 Note how this is an "incomplete" version of the standard gamma
 function $$\Gamma(a) = \Gamma(a, 0)$$. Also note how this integral
-won't work for negative $$a$$: There's a singularity when $$z=0$$.
+won't work for negative $$a$$: There's a non-integrable singularity
+when $$z=0$$.
 
 So did our previous formulae not make any sense? They did. We just
 have to understand these functions a little bit better.
@@ -333,14 +352,19 @@ once saw a video of Donald Knuth saying it's such a great topic that
 he asked his daughter to attend a complex analysis course -- although
 she didn't otherwise study at any university.[^3]
 
-At any rate one of the results of complex analysis is that if two nice
+[^3]: I might misremember this; at any rate I can't find the reference
+    right now. It might have been part of his [1987 course series on
+    mathematical writing](https://www.youtube.com/watch?v=mert0kmZvVM).
+
+One of the results of complex analysis is that if two nice
 (aka complex-differentiable, aka holomorphic, aka analytic) functions
 coincide on a set that's not totally discrete, they [are the
 same](https://en.wikipedia.org/wiki/Identity_theorem)! This means any
 analytic function like $$a\mapsto\Gamma(a, z)$$ has at most one
 analytic continuation. This is an important principle which also
-applies to the Riemann zeta function $$\zeta$$, the zeros of which
-are what the [most important open mathematical problem is
+applies to the famous Riemann zeta function $$\zeta$$. The zeros of
+its analytic continuation to the left complex half-plane
+are what the [most important open problem in mathematics is
 about](https://en.wikipedia.org/wiki/Riemann_hypothesis) (you'll get
 [$1M if you solve this
 one](https://www.claymath.org/millennium-problems/riemann-hypothesis),
@@ -348,17 +372,17 @@ which should help with retirement planning). In fact, $$\zeta$$ and
 $$\Gamma$$ are closely linked.
 
 In the case of $$\zeta(s) := \sum_{n=1}^\infty n^{-s}$$ its unique
-analytic continuation to the left complex halfplane yields for
+analytic continuation to the left half-plane yields for
 instance $$\zeta(-1) = -\frac{1}{12}$$ which gives some sense to
 Ramanujan's mysterious
-equation $$1 + 2 + 3 + \cdots = -\frac{1}{12}$$.
+equation $$1 + 2 + 3 + \cdots = -\frac{1}{12}.$$
 
 How is such an analytic continuation found? In the case of both
 the zeta and the gamma functions, it's via functional equations. For
 instance, $$\Gamma(n) = (n-1)!$$ for integer $$n$$, and more generally
 $$\Gamma(z+1) = z\Gamma(z)$$ for complex $$z$$. If we start with some
 $$z$$ in the left
-halfplane (i.e., $$\Im z \le 0$$), repeatedly applying this formula
+half-plane (i.e., $$\Im z \le 0$$), repeatedly applying this formula
 eventually yields only terms of $$\Gamma$$ at "known" arguments, which
 establishes the value of the analytic continuation of $$\Gamma$$ to
 that point $$z$$.
@@ -370,7 +394,7 @@ $$
 \Gamma(a+1, z) = a\Gamma(a,z) + z^ne^{-z}
 $$
 
-for, say, $$a$$ and $$z$$ in the right halfplane. This equation can be
+for, say, $$a$$ and $$z$$ in the right half-plane. This equation can be
 used to extend the incomplete gamma function to negative values of
 $$a$$. It also gives rise to a corresponding recurrence relation for the
 generalized exponential integral
@@ -383,7 +407,7 @@ $$
 ### Applying the functional equation
 
 Since the implementations of $$\mathrm{E}_{p}(z)$$ and $$\Gamma(a,z)$$
-that we want to use don't implementation the continued versions of
+that we want to use don't implement the continued versions of
 these functions, we can use the functional equations that define the
 continuations ourselves. The recurrence relation for
 $$\mathrm{E}_{p+1}$$ yields
@@ -430,7 +454,66 @@ print(af(0.025, t_0=65))
 
 Which prints `14.79901377449508`.
 
+#### What about spreadsheets?
 
-[^3]: I might misremember this; at any rate I can't find the reference
-    right now. It might have been part of his [1987 course series on
-    mathematical writing](https://www.youtube.com/watch?v=mert0kmZvVM).
+The above works for SciPy, but Excel (or Google Sheets) is a different
+matter as it doesn't directly have support for the incomplete gamma
+function.[^4] However, it does support the [Gamma
+distribution](https://en.wikipedia.org/wiki/Gamma_distribution) which
+has a normalized version of the lower incomplete gamma function as
+its cdf. As the helpful authors of [Wikipedia
+note](https://en.wikipedia.org/wiki/Incomplete_gamma_function#Software_Implementation),
+$$\Gamma(s, x)$$ can be computed as
+```GAMMA(s)*(1-GAMMA.DIST(x,s,1,TRUE))```.
+
+[^4]: Apparently, [Microsoft Excel supports `Gamma` at negative
+    values](https://support.microsoft.com/en-us/office/gamma-function-ce1702b1-cf55-471d-8307-f83be0fc5297). However,
+    [Google
+    Sheets](https://support.google.com/docs/answer/9365856?hl=en)
+    doesn't. For Excel, we could have also used a series like [8.7.3 in
+    DLMF](https://dlmf.nist.gov/8.7#E3) to compute the incomplete
+    gamma function.
+
+This finally gives us closed-form we can use in spreadsheets. [Here's
+an example in Google
+Sheets](https://docs.google.com/spreadsheets/d/1IvtfyU9qddNthHRmai9soHpTad79aNgUU_GRnEQlukU/edit#gid=1825725391).
+Note that the relative difference of $$\af(r,t_0)$$ and
+$$\af_c(r,t_0)$$ for $$r = 0.25\%$$ and $$t_0 = 65$$ is only
+$$0.64\%$$.
+
+
+### What does it all mean?
+
+If you (or your parents) bought an annuity in your name and the issuer
+offers the option for a lump sum payment instead, you can multiply the
+yearly (or monthly) payments with the annuity factor as determined
+above, treat that as the annuity's value, and compare it to the lump
+sum. (The computations here mostly assume the annuity will start right
+away, extending this to an annuity that starts in a number of years is
+left as an exercise for the reader.)
+
+That raises the question of which interest rate to pick? And why that
+should be treated as constant over time?
+
+Also, the annuity provider will have done some math as well and will be
+aware of _adverse selection_: People who self-assess as being in good
+health might be right about this and choose the annuity more
+often. Milevsky quotes from Jane Austen's _Sense and Sensibility_,
+
+> People always live forever when there is an annuity to be paid them.
+
+Milevsky also ends his discussion of his equation #3 with a warning:
+This is a model. If market prices are different, they are likely to be
+right and the model wrong.
+
+That said, _if_ you got an annuity a while back, for instance pre-2008
+when the [effective Fed funds rate was
+5%+](https://fred.stlouisfed.org/series/FEDFUNDS), you likely got a
+good deal by today's standards. The future might be different. But at
+least some people argue that interest rates will stay permanentely
+low, as they did in Japan for the last decades (demographic factors
+might play a role here). Others disagree, and of course people some
+always predict stronger inflation.
+
+That's it for today, thanks for reading. Reach out if you have
+comments.

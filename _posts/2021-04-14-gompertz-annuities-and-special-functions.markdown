@@ -106,9 +106,9 @@ $$
 \tag{#3} \label{discraf}
 $$
 
-The $$n$$th term in this series is the probabilty of alive at year
-$$t_0 + n$$ given having been alive at year $$t_0$$ times the discount
-rate that turns it into a present value.
+The $$n$$th term in this series is the probabilty of being alive at
+year $$t_0 + n$$ given having been alive at year $$t_0$$ times the
+discount rate that turns it into a present value.
 
 This is equation #3 in Milevsky's book _The 7 Most Important Equations
 for Your Retirement_.

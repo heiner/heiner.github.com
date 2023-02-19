@@ -460,10 +460,12 @@ mul = HadamardProduct.apply
 ```
 
 The `ctx` argument is used to stash the tensors required for the
-backward pass somewhere, and the `grad_output` argument (a single
-argument in this case since the function has a single output) is the
-output-shaped "vector" of the VJP. PyTorch may reuse this vector, so
-it's important even in cases where the gradient computed has the same
+backward pass somewhere (in Zachary's
+[colab](https://colab.research.google.com/drive/1VpeE6UvEPRz9HmsHh1KS0XxXjYu533EC),
+this is done via a closure) and the `grad_output` argument is the
+output-shaped "vector" of the VJP. It's a single argument in this case
+since the function has a single output. PyTorch may reuse this tensor,
+so it's important even in cases where the gradient computed has the same
 shape to "NEVER modify [this argument] in-place", as the [PyTorch docs
 say](https://pytorch.org/docs/stable/notes/extending.html#how-to-use).
 

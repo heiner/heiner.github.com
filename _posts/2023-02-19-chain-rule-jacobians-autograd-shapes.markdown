@@ -70,6 +70,9 @@ sad](https://twitter.com/HeinrichKuttler/status/1262337725161771009).
 
 ## The chain rule
 
+All of "deep learning", and most of Physics, depends on this theorem
+discovered by Leibniz ca. 1676.
+
 ### One dimensional functions
 
 Given two differentiable functions $$f,g\from\R\to\R$$, the chain rule

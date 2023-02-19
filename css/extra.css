@@ -92,3 +92,11 @@ table {
 .right {
     text-align: right;
 }
+
+/* https://stackoverflow.com/a/61942403/1136208 and
+ * https://github.com/mathjax/MathJax/issues/2562#issuecomment-763930406 */
+mjx-container[display="true"] {
+    overflow-x: auto;
+    overflow-y: hidden;
+    min-width: 0 ! important;
+}

@@ -87,7 +87,7 @@ evaluation of first $$y = f(x)$$, then $$g(y)$$.
 
 It's one of the wonders of analysis that this rule keeps being correct
 for differentiable multidimensional functions $$f\from\R^n\to\R^m$$,
-$$g\from\R^m\to\R^k$$, if &ldquo;differentiable&rdquo; is defined
+$$g\from\R^m\to\R^k$$ if &ldquo;differentiable&rdquo; is defined
 correctly. Skipping over some technicalities, this requires $$f$$ and
 $$g$$ to be *totally differentiable* (also called
 *Fr&eacute;chet differentiable*), which implies that all components

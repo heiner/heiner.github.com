@@ -88,3 +88,7 @@ table {
 .small {
     font-size: smaller;
 }
+
+.right {
+    text-align: right;
+}

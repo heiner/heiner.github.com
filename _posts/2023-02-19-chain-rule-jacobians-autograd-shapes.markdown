@@ -21,8 +21,21 @@ title:  "The chain rule, Jacobians, autograd, and shapes"
       matter of <em>invent, always invent</em>.
 
 
-This is a short explainer on how autograd in PyTorch and JAX works,
+This is a short explainer about the chain rule and autograd in PyTorch and JAX,
 from the perspective of a mathematical user.
+
+<div class="floated centered">
+<img src="/img/jacobi.jpeg" alt="Carl Gustav Jacob Jacobi" style="width:200px;" />
+<br />
+<s>The Joker</s>
+Carl Gustav Jacob Jacobi
+<div class="small">
+(1804 -- 1851)<br>
+"Die Haare immer nach hinten kehren"<br>
+Image source: <a
+href="https://en.wikipedia.org/wiki/Carl_Gustav_Jacob_Jacobi#/media/File:Carl_Jacobi.jpg">Wikipedia</a>
+</div>
+</div>
 
 There are many, many explanations of this on the web. Many are likely
 better than this one. I'll still write my own, which in the spirit of
@@ -43,7 +56,7 @@ Other, perhaps better sources for the same info are:
     from scratch. I highly recommend studying this one.
   * [The Autodiff
     Cookbook](https://jax.readthedocs.io/en/latest/notebooks/autodiff_cookbook.html)
-    in the JAX docs.
+    in the JAX docs. Also very good.
 
 The JAX docs especially are delightfully mathematical. There are many more
 sources on the web. I like the more extensive treatment is in [Thomas Frerix's
@@ -52,7 +65,7 @@ PhD thesis](https://mediatum.ub.tum.de/doc/1638886/document.pdf#page=25).
 Still, let me add my own spin on the issue. One reason is that many
 other articles write things like `dL/dOutputs` and `dL/dInputs` and
 generallly use a "variable"-based notation that, while entirely
-reasonable from an implementation standpoint would [make Spivak
+reasonable from an implementation standpoint, would [make Spivak
 sad](https://twitter.com/HeinrichKuttler/status/1262337725161771009).
 
 ## The chain rule
@@ -138,7 +151,7 @@ place. However, this only means the same output is produced by those
 two alternatives. It does not mean the same amount of "work" (or
 "compute") went into either case.
 
-If we count multiplications only, a product $$AB$$ with
+Counting scalar operations, a product $$AB$$ with
 $$A\in\R^{k\times m}$$ and $$B\in\R^{m\times n}$$ takes $$nkm$$
 multiplications and $$nk(m-1)$$ additions, since each entry in the
 output matrix is the sum of $$m$$ multiplications. In a chain of
@@ -221,8 +234,8 @@ $$
 $$
 
 What this means is that for neural network applications, a system like
-PyTorch or JAX needs to *never actually compute* jull Jacobians -- all
-it needs to compute is vector-Jacobian products. It turns out that
+PyTorch or JAX *doesn't need to actually compute* full Jacobians -- all
+it needs are vector-Jacobian products. It turns out that
 (classic) PyTorch does and can in fact do nothing else.
 
 Also notice that the column vector
@@ -231,11 +244,12 @@ left is "output-shaped" from the perspective of the Jacobian it gets
 multiplied to. This is the reason `grad_output` in PyTorch always has
 the shape of the operation's output and why
 [`torch.Tensor.backward`](https://pytorch.org/docs/stable/generated/torch.Tensor.backward.html)
-receives an argument described as the "gradient w.r.t. the tensor".
+receives an argument described as the "gradient w.r.t. the
+tensor".
 
 You may wonder what it means for it to have a specific shape vs just
 being a "flat" column vector as it is here. I certainly wondered about
-this: the answer is below.
+this; the answer is below.
 
 
 ## In PyTorch
@@ -349,8 +363,8 @@ assert torch.equal(
 ```
 
 To be clear: PyTorch does not actually compute the Jacobian only to
-multiply it from the left with this vector, but the result is
-equivalent to this less efficient code.
+multiply it from the left with this vector, but what it does has the
+same output as this less efficient code.
 
 ## In JAX
 
@@ -359,7 +373,7 @@ expresses this somewhat more aggressively:
 
 {::options parse_block_html="false" /}
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">The Aesthetician in me wants to be constantly annoyed by how ugly PyTorch is but frankly I’m consistently impressed with how easy it is to develop in.</p>&mdash; Aidan Clark (@_aidan_clark_) <a href="https://twitter.com/_aidan_clark_/status/1568052833030897664?ref_src=twsrc%5Etfw">September 9, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet tw-align-center"><p lang="en" dir="ltr">The Aesthetician in me wants to be constantly annoyed by how ugly PyTorch is but frankly I’m consistently impressed with how easy it is to develop in.</p>&mdash; Aidan Clark (@_aidan_clark_) <a href="https://twitter.com/_aidan_clark_/status/1568052833030897664?ref_src=twsrc%5Etfw">September 9, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 JAX is, arguably, different, at least on the first account. It comes
 with vector-Jacobian products, Jacobian-vector products, and also the
@@ -382,7 +396,7 @@ or the JAX Autodiff Cookbook, or ideally both.
 But to round things out, let's look at how one defines a "custom
 function" with its own forward and backward pass in PyTorch.
 
-We'll take elementwise multiplication as an example; the fancy
+We'll take elementwise multiplication as our first example; the fancy
 mathematics name of this simple operation is
 [*Hadamard
 product*](https://en.wikipedia.org/wiki/Hadamard_product_(matrices))
@@ -412,11 +426,11 @@ is just
 
 $$
 v\cdot \odot'(x) = (v_1x_{n+1}, \ldots, v_nx_{2n},
-v_{n+1}x_1, \ldots, v_{2n}x_n) \in \R^{2n},
+v_{n+1}x_1, \ldots, v_{2n}x_n) \in \R^{2n}.
 $$
 
-and that already seems like a needless complication of such a simple
-thing als elementwise multiplication.
+(And that already seems like a needless complication of such a simple
+thing als elementwise multiplication!)
 
 [^3]: This is a joke. In reality, mathematians are taught that if
     something is named after someone, that is a good indication that
@@ -445,6 +459,14 @@ class HadamardProduct(torch.autograd.Function):
 mul = HadamardProduct.apply
 ```
 
+The `ctx` argument is used to stash the tensors required for the
+backward pass somewhere, and the `grad_output` argument (a single
+argument in this case since the function has a single output) is the
+output-shaped "vector" of the VJP. PyTorch may reuse this vector, so
+it's important even in cases where the gradient computed has the same
+shape to "NEVER modify [this argument] in-place", as the [PyTorch docs
+say](https://pytorch.org/docs/stable/notes/extending.html#how-to-use).
+
 Testing this:
 
 ```python
@@ -467,7 +489,7 @@ operations themselves.
 To contrast this with another example, let's look at a real, genuine
 linear function. Remember that for a matrix $$W\in\R^{m\times n}$$,
 the function $$\R^n\ni x \mapsto Wx \in \R^m$$ is Fr&eacute;chet
-differentiable an its derivative is the constant $$A$$.[^4] Taking $$x$$
+differentiable an its derivative is the constant $$W$$.[^4] Taking $$x$$
 as a constant and $$W=(W_{jk})_{j=1,\ldots,m;\; k=1,\ldots,n}$$ as the "dependent variable", and "reshaping to
 vector form" as above, the derivative at $$W$$ is
 

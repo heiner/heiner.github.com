@@ -403,7 +403,7 @@ We'll take elementwise multiplication as our first example; the fancy
 mathematics name of this simple operation is
 [*Hadamard
 product*](https://en.wikipedia.org/wiki/Hadamard_product_(matrices))
-(also known as *Schur product* -- their moto was "*name, always name*"[^3]). We'll
+(also known as *Schur product* -- their motto was "*name, always name*"[^3]). We'll
 denote it by $$\odot.$$ To fit it within the
 standard calculus above, we reinterpret
 $$\odot\from\R^n\times\R^n\to\R^n$$ as $$\odot\from\R^{2n}\to\R^n$$, multiplying
@@ -494,7 +494,7 @@ operations themselves.
 To contrast this with another example, let's look at a real, genuine
 linear function. Remember that for a matrix $$W\in\R^{m\times n}$$,
 the function $$\R^n\ni x \mapsto Wx \in \R^m$$ is Fr&eacute;chet
-differentiable an its derivative is the constant $$W$$.[^4] Taking $$x$$
+differentiable and its derivative is the constant $$W$$.[^4] Taking $$x$$
 as a constant and $$W=(W_{jk})_{j=1,\ldots,m;\; k=1,\ldots,n}$$ as the "dependent variable", and "reshaping to
 vector form" as above, the derivative at $$W$$ is
 

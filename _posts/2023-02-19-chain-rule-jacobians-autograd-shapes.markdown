@@ -241,7 +241,7 @@ PyTorch or JAX *doesn't need to actually compute* full Jacobians -- all
 it needs are vector-Jacobian products. It turns out that
 (classic) PyTorch does and can in fact do nothing else.
 
-Also notice that the column vector
+Also notice that the row vector
 $$\begin{pmatrix}\unicode{x2E3B}\end{pmatrix}$$ multiplied from the
 left is "output-shaped" from the perspective of the Jacobian it gets
 multiplied to. This is the reason `grad_output` in PyTorch always has
@@ -251,7 +251,7 @@ receives an argument described as the "gradient w.r.t. the
 tensor".
 
 You may wonder what it means for it to have a specific shape vs just
-being a "flat" column vector as it is here. I certainly wondered about
+being a "flat" row vector as it is here. I certainly wondered about
 this; the answer is below.
 
 

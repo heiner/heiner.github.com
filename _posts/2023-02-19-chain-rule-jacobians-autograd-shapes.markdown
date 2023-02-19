@@ -435,7 +435,7 @@ $$
 (And that already seems like a needless complication of such a simple
 thing als elementwise multiplication!)
 
-[^3]: This is a joke. In reality, mathematians are taught that if
+[^3]: This is a joke. In reality, mathematicians are taught that if
     something is named after someone, that is a good indication that
     person *didn't* invent that.
 

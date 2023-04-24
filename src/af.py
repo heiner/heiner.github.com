@@ -14,15 +14,17 @@ def main():
     print(" " * 5, end="\t")
     print("\t".join("%22i" % n for n in ns))
     for p in ps:
-        print("p = %.1f%%" % p, end="\t")
+        # print("p = %.1f%%" % p, end="\t")
+        print("|$$p = %.1f\\%%$$" % p, end="| ")
         for n in ns:
             print(
-                "%.3f%% vs %.3f%%"
+                # "%.3f\\%% vs %.3f%%"
+                "$$%.2f\\%%$$<br />$$\\bf %.2f\\%%$$"
                 % (
                     100 * af((1 + p / 100) ** (1 / 12) - 1, 12 * n),
                     100 * afapprox(p / 100 / 12, 12 * n),
                 ),
-                end="\t",
+                end="| ",
             )
         print("")
 

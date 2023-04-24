@@ -100,3 +100,10 @@ mjx-container[display="true"] {
     overflow-y: hidden;
     min-width: 0 ! important;
 }
+
+.overflow {
+    overflow-x: auto;
+    overflow-y: hidden;
+    min-width: 0 ! important;
+    margin: 0;
+}

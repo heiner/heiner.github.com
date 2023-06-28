@@ -4,6 +4,27 @@ title:  "Annuity loans"
 date:   2019-08-20 00:25:06 +0100
 ---
 
+<small>Edit June 2023: Via
+[Twitter](https://twitter.com/HeinrichKuttler/status/1673272830560022529?s=20),
+I found that the same formula I arrive at here has been published in
+P. Milanfar, "_A Persian Folk Method of Figuring Interest_", Mathematics
+Magazine, vol. 69, no. 5, Dec. 1996 and apparently was known and used
+"in the bazaar's of Iran (and elsewhere)". The mnemonics in [that
+paper](https://www.maa.org/sites/default/files/Peyman_Milanfar45123.pdf)
+are
+$$
+\textrm{Monthly payment}
+=
+\frac{1}{\textrm{Number of months}}(\textrm{Principal} + \textrm{Interest})
+$$
+where
+$$
+\textrm{Interest} = \tfrac{1}{2} \textrm{Principal} \cdot
+\textrm{Number of years} \cdot \textrm{Annual interest rate}
+$$.
+</small>
+
+
 I'm fond of small mental calculation helpers like the [rule of
 72](https://en.wikipedia.org/wiki/Rule_of_72). Not that I am good at
 mental math ([I once tried to fix that and got

@@ -13,7 +13,7 @@ position of Research Engineering Manager at [Facebook/Meta AI
 Research](https://ai.meta.com/research/) in London, leading
 Reinforcement Learning engineering across EMEA, and before that I was
 a Senior Research Engineer and Team Lead at
-[DeepMind](https://deepmind.google/), working on projects like like
-DMLab, StarCraft, and AGI. Previously, I was a Technical Solutions
-Consultant at Google in London. I receicieved my PhD in Mathematical
-Physics from LMU Munich in 2014.
+[DeepMind](https://deepmind.google/), working on projects like DMLab,
+StarCraft, and AGI. Previously, I was a Technical Solutions Consultant
+at Google in London. I received my PhD in Mathematical Physics from
+LMU Munich in 2014.

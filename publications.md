@@ -6,7 +6,7 @@ permalink: /publications/
 
 <div class="right">
   <a href="https://arxiv.org/a/kuttler_h_1.html" target="_blank">arXiv</a> &middot;
-  <a href="https://scholar.google.co.uk/citations?user=dE-JkuIAAAAJ" target="_blank">Google Scholar</a>
+  <a href="https://scholar.google.com/citations?user=dE-JkuIAAAAJ" target="_blank">Google Scholar</a>
 </div>
 
 #### 2023

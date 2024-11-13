@@ -6,7 +6,7 @@ title:  "Well-definedness in measure theory"
 This blog covers very niche topics. Today: How to easily show that the
 Lebesgue measure and the Lebesgue integral is well-defined.
 
-I recently started reading reading the ["Bandit Algorithms" book
+I recently started reading the ["Bandit Algorithms" book
 by Tor Lattimore and Csaba
 Szepesvari](https://banditalgs.com). [I like it a
 lot.](https://twitter.com/HeinrichKuttler/status/1343551842580639750)
@@ -95,7 +95,7 @@ $$\set{x_k\st k=0,\ldots,m}$$ with $$x_0 <x_2 < \cdots < x_m$$. A set
 of disjoint intervals with union $$F$$ is
 
 $$\{[x_{k-1}, x_k)\st
-1\le k\le m \text{ und } \exists j\in\set{1,\ldots,n} :
+1\le k\le m \text{ and } \exists j\in\set{1,\ldots,n} :
 [x_{k-1}, x_k) \subseteq[a_j,b_j)\}.  \qquad\text{//}$$
 
 **Corollary 4.** Let $$G\from\R\to\R$$ be

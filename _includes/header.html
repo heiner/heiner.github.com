@@ -1,11 +1,13 @@
+{% assign nav_items = site.pages | where_exp: "page", "page.title and
+page.exclude != true" %}
+
 <header class="site-header">
     <h1>
         <a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a>
     </h1>
-    {% for page in site.pages %} {% if page.title and page.exclude != true %}<a
-        class="page-link"
-        href="{{ page.url | prepend: site.baseurl }}"
+    {% for page in nav_items %}
+    <a class="page-link" href="{{ page.url | prepend: site.baseurl }}"
         >{{ page.title }}</a
     >
-    {% unless forloop.last %}&middot;{% endunless %} {% endif %} {% endfor %}
+    {% unless forloop.last %}&middot;{% endunless %} {% endfor %}
 </header>

@@ -123,7 +123,7 @@ Via the nature of this rule it iterates, i.e. the derivative of the
 composition $$h\circ g\circ f$$ is
 
 $$
-(h\circ g\circ f)(x)
+(h\circ g\circ f)'(x)
 =
 h'(g(f(x)))\cdot g'(f(x))\cdot f'(x)
 =

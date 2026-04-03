@@ -296,7 +296,7 @@ above.
 
 ## But wait, tensor or vector?
 
-For the typical mathematian, the term "tensor" for the
+For the typical mathematician, the term "tensor" for the
 multidimensional array in PyTorch and JAX is a bit on an acquired (or
 not) taste -- but to be fair, so is anything about the real tensor
 product $$\otimes$$ as well.
@@ -491,7 +491,7 @@ This example is typical for elementwise operations, where the
 Jacobian matrices are diagonal and VJPs are just elementwise
 operations themselves.
 
-To contrast this with another example, let's look at a real, genuine
+To contrast this with another example, let's look at a real, genuine,
 linear function. Remember that for a matrix $$W\in\R^{m\times n}$$,
 the function $$\R^n\ni x \mapsto Wx \in \R^m$$ is Fr&eacute;chet
 differentiable and its derivative is the constant $$W$$.[^4] Taking $$x$$

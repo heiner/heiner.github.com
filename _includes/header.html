@@ -1,4 +1,5 @@
-{% assign nav_items = site.pages | where_exp: "page", "page.title and page.exclude != true" %}
+{% assign nav_items = site.pages | where_exp: "page", "page.title" %}
+{% assign nav_items = nav_items | where_exp: "page", "page.exclude != true" %}
 
 <header class="site-header">
     <h1>

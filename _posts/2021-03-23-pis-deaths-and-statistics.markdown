@@ -202,9 +202,13 @@ $$S(t) = \P(X > t) = \int_t^\infty f(x)\dx = 1 - F(t).$$
 
 Suppose we made it until some time $$t_0 \ge 0$$. How will the future
 look like? We will need to condition on having lived so far and
-renormalize with $$S(t_0)$$ to get the pdf going forward. This is the
-same as finding the probability of not surviving an additional
-infinitesimal time:
+renormalize with $$S(t_0)$$ to get the conditional pdf going forward,
+e.g., $$f_{t_0}(t) = f(t_0 + t) / S(t_0)$$.
+
+If we evaluate this truncated and renormalized pdf at $$t=0$$ as a
+function of $$t_0$$, we get the probability of not surviving an
+additional infinitesimal time (the _instantaneous rate of dying_ for
+someone currently alive at age $$t_0$$)​:
 
 $$h(t_0) := \frac{f(t_0)}{S(t_0)}
   = \lim_{t\downarrow 0} \frac{\P(t_0\le X < t_0 + t)}{t S(t_0)}
@@ -242,9 +246,12 @@ $$h(t) := b \eta e^{bt}$$
 
 where $$\eta, b > 0$$ are parameters to be determined from the
 data (see below). This also tells us why our "rate increase of a rate"
-doesn't lead to probabilities greater than one over time: It's a rate
-increase for the conditional probability at that fixed point in time
-$$t_0$$. The hazard function itself does grow to infinity.
+doesn't lead to probabilities greater than one over time: The hazard
+function grows to infinity and is not a pdf. However, for any $$t_0
+\ge 0$$, the initial value of the conditional pdf ("going forward") is
+$$h(t_0)$$. For large $$t_0$$, the conditional pdf starts high and
+then declines rapidly; the density functions have likelihoods larger than
+one but over shorter and shorter time intervals.
 
 Given this, what is the cdf for this _Gompertz distribution_? Well,
 
@@ -316,7 +323,7 @@ e.g., retirement planning.
 
 So let's compute the pdf after surviving until $$t_0$$:
 
-$$\frac{f(t_0 + t)}{S(t_0)} = b\eta\frac{\exp\bigl(b(t_0+t) -
+$$f_{t_0}(t) = \frac{f(t_0 + t)}{S(t_0)} = b\eta\frac{\exp\bigl(b(t_0+t) -
 \eta(e^{b(t_0+t)} - 1)\bigr)}{\exp\bigl(-\eta(e^{bt_0} - 1)\bigr)}
 = b\eta e^{bt_0}\exp\bigl(-\eta e^{bt_0}(e^{bt}-1) + bt\bigr).
 $$
@@ -354,10 +361,31 @@ and therefore $$\eta = e^{-bt_m}$$ for the modal value $$t_m$$.
 So once we have $$b$$ we can get $$\eta$$ from the data by looking for
 the year (or month) with the most deaths.
 
+Since this modal value $$t_m$$ is the maximum of the Gompertz pdf, for
+values $$t_0 \ge t_m$$ the conditional pdf $$f_{t_0}$$ has its maximum
+at the beginning and becomes monotonically decreasing. This means
+that after making it to that age, the single most likely moment of
+death is the next one. But the expected remaining lifetime is
+still positive and the hazard itself keeps climbing into the future.
+
 The $$b$$ parameter we also get from the data as it determines the
 year-on-year increase in the mortality rate: From the data above we
 would estimate $$b=0.1$$. Milevsky suggests using $$1/b = 9.5$$ years
-and calls this the _dispersion coefficient of human life_.
+and calls this the _dispersion coefficient of human life_.[^3]
+
+[^3]: The "mortality rate" in the table above is the one-year
+      conditional probability of dying, $$1 - \exp\bigl(-\int_t^{t+1}
+      h(s)\,ds\bigr)$$, not the hazard $$h(t)$$ itself. The
+      exponential comes from the survival function: $$S(t) =
+      \exp\bigl(-\int_0^t h\bigr)$$, so the conditional probability of
+      surviving the year is $$S(t+1)/S(t) = \exp\bigl(-\int_t^{t+1}
+      h\bigr)$$, and the conditional probability of dying is one minus
+      that. Both the hazard function $$h$$ and this probability grow
+      at $${\sim}10\%$$/year while $$h$$ is small, since $$1 - e^{-x}
+      = x + O(x^2)$$, but the probability is bounded by 1 and saturates
+      at extreme ages while $$h$$ continues to grow exponentially. The
+      Gompertz law is fundamentally a statement about $$h$$; the table
+      inherits it as an approximation.
 
 As the modal value of human life Milevsky suggests using $$t_m=87.25$$
 for the general population in North America. Obviously $$t_m$$ was lower

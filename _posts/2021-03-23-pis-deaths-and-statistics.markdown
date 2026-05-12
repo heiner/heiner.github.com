@@ -308,16 +308,16 @@ is still an active field of research!
 
 #### Gompertz from here on out
 
-If a random variable $$X \sim \textrm{Gompertz}(\eta, b)$$ describes
-the expected time of death of a newborn (or, less morbidly, the
-expected time of failure for a newly built device), how does the world
+If a random variable $$X \sim \textrm{Gompertz}(\eta, b)$$ models
+the age at death of a newborn (or, less morbidly, the
+time to failure for a newly built device), how does the world
 look like at time $$t_0$$? That's an important question for,
 e.g., retirement planning.
 
 So let's compute the pdf after surviving until $$t_0$$:
 
-$$\frac{f(t_0 + t)}{S(t_0)} = b\eta\frac{b\eta\exp\bigl(b(t_0+t) -
-\eta(e^{b(t_0+t)} - 1)\bigr)}{\exp\bigl(-\eta(e^{bt} - 1)\bigr)}
+$$\frac{f(t_0 + t)}{S(t_0)} = b\eta\frac{\exp\bigl(b(t_0+t) -
+\eta(e^{b(t_0+t)} - 1)\bigr)}{\exp\bigl(-\eta(e^{bt_0} - 1)\bigr)}
 = b\eta e^{bt_0}\exp\bigl(-\eta e^{bt_0}(e^{bt}-1) + bt\bigr).
 $$
 
@@ -440,7 +440,7 @@ interesting if a bit discouraging to read, again in
 > curve.
 
 So apparently $$\eta$$ and $$b$$ have been stable over a long time
-periods. Whatever that says about human longevity, it also says the
+period. Whatever that says about human longevity, it also says the
 Gompertz (or the Gompertz-Makeham) model is not so bad.
 
 That's it for today. My apologies for not actually having any $$\pi$$s in all of

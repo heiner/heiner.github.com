@@ -174,8 +174,8 @@ continuous annuity factor would then be
 $$
 \af_c(r, t_0)
 =
-\int_0^\infty p_{t_0}(t) e^{-rx} \,dx =
-\int_0^\infty \exp\bigl(-\eta(e^{bx} - 1)\bigr) e^{-rx} \,dx
+\int_0^\infty p_{t_0}(t) e^{-rt} \,dt =
+\int_0^\infty \exp\bigl(-\eta(e^{bt} - 1)\bigr) e^{-rt} \,dt
 \tag{G.1}
 \label{contaf}
 $$
@@ -391,7 +391,7 @@ For the incomplete Gamma function, a similar recurrence relation
 exists, namely ([8.8.2](https://dlmf.nist.gov/8.8#E2) in DLMF)
 
 $$
-\Gamma(a+1, z) = a\Gamma(a,z) + z^ne^{-z}
+\Gamma(a+1, z) = a\Gamma(a,z) + z^ae^{-z}
 $$
 
 for, say, $$a$$ and $$z$$ in the right half-plane. This equation can be

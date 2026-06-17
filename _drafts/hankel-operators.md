@@ -1,7 +1,5 @@
 # Some specific integrals
 
-## Early years
-
 Two decades ago I was a math undergrad in Dresden, Germany.
 
 At some point in the _Analysis I_ course they taught us about
@@ -105,9 +103,102 @@ The integral for all $$n$$ turned out to be a implied by results
 from the 1950s and earlier. To describe these, I have to go on a
 slight tangent.
 
-## The Hilbert Matrix
+#### An integral operator
 
-The "infinite matrix"
+On $$L_2(0, \infty)$$, i.e., the space of functions from the half-line $$(0,
+\infty)$$ to the reals that are square-integrable, define an
+operator $$L_2(0, \infty)
+\ni f \mapsto Tf \in L_2(0,\infty)$$, i.e., a mapping from functions
+to functions, by
+
+$$
+(Tf)(x) = \int_0^\infty \frac{e^{-(x+y)/2}}{x+y}f(y)\,\d y.
+$$
+
+This is an _integral operator_ of the form $$(Tf)(x) = \int k(x, y) f(y)\,\d
+y$$. The function $$k(x, y)$$ is called a _kernel_. In this particular
+case, the kernel depends on $$x+y$$ only, not on
+$$x$$ and $$y$$ separately. Such operators are known as *Hankel
+operators*.
+
+The reason the operator $$T$$ is interesting vis-à-vis the integral
+$$I_n$$ is that applying it repeatedly yields iterated integrals that
+are close to $$I_n$$. In fact,
+
+$$
+I_n = \langle \varphi, T^{n-1} \varphi \rangle
+$$
+
+where $$\langle \dotid, \dotid\rangle$$ is the scalar product on
+$$L_2(0, \infty)$$ and $$\varphi(x) := e^{-x/2}$$.
+
+It turns out that the operator $$T$$ has been studied by
+mathematicians. Rosenblum (1958) and later Rovnyak (1970) gave an
+explicit diagonalization of this operator $$T$$. Diagonalization is
+part of the spectral analysis of an operator, a powerful concept that
+allows us to finds the fundamental properties of the operator as a
+mathematical object. Like its finite-dimensional analog matrix
+diagonalization, it allows us to compute "functions of the
+operator", including its powers $$T^n$$.
+
+The diagonalization of $$T$$ due to Rosenblum can be written as
+\begin{equation} \label{eq:Hilbert-matrix-unitary-relation}
+  (UTf)(k) = \frac{\pi}{\cosh(k\pi)}(Uf)(k)  \where{k\in(0,\infty),
+  f\in L_2(0,\infty)}
+\end{equation}
+for a specific unitary operator $$U\from L_2(0,\infty)\to
+L_2(0,\infty)$$. Unitary means that
+$$U$$ is a Hilbert space isomorphism, i.e. it maps the Hilbert space
+$$L_2(0,\infty)$$ to itself while leaving its structure in place; in
+particular the scalar product of two mapped functions is the same as
+the scalar product of the input functions. The operator
+$$U$$ can be explicitly computed although the details
+are a bit messy and require a number of functions from the special
+functions zoo (the Gamma function and the [Whittaker
+functions](https://dlmf.nist.gov/13.14)). If you must know the details
+you can check out chapter 8 of [my thesis](https://edoc.ub.uni-muenchen.de/17442/).
+
+Using these results, my integral expression can be turned into
+something much more managable, because with $$\hat{\varphi} :=
+U\varphi$$ one has
+
+$$
+I_n = \langle \varphi, T^{n-1} \varphi \rangle
+    = \langle U\varphi, UT^{n-1} \varphi \rangle
+    = \int_0^\infty\d k\, \abs{\hat{\varphi}(k)}^2 \Big(\frac{\pi}{\cosh(k\pi)}\Big)^{n-1}
+$$
+
+by repeated application of Rosenblum's diagonalization.
+
+The function $$\hat{\varphi}$$ and the remaining one-dimensional
+integral can be computed, and the result is
+
+$$
+I_n = (2\pi)^{n-2}
+\frac{\bigl(\Gamma(\frac{n}{2})\bigr)^2}{\Gamma(n)},
+$$
+
+in particular $$I_{2n+2} = (2\pi)^{2n} \frac{(n!)^2}{(2n+1)!}$$, my
+conjecture! My faith wasn't misplaced; by faith we understand the
+universe.
+
+## More?
+
+These kind of explicit integral expressions are somewhat unusual in
+research mathematics. In fact, some follow-up work by other
+mathematicians lightly criticized our approach as "curious".
+
+But I had fun with my integral. Just not enough fun to stay in
+research mathematics.
+
+My co-author Martin Gebert pushed these results much
+further. Curiously, that yielded more interesting integrals, one of
+which I'll describe below.
+
+#### The Hilbert Matrix
+
+As an aside, the Rosenblum operator $$T$$ turns out to exist in
+other disguises. For instance, the "infinite matrix"
 
 $$H =
 \begin{pmatrix}
@@ -130,57 +221,17 @@ will see others.
 
 On the space $$\ell_2(\N)$$ of square-summable sequences, it turns out
 this matrix is *unitarily equivalent* (aka essentially the same under
-a Hilbert space isomorphism) to the integral operator $$L_2(0, \infty)
-\ni f \mapsto Tf \in L_2(0,\infty)$$ defined by
+a Hilbert space isomorphism) to Rosenblum's integral operator $$T$$
 
-$$
-(Tf)(x) = \int_0^\infty \frac{e^{-(x+y)/2}}{x+y}f(y)\,\d y.
-$$
-
-This integral operator is of the form $$(Tf)(x) = \int k(x, y) f(y)\,\d
-y$$ with a _kernel_ $$k(x, y)$$ that depends only on $$x+y$$, not on
-$$x$$ and $$y$$ separately. Such operators are known as *Hankel
-operators*.
-
-The orthonormal basis of $$L^2(0,\infty)$$ that makes this
+The orthonormal basis of $$L_2(0,\infty)$$ that makes this
 correspondence to the Hilbert matrix work is given by the weighted [Laguerre
 polynomials](https://en.wikipedia.org/wiki/Laguerre_polynomials)
 $$\phi_n(x) = e^{-x/2}L_n(x)$$.
 
-Rosenblum (1958) and later Rovnyak (1970) gave an explicit
-diagonalization of this operator $$T$$. As with matrix
-diagonalization, this allows us to compute "functions of the
-operator", including its powers $$T^n$$. The details are a bit messy
-and require a number of functions from the special functions zoo
-(the Gamma function and the [Whittaker
-functions](https://dlmf.nist.gov/13.14)). If you must know the details
-you can check out my thesis.
+Lots of beatiful mathematics and hidden connections lurk behind these
+objects.
 
-Using these results, my integral expression could be turned into
-something much more managable which eventually yields
-
-% ??? do at least one scalar product with T^n
-
-$$
-I_n = (2\pi)^{n-2}
-\frac{\bigl(\Gamma(\frac{n}{2})\bigr)^2}{\Gamma(n)},
-$$
-
-in particular $$I_{2n+2} = (2\pi)^{2n} \frac{(n!)^2}{(2n+1)!}$$, my
-conjecture. My faith wasn't misplaced; through faith we understand the
-universe.
-
-Note that these kind of explicit integral expressions are unusual in
-research mathematics -- in fact, some follow-up work by other
-mathematicians lightly criticized our approach as "curious".
-
-But I had fun with this integral. But not enough fun to stay in
-research mathematics.
-
-My co-author Martin Gebert pushed these results much
-further. Curiously, that yielded more interesting integrals.
-
-## A generalization of the Dirichlet integral and a failure
+## The Dirichlet integral and a generalization
 
 #### Dirichlet integral
 
@@ -202,7 +253,8 @@ is due to cancellation from the sign change of $$\sin$$. This
 cancellation depends on how the limit is done; this makes $$\sinc$$
 not Lebesgue-integrable on unbounded intervals.
 
-One way to prove Dirichlet's result is to use an [Abelian
+**Proof via Laplace transform.&emsp;**
+One way to prove Dirichlet's identity is to use an [Abelian
 theorem](https://en.wikipedia.org/wiki/Abelian_and_Tauberian_theorems)
 which in this form is also known as the ["final value theorem" of the
 Laplace
@@ -236,10 +288,58 @@ original. There is extra work involved in doing and undoing the
 regularization, but the benefit is that the main work can be done in a
 better space.
 
+With some help by ChatGPT, I learned about another proof for
+Dirichlet's identity which turned out to be directly generalizable to
+another related tricky $$n$$-dimensional integral. Since it's somewhat
+fun, I'll write it down here.
+
+**Proof via Cauchy's integral theorem.&emsp;**
+Starting from
+$$
+ \frac{\sin y}{y}=\frac12\int_{-1}^{1}e^{ity}\,dt,
+$$
+set $$I(L) := \int_0^L \frac{\sin x}{x}\d x$$. Fubini and the
+substitution $$t = \tanh(s/2)$$ where $$\d t = w(s) \d s$$ for $$w(s) =
+\frac{1}{2}\sech^2(s/2)$$ gives
+
+$$
+I(L) = \frac{1}{2}\int_\R w(s) D_L(\tanh\tfrac{s}{2}) \d s
+$$
+
+with $$D_L(u) := \int_0^L e^{ixu}\dx =
+\frac{e^{iLu} - 1}{iu}$$ where $$D_L(0) := L$$ makes this function
+entire.
+
+Now, shift the domain of integration from $$\R$$ to $$\R + i\pi/2$$
+via Cauchy's integral theorem. On the strip $$0 \le \Im z \le
+\frac{\pi}{2}$$ all functions involved are holomorphic. Since
+
+$$
+\Im\tanh(\tfrac{s+i\beta}{2}) = \frac{\sin\beta}{\cosh s + \cos\beta}
+\ge 0,
+$$
+
+one has $$\abs{D_L(\tanh z)} \le L$$ on the strip. On the vertical
+sides of a box $$[-R, R] \times [0, \frac{\pi}{2}]$$, one has
+
+$$
+\abs{w(\pm R + i\beta)} = \frac{1}{\cosh R + \cos\beta} \le
+\frac{1}{\cosh R} = \sech R \to 0 \where{R\to\infty}
+$$
+
+and therefore
+
+$$
+\frac{1}{2}\int_{-R}^R w(s) D_L(\tanh\tfrac{s}{2}) \d s
+=
+\frac{1}{2}\int_{-R}^R w(s + i\tfrac{\pi}{2}) D_L(\tanh(\tfrac{s}{2} +
+i\tfrac{\pi}{4})) \d s + o(1)  \where{R\to\infty}
+$$
+
 However, that doesn't always work -- I failed to do the same for the
 following problem:
 
-#### A generalization of Dirichlet's integral
+#### The Dirichlet integral and a generalization
 
 It turns out that in connection to the same quantum mechanical
 phenomenon that lead to the $$I_n$$ integral, the integral

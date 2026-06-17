@@ -6,15 +6,16 @@ Two decades ago I was a math undergrad in Dresden, Germany.
 
 At some point in the _Analysis I_ course they taught us about
 solving integrals with the usual tricks: Integration by parts, substitution,
-partial fractions. Unlike physics or some engineering undergrads, in
-math we would only see one or two examples and move on. I still remember my
+partial fractions. Unlike physics or some engineering undergrads, math
+students would only see one or two examples and move on. I still
+remember my
 undergrad instructor Gerd Kayser mentioning how this wasn't proper
 training and how when he was a student, math undergrads in socialist
 East Germany had to do a preparatory course where they "had to solve 50
 integrals".
 
-"50 integrals is a lot", he told us, "but when we
-complained we were told students in the Sovient Union have to do 500. But
+"50 integrals is a lot", he said, "but when we
+complained we were told students in the Sovient Union have to solve 500. But
 afterwards they know how to solve integrals!"
 
 The grace of my relatively late birth spared me having to do anywhere
@@ -58,14 +59,14 @@ ironically, an _explicit integral that required solving!_
     expression produced the integral $$I_n$$ for the $$n$$th term.
     But you don't actually need to know any of that.
 
-Specifically, the $$n$$th term for $$n >= 2$$ produced the
-$$n$$-dimensional integral
+Specifically, the $$n$$th term for $$n \ge 2$$ produced the
+$$n$$-dimensional cyclic integral
 
 $$I_n := \int_{(0,\infty)^n} \frac{e^{-\sum_{j=1}^n u_j}} {\prod_{j=1}^{n-1} (u_j +
 u_{j+1})}\d u$$
 
 where $$(0,\infty)^n$$ is the set of $$n$$-dimensional vectors
-$$u\in\R^n$$ with positive entries $$u_j > 0$$.
+$$u\in\R^n$$ with positive entries $$u_j > 0$$, and $$u_{n+1} := u_1$$.
 
 For small $$n$$, I could solve this: $$I_2 = 1$$, $$I_3 =
 \frac{\pi^2}{4}$$, and $$I_4 = \frac{2\pi^2}{3}$$. I could also do
@@ -79,28 +80,28 @@ $$\int_0^1\mathrm{d}x \Bigl(\mathrm{Li}_2(\frac{x-1}{x})\Bigr)^2 =
 
 for the [dilogarithm](https://en.wikipedia.org/wiki/Dilogarithm)
 $$\mathrm{Li}_2$$. This is not exactly an obvious formula, although it
-turned out to be implied by results in the literature.
+turned out to be implied by results in the literature, which confirmed
+the value for $$n=6$$.
 
 #### Faith in math
 
-The numerical results gave me conjecture. It looked like
+The numerical results gave me a conjecture. It looked like
 $$I_{2n+2} = (2\pi)^{2n} \frac{(n!)^2}{(2n+1)!}$$ might be correct.
 
 When I plugged this result into my series expansion, the right power
 series coefficients (the one for $$\arcsin^2$$)
 would pop out and make the result of my thesis beautiful. The
-conjecture _had_ to be true -- the beauty of the result gave me strong
-mathematical faith.
+conjecture _had_ to be true -- the result was too good to be false!
 
 How to prove it though?
 
 I asked [the
 internet](https://mathoverflow.net/questions/129955/evaluation-of-an-n-dimensional-integral)
-but without receiving a super satisfactory result. However, I massaged
+but without receiving a super satisfactory result. However, after I massaged
 the integral a bit my collaborator Peter Otte found a solution using
 insights from operator theory, in particular Hankel operators.
 
-The integral for all $$n$$ turned out to be a solvable with insights
+The integral for all $$n$$ turned out to be a implied by results
 from the 1950s and earlier. To describe these, I have to go on a
 slight tangent.
 
@@ -119,7 +120,7 @@ $$H =
 $$
 
 is known as the *Hilbert matrix*. Its entries at position $$j, k$$ are
-$$\frac{1}{j + k + 1}$$. In numerical analysis, it
+$$\frac{1}{j + k - 1}$$. In numerical analysis, it
 usually serves as cautionary tale about ill-conditioned systems.
 
 Since the entries depend only on $$j+k$$, they are constant along the
@@ -151,7 +152,7 @@ diagonalization of this operator $$T$$. As with matrix
 diagonalization, this allows us to compute "functions of the
 operator", including its powers $$T^n$$. The details are a bit messy
 and require a number of functions from the special functions zoo
-($$\sinh$$, $$\cosh$$, the Gamma function and the [Whittaker
+(the Gamma function and the [Whittaker
 functions](https://dlmf.nist.gov/13.14)). If you must know the details
 you can check out my thesis.
 
@@ -258,7 +259,7 @@ _limit_ of well-behaved operators.
 But ultimately I did not manage to make that approach work;
 I did not understand regularized versions of it well enough.
 
-For $$n=3$$ one can prove that $$S_3 = \frac{\pi^3}{16}$$, see [this stackexchange
+or $$n=3$$ one can prove that $$S_3 = \frac{\pi^3}{16}$$, see [this stackexchange
 question](https://math.stackexchange.com/q/2541613/5051).
 It seems plausibe the general odd case is $$S_n =
 \frac{\pi^n}{2^{n+1}}$$ but I know of no proof of that.

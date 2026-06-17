@@ -73,7 +73,7 @@ $$I_6 \approx 51.9325\approx\frac{8\pi^4}{15}$$. But the iterated
 integrals turned complicated very quickly. For $$n=6$$ the conjecture
 $$I_6 = \frac{8\pi^4}{15}$$ is equivalent to
 
-$$\int_0^1\mathrm{d}x \Bigl(\mathrm{Li}_2(\frac{x-1}{x})\Bigr)^2 =
+$$\int_0^1 \Bigl(\mathrm{Li}_2(\frac{x-1}{x})\Bigr)^2 \dx =
 \frac{17}{180}\pi^4$$
 
 for the [dilogarithm](https://en.wikipedia.org/wiki/Dilogarithm)
@@ -123,7 +123,7 @@ operators*.
 
 The reason the operator $$T$$ is interesting vis-à-vis the integral
 $$I_n$$ is that applying it repeatedly yields iterated integrals that
-are close to $$I_n$$. In fact,
+look like $$I_n$$. In fact,
 
 $$
 I_n = \langle \varphi, T^{n-1} \varphi \rangle
@@ -133,7 +133,7 @@ where $$\langle \dotid, \dotid\rangle$$ is the scalar product on
 $$L_2(0, \infty)$$ and $$\varphi(x) := e^{-x/2}$$.
 
 It turns out that the operator $$T$$ has been studied by
-mathematicians. Rosenblum (1958) and later Rovnyak (1970) gave an
+mathematicians. Rosenblum (1958) gave an
 explicit diagonalization of this operator $$T$$. Diagonalization is
 part of the spectral analysis of an operator, a powerful concept that
 allows us to finds the fundamental properties of the operator as a
@@ -191,7 +191,7 @@ mathematicians lightly criticized our approach as "curious".
 But I had fun with my integral. Just not enough fun to stay in
 research mathematics.
 
-My co-author Martin Gebert pushed these results much
+My co-author Martin Gebert pushed underlying Physics question much
 further. Curiously, that yielded more interesting integrals, one of
 which I'll describe below.
 
@@ -221,7 +221,7 @@ will see others.
 
 On the space $$\ell_2(\N)$$ of square-summable sequences, it turns out
 this matrix is *unitarily equivalent* (aka essentially the same under
-a Hilbert space isomorphism) to Rosenblum's integral operator $$T$$
+a Hilbert space isomorphism) to Rosenblum's integral operator $$T$$.
 
 The orthonormal basis of $$L_2(0,\infty)$$ that makes this
 correspondence to the Hilbert matrix work is given by the weighted [Laguerre
@@ -231,9 +231,7 @@ $$\phi_n(x) = e^{-x/2}L_n(x)$$.
 Lots of beatiful mathematics and hidden connections lurk behind these
 objects.
 
-## The Dirichlet integral and a generalization
-
-#### Dirichlet integral
+## The Dirichlet integral
 
 The improper integral
 
@@ -273,8 +271,8 @@ Laplace transform of $$\sin$$ itself). Its value turns out to be
 $$\frac{\pi}{2} - \arctan s$$ and the $$\arctan$$ term goes to zero as
 $$s\to 0$$.
 
-This is an "Abelian theorem" which requires existence of the original
-limit as one of its ingredients though. In this case, the existence is
+This is an "Abelian theorem" which requires the existence of the original
+limit as one of its ingredients. In this case, the existence is
 provided by [Dirichlet's
 test](https://en.wikipedia.org/wiki/Dirichlet%27s_test).
 
@@ -288,19 +286,24 @@ original. There is extra work involved in doing and undoing the
 regularization, but the benefit is that the main work can be done in a
 better space.
 
-With some help by ChatGPT, I learned about another proof for
-Dirichlet's identity which turned out to be directly generalizable to
-another related tricky $$n$$-dimensional integral. Since it's somewhat
-fun, I'll write it down here.
+With some help by ChatGPT 5.5, I recently learned about a less common
+proof for Dirichlet's identity which turned out to be directly
+generalizable to another related tricky $$n$$-dimensional
+integral. Instead of an Abelian theorem, it uses Cauchy's integral
+theorem and an explicit calculation with [hyperbolic
+functions](https://en.wikipedia.org/wiki/Hyperbolic_functions). Since
+it's somewhat fun, I'll write it down here. This proof looks a bit
+lengthy, but like Wagner's music it's not as bad as it sounds:
+
 
 **Proof via Cauchy's integral theorem.&emsp;**
-Starting from
+Set $$I(L) := \int_0^L \frac{\sin x}{x}\d x$$.
+Since
 $$
  \frac{\sin y}{y}=\frac12\int_{-1}^{1}e^{ity}\,dt,
 $$
-set $$I(L) := \int_0^L \frac{\sin x}{x}\d x$$. Fubini and the
-substitution $$t = \tanh(s/2)$$ where $$\d t = w(s) \d s$$ for $$w(s) =
-\frac{1}{2}\sech^2(s/2)$$ gives
+Fubini and the substitution $$t = \tanh(s/2)$$ where $$\d t = w(s) \d
+s$$ for $$w(s) = \frac{1}{2}\sech^2(s/2)$$ give
 
 $$
 I(L) = \frac{1}{2}\int_\R w(s) D_L(\tanh\tfrac{s}{2}) \d s
@@ -311,35 +314,72 @@ with $$D_L(u) := \int_0^L e^{ixu}\dx =
 entire.
 
 Now, shift the domain of integration from $$\R$$ to $$\R + i\pi/2$$
-via Cauchy's integral theorem. On the strip $$0 \le \Im z \le
-\frac{\pi}{2}$$ all functions involved are holomorphic. Since
+via Cauchy's integral theorem. For $$R > 0$$ we will use expanding
+boxes $$[-R, R] + i[0, \frac{\pi}{2}]$$ on the complex plane. On the
+full strip $$0 \le \Im z \le \frac{\pi}{2}$$ all functions involved
+are holomorphic and therefore
+
+$$
+\int_{-R}^R w(s) D_L(\tanh\tfrac{s}{2}) \d s
++ \int_0^{\pi/2} w(R+i\beta) D_L(\tanh(\tfrac{R+i\beta}{2}) \d\beta
+=
+\int_{-R}^R w(s + i\tfrac{\pi}{2}) D_L(\tanh(\tfrac{s}{2} +
+i\tfrac{\pi}{4})) \d s
++ \int_0^{\pi/2} w(-R+i\beta) D_L(\tanh(\tfrac{-R+i\beta}{2}) \d\beta.
+$$
+
+Now, since
 
 $$
 \Im\tanh(\tfrac{s+i\beta}{2}) = \frac{\sin\beta}{\cosh s + \cos\beta}
 \ge 0,
 $$
 
-one has $$\abs{D_L(\tanh z)} \le L$$ on the strip. On the vertical
-sides of a box $$[-R, R] \times [0, \frac{\pi}{2}]$$, one has
+we have $$\abs{D_L(\tanh z)} \le L$$ anywhere on the strip. On the vertical
+sides of the box, one has
 
 $$
 \abs{w(\pm R + i\beta)} = \frac{1}{\cosh R + \cos\beta} \le
-\frac{1}{\cosh R} = \sech R \to 0 \where{R\to\infty}
+\frac{1}{\cosh R} = \sech R \to 0 \where{R\to\infty}.
 $$
 
-and therefore
+So the vertical parts of the contour vanish in the $$R\to\infty$$
+limit, and
 
 $$
-\frac{1}{2}\int_{-R}^R w(s) D_L(\tanh\tfrac{s}{2}) \d s
-=
-\frac{1}{2}\int_{-R}^R w(s + i\tfrac{\pi}{2}) D_L(\tanh(\tfrac{s}{2} +
-i\tfrac{\pi}{4})) \d s + o(1)  \where{R\to\infty}
+I(L) = \frac{1}{2}\int_\R w(s + i\tfrac{\pi}{2}) D_L(\tanh(\tfrac{s}{2} +
+i\tfrac{\pi}{4})) \d s.
 $$
 
-However, that doesn't always work -- I failed to do the same for the
-following problem:
+We have shifted the integration domain up by $$\pi/2$$ in the complex
+plane without changing the value of the integral. This had the effect
+of making the functions $$D_L$$ well-behaved:
+For $$\Im z > 0$$ we have both $$\abs{D_L(z)} \le \frac{2}{\abs{z}}$$
+and $$D_L(z) \to \frac{i}{z}$$ as $$L\to\infty$$. Additionally
 
-#### The Dirichlet integral and a generalization
+$$
+\frac{w(z)}{\tanh(z/2)} = \frac{1}{\sinh z}.
+$$
+
+Since $$\tanh(\tfrac{s}{2} + i\tfrac{\pi}{4}) =
+\frac{\sinh s + i}{\cosh s} = \tanh s + i \sech s$$ and $$\sech s >
+0$$, this bounds the integrand by
+
+$$
+\frac{2}{\abs{\sinh(s + i\pi/2)}} = \frac{2}{\cosh s}
+$$
+
+which is integrable, so the dominated convergence theorem gives
+
+$$
+\lim_{L\to\infty} I(L)
+= \frac{i}{2}\int_\R \frac{\d s}{\sinh(s + i\pi/2)}
+= \frac{i}{2}\int_\R\frac{\d s}{i\cosh s}
+= \frac{1}{2}\int_\R\sech s \,\d s
+= \frac{1}{2}\arctan(\sinh s) \Bigr\rvert_{s=-\infty}^\infty = \frac{\pi}{2}.
+$$
+
+## A generalization of the Dirichlet integral
 
 It turns out that in connection to the same quantum mechanical
 phenomenon that lead to the $$I_n$$ integral, the integral
@@ -349,14 +389,21 @@ S_n = \lim_{L\to\infty} \int_{(0, L)^n} \prod_{j=1}^n \frac{\sin(x_j +
 x_{j+1})}{x_j + x_{j+1}} \d x \where{n \in 2\N + 1}
 $$
 
-pops up. I attempted to solve this using Hankel operator
+pops up. After Martin Gebert showed me this, I attempted to apply Hankel operator
 diagonalizations from the literature. That seemed tempting because it
 turns out the operator with $$\sinc$$ kernel is understood in the
 literature -- it's been studied by Krein and others and while it's not
 well-behaved (in particular, it's not trace class), it is the
-_limit_ of well-behaved operators.
+_limit_ of well-behaved operators. The integral $$S_n$$ is the limit
+of a sequence of traces of operators.
 
-But ultimately I did not manage to make that approach work;
+Viewing it this way is the approach most LLMs go for when asked this
+question (e.g., Opus 4.8). Fable 5 eventually tried another approach,
+but it was also [complicated and
+incomplete](https://x.com/HeinrichKuttler/status/2064467693370273844?s=20).
+
+tbc...
+
 I did not understand regularized versions of it well enough.
 
 or $$n=3$$ one can prove that $$S_3 = \frac{\pi^3}{16}$$, see [this stackexchange

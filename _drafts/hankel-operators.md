@@ -136,7 +136,7 @@ It turns out that the operator $$T$$ has been studied by
 mathematicians. Rosenblum (1958) gave an
 explicit diagonalization of this operator $$T$$. Diagonalization is
 part of the spectral analysis of an operator, a powerful concept that
-allows us to finds the fundamental properties of the operator as a
+involves finding the fundamental properties of the operator as a
 mathematical object. Like its finite-dimensional analog matrix
 diagonalization, it allows us to compute "functions of the
 operator", including its powers $$T^n$$.
@@ -191,7 +191,7 @@ mathematicians lightly criticized our approach as "curious".
 But I had fun with my integral. Just not enough fun to stay in
 research mathematics.
 
-My co-author Martin Gebert pushed underlying Physics question much
+My co-author Martin Gebert pushed the underlying Physics question much
 further. Curiously, that yielded more interesting integrals, one of
 which I'll describe below.
 
@@ -259,7 +259,7 @@ Laplace
 transform](https://en.wikipedia.org/wiki/Final_value_theorem). It
 states that _if_ the limit $$\lim_{L\to\infty} \int_0^L \frac{\sin
 x}{x}\d x$$ exists, its value is the same as the limit of the
-regularization of its integrand via the Laplace transform
+regularization of its integrand via the Laplace transform[^3]
 
 $$
 \lim_{s \downarrow 0} \int_0^\infty e^{-st} \frac{\sin(t)}{t} \d t.
@@ -271,10 +271,16 @@ Laplace transform of $$\sin$$ itself). Its value turns out to be
 $$\frac{\pi}{2} - \arctan s$$ and the $$\arctan$$ term goes to zero as
 $$s\to 0$$.
 
-This is an "Abelian theorem" which requires the existence of the original
+This used an "Abelian theorem" which requires the existence of the original
 limit as one of its ingredients. In this case, the existence is
 provided by [Dirichlet's
 test](https://en.wikipedia.org/wiki/Dirichlet%27s_test).
+
+[^3]: The Laplace transform and Abelian and Tauberian theorems for it
+      is also at the basis of the proof of the [prime number
+      theorem](https://en.wikipedia.org/wiki/Prime_number_theorem)
+      which involves controlling certain expressions involving
+      Riemann's $$\zeta$$ function.
 
 It's also an example of a common pattern in mathematics (which also is
 the main approach in my PhD thesis): The quantity of interest is not
@@ -286,13 +292,13 @@ original. There is extra work involved in doing and undoing the
 regularization, but the benefit is that the main work can be done in a
 better space.
 
-With some help by ChatGPT 5.5, I recently learned about a less common
+With some help by ChatGPT, I recently learned about a less common
 proof for Dirichlet's identity which turned out to be directly
 generalizable to another related tricky $$n$$-dimensional
 integral. Instead of an Abelian theorem, it uses Cauchy's integral
 theorem and an explicit calculation with [hyperbolic
 functions](https://en.wikipedia.org/wiki/Hyperbolic_functions). Since
-it's somewhat fun, I'll write it down here. This proof looks a bit
+it's somewhat fun, I'll write it down here. This proof might look a bit
 lengthy, but like Wagner's music it's not as bad as it sounds:
 
 
@@ -306,10 +312,10 @@ Fubini and the substitution $$t = \tanh(s/2)$$ where $$\d t = w(s) \d
 s$$ for $$w(s) = \frac{1}{2}\sech^2(s/2)$$ give
 
 $$
-I(L) = \frac{1}{2}\int_\R w(s) D_L(\tanh\tfrac{s}{2}) \d s
+I(L) = \frac{1}{2}\int_\R w(s) D_L(\tanh\tfrac{s}{2}) \,\d s
 $$
 
-with $$D_L(u) := \int_0^L e^{ixu}\dx =
+with $$D_L(u) := \int_0^L e^{ixu}\,\dx =
 \frac{e^{iLu} - 1}{iu}$$ where $$D_L(0) := L$$ makes this function
 entire.
 
@@ -320,12 +326,12 @@ full strip $$0 \le \Im z \le \frac{\pi}{2}$$ all functions involved
 are holomorphic and therefore
 
 $$
-\int_{-R}^R w(s) D_L(\tanh\tfrac{s}{2}) \d s
-+ \int_0^{\pi/2} w(R+i\beta) D_L(\tanh(\tfrac{R+i\beta}{2}) \d\beta
+\int_{-R}^R w(s) D_L(\tanh\tfrac{s}{2}) \,\d s
++ \int_0^{\pi/2} w(R+i\beta) D_L(\tanh(\tfrac{R+i\beta}{2}) \,\d\beta
 =
 \int_{-R}^R w(s + i\tfrac{\pi}{2}) D_L(\tanh(\tfrac{s}{2} +
-i\tfrac{\pi}{4})) \d s
-+ \int_0^{\pi/2} w(-R+i\beta) D_L(\tanh(\tfrac{-R+i\beta}{2}) \d\beta.
+i\tfrac{\pi}{4})) \,\d s
++ \int_0^{\pi/2} w(-R+i\beta) D_L(\tanh(\tfrac{-R+i\beta}{2}) \,\d\beta.
 $$
 
 Now, since
@@ -348,7 +354,7 @@ limit, and
 
 $$
 I(L) = \frac{1}{2}\int_\R w(s + i\tfrac{\pi}{2}) D_L(\tanh(\tfrac{s}{2} +
-i\tfrac{\pi}{4})) \d s.
+i\tfrac{\pi}{4})) \,\d s.
 $$
 
 We have shifted the integration domain up by $$\pi/2$$ in the complex
@@ -386,48 +392,44 @@ phenomenon that lead to the $$I_n$$ integral, the integral
 
 $$
 S_n = \lim_{L\to\infty} \int_{(0, L)^n} \prod_{j=1}^n \frac{\sin(x_j +
-x_{j+1})}{x_j + x_{j+1}} \d x \where{n \in 2\N + 1}
+x_{j+1})}{x_j + x_{j+1}} \,\d x \where{n \in 2\N + 1}
 $$
 
-pops up. After Martin Gebert showed me this, I attempted to apply Hankel operator
-diagonalizations from the literature. That seemed tempting because it
-turns out the operator with $$\sinc$$ kernel is understood in the
-literature -- it's been studied by Krein and others and while it's not
-well-behaved (in particular, it's not trace class), it is the
-_limit_ of well-behaved operators. The integral $$S_n$$ is the limit
-of a sequence of traces of operators.
+pops up. Some time after Martin Gebert showed me this, I could show $$S_3 =
+\frac{\pi^3}{16}$$ using a Laplace transform in a somewhat [lengthy
+stackexchange
+answer](https://math.stackexchange.com/a/4661524/5051). But that method
+doesn't extend to general odd $$n$$. From numerics, the conjecture $$S_n =
+\frac{\pi^n}{2^{n+1}}$$ seemed likely.
 
-Viewing it this way is the approach most LLMs go for when asked this
+I attempted to apply Hankel operator diagonalizations from the
+literature. That seemed tempting because it worked for $$I_n$$ and the
+operator with $$\sinc$$ kernel is understood in the literature -- it's been
+studied by Krein and others and while it's not well-behaved (in
+particular, it's not trace class), it is the _limit_ of well-behaved
+operators. The integral $$S_n$$ is the limit of a sequence of traces
+of operators. The limit operator is closely related to the Rosenblum operator /
+Hilbert matrix from $$I_n$$.
+
+Viewing it as a trace is also the approach most LLMs go for when asked this
 question (e.g., Opus 4.8). Fable 5 eventually tried another approach,
 but it was also [complicated and
 incomplete](https://x.com/HeinrichKuttler/status/2064467693370273844?s=20).
 
-tbc...
+I tried operator theoretic approaches for a while and learned a good
+deal about Hankel operators and Hardy spaces. But I did not manage to
+make real headway with this. Since the limiting function isn't trace
+class, most usual tools don't apply and regularizations of the
+operator were too complicated for me to do enough analysis on.
 
-I did not understand regularized versions of it well enough.
+I will still describe some of the math I learned since I found it
+interesting.
 
-or $$n=3$$ one can prove that $$S_3 = \frac{\pi^3}{16}$$, see [this stackexchange
-question](https://math.stackexchange.com/q/2541613/5051).
-It seems plausibe the general odd case is $$S_n =
-\frac{\pi^n}{2^{n+1}}$$ but I know of no proof of that.
+### More Hankel matrices and operators
 
-In attempting to solve $$S_n$$ along the same ways as $$I_n$$, I found
-some interesting Hankel operator results in the literature. I didn't
-ultimately find a way to use these, but they are fun on their own
-right.[^2]
+Above, we learned that Rosenblum's operator relates to the Hilbert matrix:
 
-[^2]: Or perhaps they are not fun, but I wanted to write them down
-      somewhere regardless.
-
-## More Hankel matrices and operators
-
-Modifications of the Hilbert matrix yield other interesting operators,
-including the one involved in $$S_n$$:
-
-#### Hilbert matrix
-
-This one we saw above. With a $$\frac{1}{\pi}$$ normalization, this
-operator has spectrum $$[0, 1]$$.
+#### Hilbert matrix and Rosenblum's operator
 
 $$
 \frac{1}{\pi}\begin{pmatrix}
@@ -441,14 +443,15 @@ $$
 \frac{1}{\pi}\int_0^\infty \frac{e^{-(x+y)/2}}{x+y} f(y) \, \d y
 $$
 
+With a $$\frac{1}{\pi}$$ normalization, this operator has spectrum $$[0, 1]$$.
+
 #### Carleman operator
 
 If we take the Hilbert matrix but put zeros into every other
 anti-diagonal, it becomes unitarily equivalent to the *Carleman
 operator* $$\int_0^\infty \frac{f(y)}{x+y}dy$$. Power (1980) shows
 this via a chain of equivalences through the Hardy spaces
-$$H_2(\R)$$ and $$H_2(\C_{\Im>0})$$. Carleman (1923) original work
-showed its spectrum is $$[0, 1]$$.
+$$H_2(\R)$$ and $$H_2(\C_{\Im>0})$$:
 
 $$
 \frac{2}{\pi}
@@ -463,13 +466,14 @@ $$
 \frac{1}{\pi}\int_0^\infty \frac{1}{x+y} f(y) \, \d y
 $$
 
+Carleman's (1923) original work shows its spectrum is $$[0, 1]$$.
+
 #### Krein's example
 
-An even more interesting operator was studied in "On Krein's example"
-by Kostrykin and Makarov (2006) in connection with a perturbation
-problem. They show its spectrum is $$[-1, 1]$$.
-This sinc kernel $$\frac{\sin(x+y)}{x+y}$$ also shows up in
-random matrix theory and many other places.
+The operator involved in $$S_n$$ was studied by Krein and others. One
+interesting read is "On Krein's example" by Kostrykin and Makarov
+(2006), where they show that it's the Carleman operator with
+alternating signs for each anti-diagonal:
 
 $$
 \frac{2}{\pi}\begin{pmatrix}
@@ -484,34 +488,59 @@ $$
 \frac{2}{\pi}\int_0^\infty \frac{\sin(x+y)}{x+y} f(y) \, \d y
 $$
 
-This is precisely the operator involved in $$S_n$$. But Krein's matrix
-isn't trace-class, and I was unable to get a diagonalization for
-a regularized version of it. So ultimately I did not find a good way
-of using Krein's example for the $$S_n$$ integral above.
+The paper shows its spectrum is $$[-1, 1]$$. They study it in
+connection with a perturbation problem, but the sinc kernel
+$$\frac{\sin(x+y)}{x+y}$$ also shows up in random matrix theory and
+many other places.
 
-But I learned about the following:
+### Hilbert space equivalences
 
-## More Hilbert space equivalences
-
-One thing I learned is how exactly these Hilbert spaces relate to each
-other. Long story short, this diagram commutes:
+I found it interesting how the various Hilbert spaces involved relate
+to each other. The core idea is that via Fourier series, series in
+$$\ell_2(\Z)$$ or $$\ell_2(\N_0)$$ relate to period functions, which can
+be viewed as functions on the unit circle $$\T = \set{z\in\C\st
+\abs{z}=1}$$. These in turn can sometimes be extended to the full unit
+ball. The Moebius transform turns them into functions of the real line
+or upper half-plane and the Fourier transform turns maps them to where
+the integral operators live:
 
 <div class="centered">
   <img src="/img/hardy_commute.png" alt="Hardy spaces" />
 </div>
 
-This is the unitary equivalence that Power (1980) and others use. So
-one could attempt to start with a regularized version of $$S_n$$ in
-$$L_2(0, \infty)$$ and find what the equivalent matrix in
-$$\ell_2(\N_0)$$ is. But the calculations involved look hard and I
-didn't make too much progress.
+The relevant subspace of functions of the unit circle and unit ball
+are the [Hardy spaces](https://en.wikipedia.org/wiki/Hardy_space).[^4]
 
-However, I learned some interesting theory about Hardy spaces and the
-Payley-Wiener theorem in the process. And finally solved some
-integrals -- technically infinitely many, and therefore more than 500.
+[^4]: Incidentally, it's a more complicated version of Hardy spaces
+    that Louis de Branges tried to use in his claimed proof for famous
+    Riemann hypothesis. I found [this
+    writeup](https://eric.kvaalen.com/papers/DeBrangesMethod/)
+    somewhat interesting, and the [relevant section of
+    Wikipedia](https://en.wikipedia.org/wiki/Louis_de_Branges_de_Bourcia#Controversial_claims_of_solutions_to_unsolved_problems)
+    almost hilarious.
 
-And yet I still am not great at integration exercises.
+## The actual solution for $$\int_{(0, \infty)^n} \prod_{j=1}^n \frac{\sin(x_j + x_{j+1})}{x_j + x_{j+1}} \d x$$
 
+It's 2026 and LLMs are now truly useful for mathematics. The main
+bottleneck is that their proofs are still often wrong, too
+complicated, or incomplete. Carefully verifying their output is at
+this point still required and often tedious.
+
+However, I found that ChatGPT 5.5 Extended Pro was able to eventually
+give me something useful for the $$S_n$$ integral. Its first several
+approaches were both handwavy and complicated, but after I confronted
+it with its own shortcomings often enough it produced the outline of a
+correct and elementary proof. The same approach of moving the
+integration domain into the complex plane using Cauchy’s
+integral theorem that shows the Dirichlet integral identity above
+turns out to work for $$S_n$$. (In fact, I wrote the Dirichlet
+integral solution after that approach solved $$S_n$$.) The conjecture $$S_n =
+\frac{\pi^n}{2^{n+1}}$$ is correct. For the
+details, see [this stackexchange
+answer](https://math.stackexchange.com/a/5140024/5051).
+
+Given that $$I_n$$ and $$S_n$$ are really a countably infinite number
+of integrals, I believe I finally did enough integrals now.
 
 ## Bibliography
 

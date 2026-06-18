@@ -1,4 +1,13 @@
-# Some specific integrals
+---
+layout: post
+title:  "Some specific integrals"
+---
+
+{::options parse_block_html="true" /}
+
+<div class="right">
+<cite>&ldquo;Aber dann k&ouml;nnen sie's!&rdquo;</cite> <br>
+</div>
 
 Two decades ago I was a math undergrad in Dresden, Germany.
 
@@ -69,7 +78,7 @@ $$u\in\R^n$$ with positive entries $$u_j > 0$$.
 For small $$n$$, I could solve this: $$I_2 = 1$$, $$I_3 =
 \frac{\pi^2}{4}$$, and $$I_4 = \frac{2\pi^2}{3}$$. I could also do
 numerics and find that $$I_5 \approx 18.2642 \approx \frac{3\pi^4}{16}$$ and
-$$I_6 \approx 51.9325\approx\frac{8\pi^4}{15}$$. But the iterated
+$$I_6 \approx 51.9525\approx\frac{8\pi^4}{15}$$. But the iterated
 integrals turned complicated very quickly. For $$n=6$$ the conjecture
 $$I_6 = \frac{8\pi^4}{15}$$ is equivalent to
 
@@ -191,7 +200,7 @@ mathematicians lightly criticized our approach as "curious".
 But I had fun with my integral. Just not enough fun to stay in
 research mathematics.
 
-My co-author Martin Gebert pushed the underlying Physics question much
+My co-author Martin Gebert pushed the underlying physics question much
 further. Curiously, that yielded more interesting integrals, one of
 which I'll describe below.
 
@@ -212,7 +221,7 @@ $$
 
 is known as the *Hilbert matrix*. Its entries at position $$j, k$$ are
 $$\frac{1}{j + k - 1}$$. In numerical analysis, it
-usually serves as cautionary tale about ill-conditioned systems.
+usually serves as a cautionary tale about ill-conditioned systems.
 
 Since the entries depend only on $$j+k$$, they are constant along the
 anti-diagonals. Matrices with this property are called *Hankel
@@ -236,7 +245,7 @@ objects.
 The improper integral
 
 $$
-\int_0^\infty \frac{\sin x}{x} \d x = \frac{\pi}{2}.
+\int_0^\infty \frac{\sin x}{x} \d x = \frac{\pi}{2}
 $$
 
 is a well-known classical result known as the [Dirichlet
@@ -277,16 +286,16 @@ provided by [Dirichlet's
 test](https://en.wikipedia.org/wiki/Dirichlet%27s_test).
 
 [^3]: The Laplace transform and Abelian and Tauberian theorems for it
-      is also at the basis of the proof of the [prime number
+      are also at the basis of the proof of the [prime number
       theorem](https://en.wikipedia.org/wiki/Prime_number_theorem)
       which involves controlling certain expressions involving
       Riemann's $$\zeta$$ function.
 
-It's also an example of a common pattern in mathematics (which also is
+It's also an example of a common pattern in mathematics (which is also
 the main approach in my PhD thesis): The quantity of interest is not
 quite well behaved, but it's the limit of well-behaved expressions. So
 one does a "regularization" (in this case the Laplace transform) which
-turns it into a well-behaved expressions, does the required
+turns it into a well-behaved expression, does the required
 calculations there, then goes back to something like the
 original. There is extra work involved in doing and undoing the
 regularization, but the benefit is that the main work can be done in a
@@ -388,19 +397,19 @@ $$
 ## A generalization of the Dirichlet integral
 
 It turns out that in connection to the same quantum mechanical
-phenomenon that led to the $$I_n$$ integral, the integral
+phenomenon that led to the $$I_n$$ integral, the cyclic integral
 
 $$
 S_n = \lim_{L\to\infty} \int_{(0, L)^n} \prod_{j=1}^n \frac{\sin(x_j +
 x_{j+1})}{x_j + x_{j+1}} \,\d x \where{n \in 2\N + 1}
 $$
 
-pops up. Some time after Martin Gebert showed me this, I could show $$S_3 =
-\frac{\pi^3}{16}$$ using a Laplace transform in a somewhat [lengthy
-stackexchange
-answer](https://math.stackexchange.com/a/4661524/5051). But that method
-doesn't extend to general odd $$n$$. From numerics, the conjecture $$S_n =
-\frac{\pi^n}{2^{n+1}}$$ seemed likely.
+pops up, with $$x_{n+1} := x_1$$. Some time after Martin Gebert showed
+me this, I could show $$S_3 = \frac{\pi^3}{16}$$ using a Laplace
+transform in a somewhat [lengthy Stack Exchange
+answer](https://math.stackexchange.com/a/4661524/5051). But that
+method doesn't extend to general odd $$n$$. From numerics, the
+conjecture $$S_n = \frac{\pi^n}{2^{n+1}}$$ seemed likely.
 
 I attempted to apply Hankel operator diagonalizations from the
 literature. That seemed tempting because it worked for $$I_n$$ and the
@@ -499,7 +508,7 @@ many other places.
 
 I found it interesting how the various Hilbert spaces involved relate
 to each other. The core idea is that via Fourier series, series in
-$$\ell_2(\Z)$$ or $$\ell_2(\N_0)$$ relate to period functions, which can
+$$\ell_2(\Z)$$ or $$\ell_2(\N_0)$$ relate to periodic functions, which can
 be viewed as functions on the unit circle $$\T = \set{z\in\C\st
 \abs{z}=1}$$. These in turn can sometimes be extended to the full unit
 ball. The Moebius transform turns them into functions of the real line
@@ -510,11 +519,11 @@ the integral operators live:
   <img src="/img/hardy_commute.png" alt="Hardy spaces" />
 </div>
 
-The relevant subspace of functions of the unit circle and unit ball
+The relevant subspaces of functions of the unit circle and unit ball
 are the [Hardy spaces](https://en.wikipedia.org/wiki/Hardy_space).[^4]
 
 [^4]: Incidentally, it's a more complicated version of Hardy spaces
-    that Louis de Branges tried to use in his claimed proof for famous
+    that Louis de Branges tried to use in his claimed proof for the famous
     Riemann hypothesis. I found [this
     writeup](https://eric.kvaalen.com/papers/DeBrangesMethod/)
     somewhat interesting, and the [relevant section of
@@ -528,7 +537,7 @@ bottleneck is that their proofs are still often wrong, too
 complicated, or incomplete. Carefully verifying their output is at
 this point still required and often tedious.
 
-However, I found that ChatGPT 5.5 Extended Pro was able to eventually
+However, I found that ChatGPT 5.5 Extended Pro was eventually able to
 give me something useful for the $$S_n$$ integral. Its first several
 approaches were both handwavy and complicated, but after I confronted
 it with its own shortcomings often enough it produced the outline of a
@@ -538,7 +547,7 @@ integral theorem that shows the Dirichlet integral identity above
 turns out to work for $$S_n$$. (In fact, I wrote the Dirichlet
 integral solution after that approach solved $$S_n$$.) The conjecture $$S_n =
 \frac{\pi^n}{2^{n+1}}$$ is correct. For the
-details, see [this stackexchange
+details, see [this Stack Exchange
 answer](https://math.stackexchange.com/a/5140024/5051).
 
 Given that $$I_n$$ and $$S_n$$ are really a countably infinite number

@@ -58,7 +58,7 @@ Feynman](https://en.wikipedia.org/wiki/Feynman_parametrization)
 to each term of a certain series I was left with,
 ironically, an _explicit integral that required solving!_
 
-[^1]: If you need to know, **Anderson's orthogonality catastrophe** —
+[^1]: If you need to know, *Anderson's orthogonality catastrophe* —
     a phenomenon where the ground states of a Fermi
     gas before and after a tiny perturbation become *orthogonal* to
     each other as the system grows large. The overlap between them
@@ -404,7 +404,7 @@ S_n = \lim_{L\to\infty} \int_{(0, L)^n} \prod_{j=1}^n \frac{\sin(x_j +
 x_{j+1})}{x_j + x_{j+1}} \,\d x \where{n \in 2\N + 1}
 $$
 
-pops up, with $$x_{n+1} := x_1$$. Some time after Martin Gebert showed
+pops up, where $$x_{n+1} := x_1$$. Some time after Martin Gebert showed
 me this, I could show $$S_3 = \frac{\pi^3}{16}$$ using a Laplace
 transform in a somewhat [lengthy Stack Exchange
 answer](https://math.stackexchange.com/a/4661524/5051). But that
@@ -434,7 +434,9 @@ class, most usual tools don't apply and regularizations of the
 operator were too complicated for me to do enough analysis on.
 
 I will still describe some of the math I learned since I found it
-interesting.
+interesting and to shows why Hankel operators looked tempting for this
+problem. The actual solution for $$S_n$$ (in the final section below)
+turned out to be more elementary.
 
 ### More Hankel matrices and operators
 
@@ -541,11 +543,16 @@ However, I found that ChatGPT 5.5 Extended Pro was eventually able to
 give me something useful for the $$S_n$$ integral. Its first several
 approaches were both handwavy and complicated, but after I confronted
 it with its own shortcomings often enough it produced the outline of a
-correct and elementary proof. The same approach of moving the
-integration domain into the complex plane using Cauchy’s
+correct and elementary proof.
+
+The same approach of moving the integration domain into the complex plane using Cauchy’s
 integral theorem that shows the Dirichlet integral identity above
 turns out to work for $$S_n$$. (In fact, I wrote the Dirichlet
-integral solution after that approach solved $$S_n$$.) The conjecture $$S_n =
+integral solution after that approach solved $$S_n$$.) Using
+$$\frac{\sin y}{y}=\frac12\int_{-1}^{1}e^{ity}\,dt$$ and the
+substitution $$t = \tanh(s/2)$$ one can shift the contour up by
+$$\pi/2$$. For odd $$n$$, the $$L\to\infty$$ limit then turns into a
+product of $$\sech$$ integrals. The conjecture $$S_n =
 \frac{\pi^n}{2^{n+1}}$$ is correct. For the
 details, see [this Stack Exchange
 answer](https://math.stackexchange.com/a/5140024/5051).

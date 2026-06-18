@@ -286,7 +286,7 @@ provided by [Dirichlet's
 test](https://en.wikipedia.org/wiki/Dirichlet%27s_test).
 
 [^3]: The Laplace transform and Abelian and Tauberian theorems for it
-      are also at the basis of the proof of the [prime number
+      also underlie the proof of the [prime number
       theorem](https://en.wikipedia.org/wiki/Prime_number_theorem)
       which involves controlling certain expressions involving
       Riemann's $$\zeta$$ function.
@@ -434,7 +434,7 @@ class, most usual tools don't apply and regularizations of the
 operator were too complicated for me to do enough analysis on.
 
 I will still describe some of the math I learned since I found it
-interesting and to shows why Hankel operators looked tempting for this
+interesting and to show why Hankel operators looked tempting for this
 problem. The actual solution for $$S_n$$ (in the final section below)
 turned out to be more elementary.
 

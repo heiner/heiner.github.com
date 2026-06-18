@@ -76,11 +76,11 @@ where $$(0,\infty)^n$$ is the set of $$n$$-dimensional vectors
 $$u\in\R^n$$ with positive entries $$u_j > 0$$.
 
 For small $$n$$, I could solve this: $$I_2 = 1$$, $$I_3 =
-\frac{\pi^2}{4}$$, and $$I_4 = \frac{2\pi^2}{3}$$. I could also do
-numerics and find that $$I_5 \approx 18.2642 \approx \frac{3\pi^4}{16}$$ and
-$$I_6 \approx 51.9525\approx\frac{8\pi^4}{15}$$. But the iterated
-integrals turned complicated very quickly. For $$n=6$$ the conjecture
-$$I_6 = \frac{8\pi^4}{15}$$ is equivalent to
+\frac{\pi^2}{6}$$, and $$I_4 = \frac{\pi^2}{3}$$. I could also do
+numerics and find that $$I_5 \approx 7.3057 \approx \frac{3\pi^4}{40}$$ and
+$$I_6 \approx 17.3172\approx\frac{8\pi^4}{45}$$. But the iterated
+integrals turned complicated very quickly. Already for $$n=6$$, the
+calculation led to non-obvious dilogarithm identities such as
 
 $$\int_0^1 \Bigl(\mathrm{Li}_2(\frac{x-1}{x})\Bigr)^2 \dx =
 \frac{17}{180}\pi^4$$
@@ -93,7 +93,7 @@ the value for $$n=6$$.
 #### Faith in math
 
 The numerical results gave me a conjecture. It looked like
-$$I_{2n+2} = (2\pi)^{2n} \frac{(n!)^2}{(2n+1)!}$$ might be correct.
+$$I_{2n+2} = 2(2\pi)^{2n} \frac{(n!)^2}{(2n+2)!}$$ might be correct.
 
 When I plugged this result into my series expansion, the right power
 series coefficients (the one for $$\arcsin^2$$)
@@ -183,11 +183,11 @@ The function $$\hat{\varphi}$$ and the remaining one-dimensional
 integral can be computed, and the result is
 
 $$
-I_n = (2\pi)^{n-2}
+I_n = \frac{2}{n}(2\pi)^{n-2}
 \frac{\bigl(\Gamma(\frac{n}{2})\bigr)^2}{\Gamma(n)},
 $$
 
-in particular $$I_{2n+2} = (2\pi)^{2n} \frac{(n!)^2}{(2n+1)!}$$, my
+in particular $$I_{2n+2} = 2(2\pi)^{2n} \frac{(n!)^2}{(2n+2)!}$$, my
 conjecture! My faith wasn't misplaced; by faith we understand the
 universe.
 

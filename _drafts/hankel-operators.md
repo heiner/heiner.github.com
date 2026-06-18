@@ -13,7 +13,7 @@ East Germany had to do a preparatory course where they "had to solve 50
 integrals".
 
 "50 integrals is a lot", he said, "but when we
-complained we were told students in the Sovient Union have to solve 500. But
+complained we were told students in the Soviet Union have to solve 500. But
 afterwards they know how to solve integrals!"
 
 The grace of my relatively late birth spared me having to do anywhere
@@ -43,7 +43,7 @@ got my diploma and moved on.
 ## Explicit but tricky
 
 Moved on to doing a PhD in Mathematical Physics, that is. The quantum
-mechancial problem discussed in my thesis ultimately doesn't
+mechanical problem discussed in my thesis ultimately doesn't
 matter[^1] but it turned out that after applying a [trick by
 Feynman](https://en.wikipedia.org/wiki/Feynman_parametrization)
 to each term of a certain series I was left with,
@@ -58,13 +58,13 @@ ironically, an _explicit integral that required solving!_
     But you don't actually need to know any of that.
 
 Specifically, the $$n$$th term for $$n \ge 2$$ produced the
-$$n$$-dimensional cyclic integral
+$$n$$-dimensional integral
 
 $$I_n := \int_{(0,\infty)^n} \frac{e^{-\sum_{j=1}^n u_j}} {\prod_{j=1}^{n-1} (u_j +
 u_{j+1})}\d u$$
 
 where $$(0,\infty)^n$$ is the set of $$n$$-dimensional vectors
-$$u\in\R^n$$ with positive entries $$u_j > 0$$, and $$u_{n+1} := u_1$$.
+$$u\in\R^n$$ with positive entries $$u_j > 0$$.
 
 For small $$n$$, I could solve this: $$I_2 = 1$$, $$I_3 =
 \frac{\pi^2}{4}$$, and $$I_4 = \frac{2\pi^2}{3}$$. I could also do
@@ -99,7 +99,7 @@ but without receiving a super satisfactory result. However, after I massaged
 the integral a bit my collaborator Peter Otte found a solution using
 insights from operator theory, in particular Hankel operators.
 
-The integral for all $$n$$ turned out to be a implied by results
+The integral for all $$n$$ turned out to be implied by results
 from the 1950s and earlier. To describe these, I have to go on a
 slight tangent.
 
@@ -159,7 +159,7 @@ functions](https://dlmf.nist.gov/13.14)). If you must know the details
 you can check out chapter 8 of [my thesis](https://edoc.ub.uni-muenchen.de/17442/).
 
 Using these results, my integral expression can be turned into
-something much more managable, because with $$\hat{\varphi} :=
+something much more manageable, because with $$\hat{\varphi} :=
 U\varphi$$ one has
 
 $$
@@ -184,7 +184,7 @@ universe.
 
 ## More?
 
-These kind of explicit integral expressions are somewhat unusual in
+These kinds of explicit integral expressions are somewhat unusual in
 research mathematics. In fact, some follow-up work by other
 mathematicians lightly criticized our approach as "curious".
 
@@ -228,7 +228,7 @@ correspondence to the Hilbert matrix work is given by the weighted [Laguerre
 polynomials](https://en.wikipedia.org/wiki/Laguerre_polynomials)
 $$\phi_n(x) = e^{-x/2}L_n(x)$$.
 
-Lots of beatiful mathematics and hidden connections lurk behind these
+Lots of beautiful mathematics and hidden connections lurk behind these
 objects.
 
 ## The Dirichlet integral
@@ -327,11 +327,11 @@ are holomorphic and therefore
 
 $$
 \int_{-R}^R w(s) D_L(\tanh\tfrac{s}{2}) \,\d s
-+ \int_0^{\pi/2} w(R+i\beta) D_L(\tanh(\tfrac{R+i\beta}{2}) \,\d\beta
++ \int_0^{\pi/2} w(R+i\beta) D_L(\tanh(\tfrac{R+i\beta}{2})) \,\d\beta
 =
 \int_{-R}^R w(s + i\tfrac{\pi}{2}) D_L(\tanh(\tfrac{s}{2} +
 i\tfrac{\pi}{4})) \,\d s
-+ \int_0^{\pi/2} w(-R+i\beta) D_L(\tanh(\tfrac{-R+i\beta}{2}) \,\d\beta.
++ \int_0^{\pi/2} w(-R+i\beta) D_L(\tanh(\tfrac{-R+i\beta}{2})) \,\d\beta.
 $$
 
 Now, since
@@ -388,7 +388,7 @@ $$
 ## A generalization of the Dirichlet integral
 
 It turns out that in connection to the same quantum mechanical
-phenomenon that lead to the $$I_n$$ integral, the integral
+phenomenon that led to the $$I_n$$ integral, the integral
 
 $$
 S_n = \lim_{L\to\infty} \int_{(0, L)^n} \prod_{j=1}^n \frac{\sin(x_j +
@@ -412,9 +412,11 @@ of operators. The limit operator is closely related to the Rosenblum operator /
 Hilbert matrix from $$I_n$$.
 
 Viewing it as a trace is also the approach most LLMs go for when asked this
-question (e.g., Opus 4.8). Fable 5 eventually tried another approach,
-but it was also [complicated and
-incomplete](https://x.com/HeinrichKuttler/status/2064467693370273844?s=20).
+question.[^llms]
+
+[^llms]: E.g., Opus 4.8 approaches this as traces of operators. Fable
+         5 eventually tried another approach, but it was also [complicated and
+         incomplete](https://x.com/HeinrichKuttler/status/2064467693370273844?s=20).
 
 I tried operator theoretic approaches for a while and learned a good
 deal about Hankel operators and Hardy spaces. But I did not manage to
@@ -501,7 +503,7 @@ $$\ell_2(\Z)$$ or $$\ell_2(\N_0)$$ relate to period functions, which can
 be viewed as functions on the unit circle $$\T = \set{z\in\C\st
 \abs{z}=1}$$. These in turn can sometimes be extended to the full unit
 ball. The Moebius transform turns them into functions of the real line
-or upper half-plane and the Fourier transform turns maps them to where
+or upper half-plane and the Fourier transform maps them to where
 the integral operators live:
 
 <div class="centered">

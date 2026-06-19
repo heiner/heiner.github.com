@@ -301,11 +301,6 @@ original. There is extra work involved in doing and undoing the
 regularization, but the benefit is that the main work can be done in a
 better space.
 
-{% comment %}
-Solution found by ChatGPT 5.5 Pro:
-https://chatgpt.com/s/t_6a348fa181288191bed6e20e2535f427
-{% endcomment %}
-
 With some help by ChatGPT, I recently learned about a less common
 proof for Dirichlet's identity which turned out to be directly
 generalizable to another related tricky $$n$$-dimensional
@@ -549,6 +544,11 @@ give me something useful for the $$S_n$$ integral. Its first several
 approaches were both handwavy and complicated, but after I confronted
 it with its own shortcomings often enough it produced the outline of a
 correct and elementary proof.
+
+{% comment %}
+Solution found by ChatGPT 5.5 Pro:
+https://chatgpt.com/s/t_6a348fa181288191bed6e20e2535f427
+{% endcomment %}
 
 The same approach of moving the integration domain into the complex plane using Cauchy’s
 integral theorem that shows the Dirichlet integral identity above

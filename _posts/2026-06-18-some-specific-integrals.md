@@ -566,7 +566,11 @@ by $$\pi/2$$. For odd $$n$$, the $$L\to\infty$$ limit then turns into
 a product of $$\sech$$ integrals. The conjecture $$S_n =
 \frac{\pi^n}{2^{n+1}}$$ is correct. For the
 details, see [this Stack Exchange
-answer](https://math.stackexchange.com/a/5140024/5051).
+answer](https://math.stackexchange.com/a/5140024/5051).[^InGPT]
+
+[^InGPT]: In fact, ChatGPT also can do the original integral $$I_n$$
+    in a more elementary way [when
+    asked](https://chatgpt.com/s/t_6a34d486c88c8191a502919a68438854).
 
 Given that $$I_n$$ and $$S_n$$ are really a countably infinite number
 of integrals, I believe I finally did enough integrals now.

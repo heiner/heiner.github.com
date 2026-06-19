@@ -15,14 +15,13 @@ At some point in the _Analysis I_ course they taught us about
 solving integrals with the usual tricks: Integration by parts, substitution,
 partial fractions. Unlike physics or some engineering undergrads, math
 students would only see one or two examples and move on. I still
-remember my
-undergrad instructor Gerd Kayser mentioning how this wasn't proper
-training and how when he was a student, math undergrads in socialist
-East Germany had to do a preparatory course where they "had to solve 50
-integrals".
+remember my undergrad instructor Gerd Kayser telling us how this
+wasn't proper training and how when he was a student, math undergrads
+in socialist East Germany had to do a preparatory course where they
+"had to solve 50 integrals".
 
-"50 integrals is a lot", he said, "but when we
-complained we were told students in the Soviet Union have to solve 500. But
+"50 integrals is a lot", he said, "but we were told we shouldn't
+complain since students in the Soviet Union have to solve 500. But
 afterwards they know how to solve integrals!"
 
 The grace of my relatively late birth spared me having to do anywhere
@@ -80,10 +79,13 @@ For small $$n$$, I could solve this: $$I_2 = 1$$, $$I_3 =
 numerics and find that $$I_5 \approx 7.3057 \approx \frac{3\pi^4}{40}$$ and
 $$I_6 \approx 17.3172\approx\frac{8\pi^4}{45}$$. But the iterated
 integrals turned complicated very quickly. Already for $$n=6$$, the
-calculation led to non-obvious dilogarithm identities such as
+identity $$I_6 = \frac{8\pi^4}{45}$$ turns out to be equivalent to the
+non-obvious dilogarithm integral
 
-$$\int_0^1 \Bigl(\mathrm{Li}_2(\frac{x-1}{x})\Bigr)^2 \dx =
-\frac{17}{180}\pi^4$$
+$$
+\int_0^1 \Bigl(\mathrm{Li}_2(\frac{x-1}{x})\Bigr)^2 \dx =
+\frac{17}{180}\pi^4
+$$
 
 for the [dilogarithm](https://en.wikipedia.org/wiki/Dilogarithm)
 $$\mathrm{Li}_2$$. This is not exactly an obvious formula, although it
@@ -143,12 +145,12 @@ $$L_2(0, \infty)$$ and $$\varphi(x) := e^{-x/2}$$.
 
 It turns out that the operator $$T$$ has been studied by
 mathematicians. Rosenblum (1958) gave an
-explicit diagonalization of this operator $$T$$. Diagonalization is
+explicit diagonalization of this operator. Diagonalization is
 part of the spectral analysis of an operator, a powerful concept that
 involves finding the fundamental properties of the operator as a
-mathematical object. Like its finite-dimensional analog matrix
-diagonalization, it allows us to compute "functions of the
-operator", including its powers $$T^n$$.
+mathematical object (finding out all its secrets, as it were). Like
+its finite-dimensional analog matrix diagonalization, it allows us to
+compute "functions of the operator", including its powers&nbsp;$$T^n$$.
 
 The diagonalization of $$T$$ due to Rosenblum can be written as
 \begin{equation} \label{eq:Hilbert-matrix-unitary-relation}
@@ -206,7 +208,7 @@ which I'll describe below.
 
 #### The Hilbert Matrix
 
-As an aside, the Rosenblum operator $$T$$ turns out to exist in
+As an aside, the Rosenblum operator $$T$$ turns out to show up in
 other disguises. For instance, the "infinite matrix"
 
 $$H =
@@ -230,12 +232,13 @@ will see others.
 
 On the space $$\ell_2(\N)$$ of square-summable sequences, it turns out
 this matrix is *unitarily equivalent* (aka essentially the same under
-a Hilbert space isomorphism) to Rosenblum's integral operator $$T$$.
+a Hilbert space isomorphism) to Rosenblum's integral operator $$T$$.[^laguerre]
 
-The orthonormal basis of $$L_2(0,\infty)$$ that makes this
-correspondence to the Hilbert matrix work is given by the weighted [Laguerre
-polynomials](https://en.wikipedia.org/wiki/Laguerre_polynomials)
-$$\phi_n(x) = e^{-x/2}L_n(x)$$.
+[^laguerre]: The orthonormal basis of $$L_2(0,\infty)$$ that makes this
+             correspondence to the Hilbert matrix work is given by the
+             weighted [Laguerre
+             polynomials](https://en.wikipedia.org/wiki/Laguerre_polynomials)
+             $$\phi_n(x) = e^{-x/2}L_n(x)$$.
 
 Lots of beautiful mathematics and hidden connections lurk behind these
 objects.
@@ -282,7 +285,7 @@ $$s\to 0$$.
 
 This used an "Abelian theorem" which requires the existence of the original
 limit as one of its ingredients. In this case, the existence is
-provided by [Dirichlet's
+provided by, appropriately enough, [Dirichlet's
 test](https://en.wikipedia.org/wiki/Dirichlet%27s_test).
 
 [^3]: The Laplace transform and Abelian and Tauberian theorems for it
@@ -321,7 +324,10 @@ Fubini and the substitution $$t = \tanh(s/2)$$ where $$\d t = w(s) \d
 s$$ for $$w(s) = \frac{1}{2}\sech^2(s/2)$$ give
 
 $$
-I(L) = \frac{1}{2}\int_\R w(s) D_L(\tanh\tfrac{s}{2}) \,\d s
+I(L)
+= \frac{1}{2}\int_{-1}^1 \int_0^L e^{ixt}\,\d x \,\d t
+= \frac{1}{2}\int_{-1}^1 D_L(t)\,\d t
+= \frac{1}{2}\int_\R w(s) D_L(\tanh\tfrac{s}{2}) \,\d s
 $$
 
 with $$D_L(u) := \int_0^L e^{ixu}\,\dx =
@@ -415,10 +421,10 @@ I attempted to apply Hankel operator diagonalizations from the
 literature. That seemed tempting because it worked for $$I_n$$ and the
 operator with $$\sinc$$ kernel is understood in the literature -- it's been
 studied by Krein and others and while it's not well-behaved (in
-particular, it's not trace class), it is the _limit_ of well-behaved
-operators. The integral $$S_n$$ is the limit of a sequence of traces
-of operators. The limit operator is closely related to the Rosenblum operator /
-Hilbert matrix from $$I_n$$.
+particular, it's not trace class, or even compact), it is the _limit_
+of well-behaved operators. The integral $$S_n$$ is the limit of a
+sequence of traces of operators. The limit operator is closely related
+to the Rosenblum operator / Hilbert matrix from $$I_n$$.
 
 Viewing it as a trace is also the approach most LLMs go for when asked this
 question.[^llms]
@@ -429,7 +435,7 @@ question.[^llms]
 
 I tried operator theoretic approaches for a while and learned a good
 deal about Hankel operators and Hardy spaces. But I did not manage to
-make real headway with this. Since the limiting function isn't trace
+make real headway with this. Since the limit isn't trace
 class, most usual tools don't apply and regularizations of the
 operator were too complicated for me to do enough analysis on.
 
@@ -550,14 +556,14 @@ Solution found by ChatGPT 5.5 Pro:
 https://chatgpt.com/s/t_6a348fa181288191bed6e20e2535f427
 {% endcomment %}
 
-The same approach of moving the integration domain into the complex plane using Cauchy’s
-integral theorem that shows the Dirichlet integral identity above
-turns out to work for $$S_n$$. (In fact, I wrote the Dirichlet
-integral solution after that approach solved $$S_n$$.) Using
-$$\frac{\sin y}{y}=\frac12\int_{-1}^{1}e^{ity}\,dt$$ and the
-substitution $$t = \tanh(s/2)$$ one can shift the contour up by
-$$\pi/2$$. For odd $$n$$, the $$L\to\infty$$ limit then turns into a
-product of $$\sech$$ integrals. The conjecture $$S_n =
+The same approach of moving the integration domain into the complex
+plane using Cauchy’s integral theorem that shows the Dirichlet
+integral identity above turns out to work for $$S_n$$. (In fact, I
+wrote the Dirichlet integral solution after that approach solved
+$$S_n$$.) Using $$\frac{\sin y}{y}=\frac12\int_{-1}^{1}e^{ity}\,dt$$
+and the substitution $$t = \tanh(s/2)$$ one can shift the contour up
+by $$\pi/2$$. For odd $$n$$, the $$L\to\infty$$ limit then turns into
+a product of $$\sech$$ integrals. The conjecture $$S_n =
 \frac{\pi^n}{2^{n+1}}$$ is correct. For the
 details, see [this Stack Exchange
 answer](https://math.stackexchange.com/a/5140024/5051).

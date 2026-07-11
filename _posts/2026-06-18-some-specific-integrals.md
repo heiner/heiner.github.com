@@ -318,7 +318,7 @@ lengthy, but like Wagner's music it's not as bad as it sounds:
 Set $$I(L) := \int_0^L \frac{\sin x}{x}\d x$$.
 Since
 $$
- \frac{\sin y}{y}=\frac12\int_{-1}^{1}e^{ity}\,dt,
+ \frac{\sin x}{x}=\frac12\int_{-1}^{1}e^{ixt}\,dt,
 $$
 Fubini and the substitution $$t = \tanh(s/2)$$ where $$\d t = w(s) \d
 s$$ for $$w(s) = \frac{1}{2}\sech^2(s/2)$$ give
@@ -330,7 +330,7 @@ I(L)
 = \frac{1}{2}\int_\R w(s) D_L(\tanh\tfrac{s}{2}) \,\d s
 $$
 
-with $$D_L(t) := \int_0^L e^{ixt}\,\dx =
+with $$D_L(t) := \int_0^L e^{ixt}\dx =
 \frac{e^{iLt} - 1}{it}$$ where $$D_L(0) := L$$ makes this function
 entire.
 

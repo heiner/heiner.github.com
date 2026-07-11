@@ -330,8 +330,8 @@ I(L)
 = \frac{1}{2}\int_\R w(s) D_L(\tanh\tfrac{s}{2}) \,\d s
 $$
 
-with $$D_L(u) := \int_0^L e^{ixu}\,\dx =
-\frac{e^{iLu} - 1}{iu}$$ where $$D_L(0) := L$$ makes this function
+with $$D_L(t) := \int_0^L e^{ixt}\,\dx =
+\frac{e^{iLt} - 1}{it}$$ where $$D_L(0) := L$$ makes this function
 entire.
 
 Now, shift the domain of integration from $$\R$$ to $$\R + i\pi/2$$

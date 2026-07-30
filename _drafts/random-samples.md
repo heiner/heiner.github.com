@@ -3,6 +3,9 @@ layout: post
 title:  "Leetcode-style interviews and my favorite question"
 ---
 
+* Table of contents
+{:toc}
+
 I'm going to describe my favorite interview question. I used it
 probably hundreds of times when interviewing for xAI and other places,
 to the extend that it's slightly worn out.
@@ -258,7 +261,8 @@ def shuffle(L):
 The logic of this algorithm (known as Fisher-Yates in the literature)
 is to keep a range of not-yet-chosen elements that is initially the
 full array and then shrinks from the left by one element each
-iteration.
+iteration. (Since the last random "choice" is chosing from the
+one-element `range(1)`, the loop could actually use `range(len(L) - 1)`.)
 
 This has the nice property that each to-be-filled slot is chosen,
 once, and then the algorithm sticks to its choice.
@@ -691,3 +695,190 @@ Li, see [Reservoir-sampling algorithms of time complexity $$O(n(1 +
 
 Other versions exists, including for sampling from non-uniform
 distributions. Your favorite LLM will happily explain all about them.
+
+## Online shuffling
+
+There is a related idea that is underappreciated.
+
+Let's say we have a large dataset (e.g., a table in SQL)
+which comes in the form
+
+```
+row |
+-------------
+  0 |  entry0
+  1 |  entry1
+  . | .
+  . | .
+  . | .
+  N |  entryN
+```
+
+We now want to do "online shuffling", i.e., go through the dataset in
+a random order, visiting each sample exactly once. We want to do that
+while being preemptible -- our algorithm can be stopped and later
+restarted from a checkpoint.
+
+Let's further say the number of samples $$N$$ is large enough such
+that even an array like `np.arange(N)` does not fit into the memory of
+a single machine (this will be true around hundred billion entries or
+so).
+
+What we are asking for is equivalent to selecting one of the $$N!$$
+many permutations of $$N$$ items, then doing lookups of the form
+
+```python
+for i in range(N):
+    sample = samples[p(i)]
+    ...
+```
+
+This is similar to the sampling question in that doing this requires a
+scratch buffer of size $$O(N)$$ to keep track what has been sampled so
+far. For instance, this could be done like:
+
+```python
+import numpy as np
+
+def permit(N):
+    L = np.arange(N)
+    for i in range(N):
+        j = i + rangrange(N - i)
+        L[i], L[j] = L[j], L[i]
+        yield L[i]
+```
+
+However, this is a heavy amount of state for our checkpoint and
+requires special handling in our case where `np.arange(N)` exceeds the
+available memory.
+
+### Block ciphers
+
+If we want to deal with far less state (say, a few kilobytes), the
+problem cannot be solved _exactly_. But it can be
+solved approximately, and one can prove the approximation is an
+extremely good one.
+
+The trick is to use an idea from cryptography: A _block cipher_ is a
+symmetric encryption algorithm which takes a secret key and buffers of
+a fixed length and maps them to encrypted buffers of the same length:
+
+```
+plain text buffer: B
+encrypted buffer:  encrypt(B, k)
+decrypted buffer:  B == decrypt(encrypt(B, k), k)
+```
+
+Both the unencrypted input `B` and the encrypted buffer `encrypt(B, k)`
+have the same amount of bits, say $$N = 2^n$$. In particular, this means
+that the functions
+
+$$
+\begin{align}
+\mathtt{encrypt}(\dotid, \mathtt{k}) & \from \set{0, 1}^{N} \to \set{0,
+1}^{N}, \\
+\mathtt{decrypt}(\dotid, \mathtt{k}) & \from \set{0, 1}^{N} \to \set{0,
+1}^{N}
+\end{align}
+$$
+
+are bijections (one-to-one) and each is the inverse of the
+other. Here, $$\set{0, 1}^{N}$$ is the set of all buffers of 0s or 1s
+of size $$N = 2^n$$.
+
+{% comment %}
+
+### Feistel network
+
+There are many ways to create block ciphers. A popular one is a
+_Feistel cipher_ (also known as _Feistel network_). It works by taking
+some non-invertible "secure" function like a hash function that takes
+(part of) the key `k` and a buffer half the length of `B` and produces some
+output (not assumed to be invertible) of half the length of `B`.
+
+The input is then split into a left part and a right part; the new
+right part is the current left part xor'ed with that hash of `k` and
+the current right part, the new left part is simply the current right
+part:
+
+```
+next_right = left ^ hash(right, key)
+next_left  = right
+```
+
+This procedure is repeated for a number of rounds (e.g.,
+four). Decryption works essentially the same way by undoing the xor
+operations.
+
+{% endcomment %}
+
+### Pseudorandom permutations
+
+How are we goint to use this block cipher? We will use $$n = 64$$ and
+interpret a given index `i` of type `uint64` as a block of 64 bits and
+use a block cipher for that block size. We then encrypt that index to
+find where it maps to:
+
+```python
+import numpy as np
+
+def perm(i):
+    B = np.array(i, dtype=np.uint64)
+    k = KEY  # Global in this example.
+    return encrypt(B, k).item()
+
+def permit(N):
+    for i in range(N):
+        yield perm(i)
+```
+
+Since $$\mathtt{encrypt}(\dotid, \mathtt{k})$$ is one-to-one, each
+possible bit pattern is produced exactly once. `perm` is an actual
+permutation of the set of `uint64`s which has $$2^{64}$$ elements.
+
+This permutation is parameterized only by the key `k`. If `k` has `m`
+bits, that means we can only produce $$2^m$$ different permutations,
+which is vastly fewer than the full number of permutations of the set
+of `uint64`s, which is $$(2^{64})!$$, a number that has about $$3.47
+\times 10^{20}$$ digits.[^digits] By contrast, the number of atoms in the
+universe has about 80 digits! Combinatorics creates large numbers very
+fast. The actual fraction of permutations reachable by this scheme is
+very close to $$0\%$$.
+
+[^digits]: How do I know that number? It turns out the Log-gamma
+    function $$\ln\circ\,\Gamma$$ is a well understood object with a
+    fast converging series representation. Since $$\Gamma(n + 1) =
+    n!$$ and Python has bignums, we can literally just compute
+    `math.lgamma(2**64 + 1)` and convert $$\ln$$ to $$\log_{10}$$.
+
+So what gives? It turns out that even though we only get an absurdly
+tiny fraction of all possible permutations this way, there is a result
+around such _pseudorandom permutations_ by Luby and Rackoff from 1988
+that gives strong cryptographic guarantees (assuming the pseudorandom
+hash function we used is strong enough, and we use it correctly, and
+we use enough Feistel rounds).
+
+The crytographic setup is that an attacker is given a black box which either
+does `encrypt` and `decrypt` Feistel operations _or_ is a "real"
+permutation drawn uniformly from all $$2^{64}!$$ permutations, plus
+its inverse. The attacker can make $$q$$ "queries" (forward or
+backward operations of his choice) against the black box. Afterwards,
+the attacker says whether he believes the black box to be of the
+Feistel type or the "real" type. The _advantage_ the attacker gained
+from doing $$q$$ queries is the (absolute value of the) difference of
+the probability of saying "real" if it is actually Feistel and the
+probability of saying "real" if it is in fact real. If the attacker
+learned nothing, the advantage is zero; if he can always tell the
+difference, it is one. The Luby-Rackoff result is that the advantage
+of the best attacker is bounded by rougly
+
+$$\frac{q^2}{2^{d/2}} + \varepsilon_h$$
+
+where $$d = 64$$ is the block size and $$\varepsilon_h$$ is the best
+distinguishing advantage against the underlying pseudorandom hash
+function at comparable resources.
+
+In essence, this means a cryptographic attacker requires thousands of
+dedicated probes to tell the two cases apart. For our simple
+statistical purpose, the permutation looks close enough to having been
+chosen truly at random.

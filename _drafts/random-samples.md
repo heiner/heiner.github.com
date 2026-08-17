@@ -143,7 +143,7 @@ early 2019.
 
 Without further ado, here's the question in its first variant.
 
-## Random sampling question, version 1.
+## Random sampling question, version 1
 
 > Given an array `L` of length `N` and a number `k` with `0 <= k <= N`,
 > sample `k` elements from `L`, uniformly and without replacement.
@@ -294,7 +294,7 @@ This makes deletion shift $$N/2$$ elements on average and $$O(N)$$.
 Note that a Python `list` is also just such a buffer in memory with a
 "physical" capacity and a "logical" length. When it needs to grow
 beyond its capacity a new buffer is created and all elements (which
-pointers of type `PyObject*`) are copied. Candidates often _think_ they
+are pointers of type `PyObject*`) are copied. Candidates often _think_ they
 don't know that that is the case but they typically can infer this once
 the "contract" of the list is pointed out, which is that random
 access is $$O(1)$$. There is simply no alternative to an array under
@@ -308,7 +308,7 @@ Some people, myself included, find it natural to try
 to track already selected elements. In step `i`, one could attempt to
 sample from `randrange(N - i)` and then add the number of gaps already
 chosen left of `i`. While natural, this is complicated and yields at
-best some kind of tree structure and a $$O(k \log k)$$ solution, while
+best some kind of tree structure and a $$O(k \log N)$$ solution, while
 $$O(k)$$ should be and is possible.
 
 Some folks propose all kinds of dictionary/hash map approaches, most
@@ -433,7 +433,7 @@ It turns out, `alt_shuffle` is wrong in that it doesn't result in a
 _uniform_ shuffle.
 
 This is true in general but one easy way to see this is to assume that
-$$k = N = p$$ for a prime number $$p$$. The number of different random
+$$k = N = p$$ for a prime number $$p > 2$$. The number of different random
 inputs from `randrange` for `shuffle` is exactly $$N(N-1)\cdots
 1 = N!$$. This is also the number of random permutations of $$N$$
 items; what this algorithm is doing is selecting one such permutation,
@@ -801,7 +801,7 @@ no-op). The skipping version of reservoir sampling can then be written
 as
 
 ```python
-from math import exp, floor, log
+from math import exp, floor, log, log1p
 from random import random, randrange
 
 def sample(it, k, done=object()):
@@ -809,7 +809,7 @@ def sample(it, k, done=object()):
     w = 1.0
     while True:
         w *= exp(log(random()) / k)
-        skip(it, floor(log(random()) / log(1 - w)))
+        skip(it, floor(log(random()) / log1p(-w)))
         if (e := next(it, done)) is done:
             break
         reservoir[randrange(k)] = e
@@ -817,9 +817,19 @@ def sample(it, k, done=object()):
     return reservoir
 ```
 
+Here `w` is the probability that the next element of the stream will
+be accepted, and `log1p(-w)` computes $$\log(1 - w)$$ without losing
+precision when `w` is small.[^logzero]
+
 This version of reservoir sampling was published in 1994 by Kim-Hung
 Li, see [Reservoir-sampling algorithms of time complexity $$O(n(1 +
 \log(N/n)))$$](https://dl.acm.org/doi/10.1145/198429.198435).
+
+[^logzero]: Funnily enough, the code isn't quite bug-free as
+    written. Since `random()` can be `0.0`,
+    `math.log(random())` can raise a `ValueError` with probability
+    $$2^{-53}$$. A full implementation should probably special-case
+    both `w == 0.0` and `w == 1.0`.
 
 Other versions exist, including for sampling from non-uniform
 distributions. Your favorite LLM will happily explain all about them.
@@ -834,7 +844,6 @@ which comes in the form
 ```
   # |   value
 -------------
-  0 |  entry0
   1 |  entry1
   . | .
   . | .

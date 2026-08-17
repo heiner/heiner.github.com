@@ -34,7 +34,7 @@ assessing within minutes whether a given candidate would be a useful
 co-worker, leetcode-style questions are hard to beat.
 
 Why is that? I don't think there is a single explanation. One reason
-it's easy to criticise leetcode-style questions is
+it's easy to criticize leetcode-style questions is
 that they assess a combination of skills and desiderata but don't
 fully nail any single one. Let's therefore describe what
 leetcode-interviews _do_ assess and why that's a good thing. To make
@@ -66,7 +66,7 @@ smart a candidate is is the main point of interviews (being smart covers
 a multitude of other flaws). That is also why universities find SAT
 results useful. Of course, measuring IQ directly via a test would
 presumably work better, but the US has a history of
-[disincentivising](https://en.wikipedia.org/wiki/Griggs_v._Duke_Power_Co.)
+[disincentivizing](https://en.wikipedia.org/wiki/Griggs_v._Duke_Power_Co.)
 this since the outcomes are politically disfavorable. And perhaps a
 pure IQ test would actually be worse since Leetcode-style
 questions cover prior knowledge much more:
@@ -322,8 +322,9 @@ candidates have a really hard time giving them up for this problem.
 
 ### Swapping to the end
 
-Candidates often find a better solution when they are explicitly told
-that they are allowed to modify the array. For instance, one could do
+Still, modifying the array is promising, and candidates often find a
+better solution when they are explicitly told that's an okay thing to
+do. For instance, one could do
 
 ```python
 from random import randrange
@@ -344,7 +345,7 @@ Note that `L[j] = L[N - i - 1]` can be a no-op if the sampled index
 
 This is an example of a "swap with the end" trick that's useful more
 generally. With swapping instead of just moving one can also avoid the
-`results` array:
+`result` array:
 
 ```python
 from random import randrange
@@ -380,7 +381,7 @@ that "go through all slots and swap with a random one" is promising:
 ```python
 def shuffle(L):
     for i in range(len(L)):
-        j = i + randrange(N - i)
+        j = i + randrange(len(L) - i)
         L[i], L[j] = L[j], L[i]
 ```
 
@@ -399,7 +400,7 @@ slots:
 ```python
 def shuffle(L, k):
     for i in range(k):
-        j = i + randrange(N - i)
+        j = i + randrange(len(L) - i)
         L[i], L[j] = L[j], L[i]
 ```
 
@@ -415,7 +416,7 @@ that we potentially swap already chosen elements)?
 ```python
 def alt_shuffle(L):
     for i in range(len(L)):
-        j = randrange(N)
+        j = randrange(len(L))
         L[i], L[j] = L[j], L[i]
 ```
 
@@ -445,7 +446,7 @@ incorrect, assuming the $$N^N$$ random choices can be mapped to
 $$N!$$ choices in a way that divides the $$N^N$$ choices evenly. However, the
 expression $$N!$$ has prime factors for every prime up to $$N$$, while
 $$N^N$$ only has $$p$$ as a prime factor. $$N^N$$ isn't divisible by
-$$N!$$ and $$N^N/N!$$ is not an integer. This means `alt_shuffle`
+$$N!$$ (that is, $$N^N/N!$$ is not an integer). This means `alt_shuffle`
 selects some of the $$N!$$ permutations with higher probability than
 others and isn't uniform.
 </details>
@@ -453,7 +454,7 @@ others and isn't uniform.
 ### Floyd's algorithm
 
 **What is optimal?** In a sense, the partial shuffle/swapping-based
-solution is optimal -- it's $$O(k)$$ with minimal space overhead. It's
+solution is optimal -- it's $$O(k)$$ with minimal space overhead. Its
 only imperfection is the
 fact that the input array `L` is modified. Of course this can be
 avoided by making a copy, but that means we are no longer $$O(k)$$.
@@ -474,7 +475,9 @@ I had asked many candidates the sampling question before I found
 this version, innocently stated as [Exercise 5-2 of the AWK
 programming
 book](https://archive.org/details/pdfy-MgN0H1joIoDVoIC7/page/n123/mode/2up). Their
-proposed solution, translated to Python, reads like this:
+[proposed
+solution](https://archive.org/details/pdfy-MgN0H1joIoDVoIC7/page/n209/mode/2up),
+translated to Python, reads like this:
 
 ```python
 from random import randrange
@@ -482,7 +485,7 @@ from random import randrange
 def sample(N, k):
     result = set()
     for i in range(N - k, N):  # k steps.
-        r = randrange(i)
+        r = randrange(i + 1)
         if r in result:
             r = i
         result.add(r)
@@ -675,7 +678,7 @@ wants with its inputs, but the stream can decide to either give
 another element or end itself and ask you to "show your work" in the
 least convenient moment possible.
 
-Thinking along these lines creates one realisation: We have to be
+Thinking along these lines creates one realization: We have to be
 correct for all kinds of values of $$N$$ and $$k$$, including $$N =
 k$$. In that case there isn't much we can do, we need to return the
 first $$k$$ inputs. So let's code that:

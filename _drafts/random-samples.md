@@ -138,7 +138,7 @@ kind of signal too, albeit not very strong.)
 
 I first heard this question when Greg Chanan interviewed me for FAIR
 in 2018. I probably did okay-but-not-great. I did end up getting
-an offer and I did join Facebook (soon to be renamed to Meta) in
+an offer and I did join Facebook (renamed to Meta while I was there) in
 early 2019.
 
 Without further ado, here's the question in its first variant.
@@ -897,21 +897,21 @@ decrypted buffer:  B == decrypt(encrypt(B, k), k)
 ```
 
 Both the unencrypted input `B` and the encrypted buffer `encrypt(B, k)`
-have the same amount of bits, say $$N = 2^n$$. In particular, this means
+have the same number of bits, say $$n$$. In particular, this means
 that for a given key `k` the functions
 
 $$
 \begin{align}
-\mathtt{encrypt}(\dotid, \mathtt{k}) & \from \set{0, 1}^{N} \to \set{0,
-1}^{N}, \\
-\mathtt{decrypt}(\dotid, \mathtt{k}) & \from \set{0, 1}^{N} \to \set{0,
-1}^{N}
+\mathtt{encrypt}(\dotid, \mathtt{k}) & \from \set{0, 1}^{n} \to \set{0,
+1}^{n}, \\
+\mathtt{decrypt}(\dotid, \mathtt{k}) & \from \set{0, 1}^{n} \to \set{0,
+1}^{n}
 \end{align}
 $$
 
 are bijections (one-to-one) and each is the inverse of the
-other. Here, $$\set{0, 1}^{N}$$ is the set of all buffers of 0s or 1s
-of size $$N = 2^n$$.
+other. Here, $$\set{0, 1}^{n}$$ is the set of all buffers of 0s and 1s
+of length $$n$$ -- a set with $$2^n$$ elements.
 
 ### Pseudorandom permutations
 
@@ -937,8 +937,8 @@ Since $$\mathtt{encrypt}(\dotid, \mathtt{k})$$ is one-to-one, each
 possible bit pattern is produced exactly once. `perm` is an actual
 permutation of the set of `uint64`s (a set of $$2^{64}$$ elements).
 
-This works as described if the (very large) table has size
-$$2^{64}$$. Realistically, it's smaller than that and we need some
+This works as described if the (very large) table has size exactly
+$$N = 2^n = 2^{64}$$. Realistically, it's smaller and we need some
 additional ideas.[^power] This is a great topic to discuss with an
 LLM!
 
@@ -976,8 +976,8 @@ result known as the _Luby-Rackoff  theorem_.[^lubyrackoff]
 
 [^lubyrackoff]: Note though that the specific mathematical guarantee from
     Luby-Rackoff does not map well to a large table that we shuffle
-    completely since the bound is $$q^2 / 2^{d/2}$$ after $$q$$
-    queries. For $$d=64$$ this is exhausted after $$q\approx 2^{16} =
+    completely since the bound is $$q^2 / 2^{n/2}$$ after $$q$$
+    queries. For $$n=64$$ this is exhausted after $$q\approx 2^{16} =
     65536$$ queries. Unbalanced Feistel ciphers can help, as can other
     ciphers like
     [Speck64](https://en.wikipedia.org/wiki/Speck_(cipher)), which are
@@ -1054,8 +1054,8 @@ we use at least four Feistel rounds).
       attacker gained from doing $$q$$ queries. If the attacker learned
       nothing, the advantage is zero; if he can always tell the difference,
       it is one. The Luby-Rackoff result is that the advantage of the best
-      attacker is bounded by roughly $$\frac{q^2}{2^{d/2}} + \varepsilon_h$$
-      where $$d = 64$$ is the block size and $$\varepsilon_h$$ is the best
+      attacker is bounded by roughly $$\frac{q^2}{2^{n/2}} + \varepsilon_h$$
+      where $$n = 64$$ is the block size and $$\varepsilon_h$$ is the best
       distinguishing advantage against the underlying pseudorandom hash
       function at comparable resources.
 

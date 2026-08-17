@@ -34,35 +34,35 @@ assessing within minutes whether a given candidate would be a useful
 co-worker, leetcode-style questions are hard to beat.
 
 Why is that? I don't think there is a single explanation. One reason
-it's easy to criticise leetcode-style question is
+it's easy to criticise leetcode-style questions is
 that they assess a combination of skills and desiderata but don't
-fully nail any single one. Let's therefore discribe what
+fully nail any single one. Let's therefore describe what
 leetcode-interviews _do_ assess and why that's a good thing. To make
 matters more concrete, I'll then describe one of my favorite
 leetcode-style interview questions in large detail.
 
 **Leetcode-style questions can be prepared for.** In fact, that is the
-buisness model of [leetcode.com](https://leetcode.com). Becoming very
+business model of [leetcode.com](https://leetcode.com). Becoming very
 good at these kind of questions takes a lot of work. Combined with the
 supposed uselessness of the skill thereby acquired this is used as an
 argument against them. But not so: One of the practical questions an
 interviewer has to answer is just how excited a given candidate is
 about the job, and about the occupation of programming for a living in
-the first place. Putting in weeks (or months) of prep time is strong
-signal that the candiate is _interested in software_. That is a lot!
+the first place. Putting in weeks (or months) of prep time is a strong
+signal that the candidate is _interested in software_. That is a lot!
 In fact, the best programmers I know are _excited_ to discuss new
 little questions, not too different from how mathematicians discuss
-little exercises. Being interested how to find unique triplets of
+little exercises. Being interested in how to find unique triplets of
 array entries that sum to zero correlates with just being interested
 in computers and how they work. Sitting down and preparing for a job
 interview means being at least somewhat interested in the job. That
-alone eliminates a large fraction of weak candiates.
+alone eliminates a large fraction of weak candidates.
 
 **Leetcode-style questions test intelligence.** While candidates
 sometimes try to brute-force these questions by remembering all
 possible answers, people with a certain IQ have a huge natural
 advantage here. Smart people are generally useful, and assessing how
-smart a candidate is the main point of interviews (being smart covers
+smart a candidate is is the main point of interviews (being smart covers
 a multitude of other flaws). That is also why universities find SAT
 results useful. Of course, measuring IQ directly via a test would
 presumably work better, but the US has a history of
@@ -75,19 +75,19 @@ questions cover prior knowledge much more:
 The relation between rote memorization and skill is
 not as strict as it's sometimes made out to be, neither in software
 engineering nor in other areas like math. Knowing what, e.g., a bloom
-filter is is genuinly useful, as is knowing the name of the thing. Since
+filter is is genuinely useful, as is knowing the name of the thing. Since
 practically nobody is able to re-derive all of computer science
-from scratch by themselves (there are _some_ contents to the field,
+from scratch by themselves (there is _some_ content to the field,
 even if it's perhaps less than in math or physics), knowing what
 exists and how to talk about it is a useful skill. During the actual
 work of a good software engineer, various design decisions and
 decisions about systems have to be made. Knowing the toolbox well is
 essential to making good decisions here. This can be traded off with
-intelligence or other sources of good intiution about these practical
+intelligence or other sources of good intuition about these practical
 problems, but ceteris paribus knowing more is better.
 
-Or course that depends on the type of software engineering role the
-candidate wants to fill. Folks writing database lookings for a Django
+Of course that depends on the type of software engineering role the
+candidate wants to fill. Folks writing database lookups for a Django
 app may not need to know Fenwick trees. However, that brings me to
 
 **AI's impact on software engineering.** I cannot foresee all
@@ -97,10 +97,10 @@ exist at all in the near term, in which case all interview techniques
 are obsolete. It stands to reason though that the more routine, more
 obviously automatable tasks will in fact be automated first. Who's got
 more job security, the guy that knows about Zobrist hashing or the
-hundreth CRUD engineer? I don't know if "be the knowledgable engineer"
+hundredth CRUD engineer? I don't know if "be the knowledgeable engineer"
 is actionable advice (nobody decided to not be super interested, most
-people just are like that) but "hire the knowledgable engineer"
-certainly is. Knowlegable engineers work on harder, more interesting
+people just are like that) but "hire the knowledgeable engineer"
+certainly is. Knowledgeable engineers work on harder, more interesting
 problems and are more likely (in fact fairly likely) to engage with
 "fundamentals" (heaps, sorting and searching, etc.) as part of their
 career -- the blunt answer to the "I've never needed this" argument is
@@ -116,8 +116,8 @@ the critics. Trying to do something smarter is a decades-old idea. In
 2015, the long-time Google head of recruitment Laszlo Bock described
 some of the ideas of early Google in his book. They include nifty
 ideas like programming-related easter eggs in Google search and
-McKinsey-style brainsteasers. Few if any of the cool ideas worked, and
-Google instead relied ~four structured interviews from a shared pool
+McKinsey-style brainteasers. Few if any of the cool ideas worked, and
+Google instead relied on ~four structured interviews from a shared pool
 with defined rubrics.[^google]
 
 [^google]: This was when Google was cool.
@@ -129,11 +129,11 @@ distinctions. I like questions with a lot of depth and width.
 
 I'm going to describe my favorite interview question. I used it
 probably hundreds of times when interviewing for xAI and other places,
-to the extend that it's slightly worn out. However, as per the above,
+to the extent that it's slightly worn out. However, as per the above,
 I don't think I am giving "too much away" by describing it here, and
 I may well use this question again. If candidates read
 this, all the better -- we can dive in deep then. (And if they have
-not, despite knowing I'd interview them, that's every so slightly some
+not, despite knowing I'd interview them, that's ever so slightly some
 kind of signal too, albeit not very strong.)
 
 I first heard this question when Greg Chanan interviewed me for FAIR
@@ -153,7 +153,7 @@ Python standard library functions
 [`random.random`](https://docs.python.org/3/library/random.html#random.random)
 and
 [`random.randrange`](https://docs.python.org/3/library/random.html#random.randrange),
-with the following behavor[^randrange]
+with the following behavior[^randrange]
 
 <dl>
 
@@ -210,9 +210,9 @@ def sample(L, k):
 
 This is very decent if `k/N` is a small number but catastrophically
 slow when `k` is close to `N`. However, in the case `k/N >= 0.5` one
-can just chose to sample _rejected_ instead of _selected_ items and
+can just choose to sample _rejected_ instead of _selected_ items and
 arrive at a decent solution overall. This way, the algorithm makes
-progress in each iteration with probabilty $$\ge 0.5$$, which means the
+progress in each iteration with probability $$\ge 0.5$$, which means the
 chance of _not_ making progress after $$m$$ steps decays exponentially
 in $$m$$. Note though that the worst case
 time complexity is still unbounded ("$$O(\infty)$$").
@@ -274,7 +274,7 @@ Deleting an element -- say, `g` -- creates a hole:
 ```
 
 The only way to keep simple $$O(1)$$ lookups is to shift later
-elements into the whole:
+elements into the hole:
 
 ```
 [ a b c d e f h _ i j k l m ]
@@ -317,7 +317,7 @@ interview, see below!). The fundamental problem is that arrays allow
 $$O(1)$$ lookup of the $$i$$th element but require $$O(N)$$ deletions,
 while hash maps _might_ allow for $$O(1)$$ deletions but looking up
 the $$i$$th element costs $$O(N)$$. Hash maps generally are somewhat
-overused by many programmers due to their convienience. Some
+overused by many programmers due to their convenience. Some
 candidates have a really hard time giving them up for this problem.
 
 ### Swapping to the end
@@ -353,7 +353,7 @@ def sample(L, k):
     N = len(L)
     for i in range(k):
         j = randrange(N - i)
-        L[i], L[j] = L[j], L[i]
+        L[j], L[N - i - 1] = L[N - i - 1], L[j]
     return L[N - k :]
 ```
 
@@ -361,7 +361,7 @@ This is pretty short and $$O(k)$$ in time with essentially no extra
 space (assuming the slice at the end doesn't create a copy -- true if
 `L` is an object like a Numpy array but not true for plain Python
 lists). If `k` is not zero, the slice at the end can be written
-as `L[-k :]` but that fails presicely when `k == 0`.
+as `L[-k :]` but that fails precisely when `k == 0`.
 
 ### Via partial shuffle
 
@@ -374,20 +374,20 @@ def sample(L, k):
    return L[:k]
 ```
 
-The question is, of course, how to shuffle. A moment reflection shows
+The question is, of course, how to shuffle. A moment's reflection shows
 that "go through all slots and swap with a random one" is promising:
 
 ```python
 def shuffle(L):
     for i in range(len(L)):
-        j = i + rangrange(N - i)
+        j = i + randrange(N - i)
         L[i], L[j] = L[j], L[i]
 ```
 
 The logic of this algorithm (known as Fisher-Yates in the literature)
 is to keep a range of not-yet-chosen elements that is initially the
 full array and then shrinks from the left by one element each
-iteration. (Since the last random "choice" is chosing from the
+iteration. (Since the last random "choice" is choosing from the
 one-element `range(1)`, the loop could actually use `range(len(L) - 1)`.)
 
 This has the nice property that each to-be-filled slot is chosen,
@@ -399,11 +399,11 @@ slots:
 ```python
 def shuffle(L, k):
     for i in range(k):
-        j = i + rangrange(N - i)
+        j = i + randrange(N - i)
         L[i], L[j] = L[j], L[i]
 ```
 
-With this, `suffle(L, k)` and then returning `L[: k]` is equivalent to
+With this, `shuffle(L, k)` and then returning `L[: k]` is equivalent to
 the swapping-to-the-end solution, but easier to find for some people.
 
 #### A fun side quest
@@ -415,7 +415,7 @@ that we potentially swap already chosen elements)?
 ```python
 def alt_shuffle(L):
     for i in range(len(L)):
-        j = rangrange(N)
+        j = randrange(N)
         L[i], L[j] = L[j], L[i]
 ```
 
@@ -446,14 +446,14 @@ $$N!$$ choices in a way that divides the $$N^N$$ choices evenly. However, the
 expression $$N!$$ has prime factors for every prime up to $$N$$, while
 $$N^N$$ only has $$p$$ as a prime factor. $$N^N$$ isn't divisible by
 $$N!$$ and $$N^N/N!$$ is not an integer. This means `alt_shuffle`
-selects some of the $$N!$$ permutations with higher probabilty than
+selects some of the $$N!$$ permutations with higher probability than
 others and isn't uniform.
 </details>
 
 ### Floyd's algorithm
 
 **What is optimal?** In a sense, the partial shuffle/swapping-based
-solution is optimal -- it's $$O(k)$$ with mimimal space overhead. It's
+solution is optimal -- it's $$O(k)$$ with minimal space overhead. It's
 only imperfection is the
 fact that the input array `L` is modified. Of course this can be
 avoided by making a copy, but that means we are no longer $$O(k)$$.
@@ -470,7 +470,7 @@ indices. One could simply ask:
 > Generate `k` distinct uniformly random integers in `range(N)` in
 > $$O(k)$$ space and time.
 
-I had asked the sampling question to many candidates before I found
+I had asked many candidates the sampling question before I found
 this version, innocently stated as [Exercise 5-2 of the AWK
 programming
 book](https://archive.org/details/pdfy-MgN0H1joIoDVoIC7/page/n123/mode/2up). Their
@@ -490,7 +490,7 @@ def sample(N, k):
 ```
 
 This is known as _Floyd's algorithm_, due to R.W. Floyd, 1978 Turing
-Award winner and close colaborator of Donald Knuth at Stanford.
+Award winner and close collaborator of Donald Knuth at Stanford.
 
 It wasn't immediately obvious to me why this algorithm is correct. The
 fact that the math of "if seen already, chose one past the end" works
@@ -499,7 +499,7 @@ check out ["A Sample of Brilliance" in Jon Bentley's _Programming
 Pearls_](https://dl.acm.org/doi/10.1145/30401.315746).
 
 Very few people will be able to derive something like that
-in the scope of a coding interview. In fact, only a handful people
+in the scope of a coding interview. In fact, only a handful of people
 even know this algorithm in the first place -- as far as I remember,
 nobody I ever interviewed did.
 
@@ -538,7 +538,7 @@ def sample(it, N, k):
 ```
 
 [^random0]: Note that `random() < k/N` with a strict `<` (and not
-    `<=`) is the correct comparision; this matches the property where
+    `<=`) is the correct comparison; this matches the property where
     the return value of `random()` _can_ be `0.0` but can not be
     `1.0`.
 
@@ -554,7 +554,7 @@ where we have sampled $$k - 1$$ elements and the stream only contains
 a single final element, that one has to be sampled with probability
 $$1$$.
 
-To achive that, note that regardless of whether we chose to sample or
+To achieve that, note that regardless of whether we chose to sample or
 not to sample an element in a given round, we modified the problem by
 reducing the size of the remaining stream by one, and if we sampled an
 element we reduced the number of yet-to-be-sampled elements by one as
@@ -625,7 +625,7 @@ def sample(it, k):
 ```
 
 Somewhat surprisingly, `heapify` is implementable in $$O(k)$$. The use
-of `heappushpop` here makes sence since heap operations are typically
+of `heappushpop` here makes sense since heap operations are typically
 "modify the heap as requested, then recreate the heap property". Since
 here each push is followed by a pop, `heappushpop` allows us to skip
 one heap recreation. It runs in $$O(\log k)$$ for a heap of size
@@ -639,10 +639,10 @@ Python's `float`s don't have infinite precision (on a typical
 contemporary computer it will be a double aka `float64`), collisions
 are possible and due to the birthday paradox are actually
 somewhat more likely than intuitively expected. If our streamed
-elements are not comparible, this will make the above algorithm crash
+elements are not comparable, this will make the above algorithm crash
 at runtime -- and even if they are, uniformity will be violated. The
-only real solution to this I can see is to modify the comparision to
-have random tie breaks which breaks the deterministic runtime behavor
+only real solution to this I can see is to modify the comparison to
+have random tie breaks which breaks the deterministic runtime behavior
 and is not pleasant to implement.
 
 #### Quickselect
@@ -673,7 +673,7 @@ it as some sort of adversarial game: Let's say you are the algorithm
 and the interviewer is the stream. The algorithm can do whatever it
 wants with its inputs, but the stream can decide to either give
 another element or end itself and ask you to "show your work" in the
-least convienient moment possible.
+least convenient moment possible.
 
 Thinking along these lines creates one realisation: We have to be
 correct for all kinds of values of $$N$$ and $$k$$, including $$N =
@@ -694,7 +694,7 @@ This now is at least correct for the $$N = k$$ case. Can we make it
 correct for $$N = k + 1$$ as well? (You see where this is going.) For
 $$N = k + 1$$, what's the chance of any given element to be in the
 `results` array? It will be $$\frac{k}{k+1}$$. Essentially, _if_ we
-see another element after the first $$k$$ (which are guarenteed), what
+see another element after the first $$k$$ (which are guaranteed), what
 choice do we have? We can chose it or reject it with a certain
 probability, and if we chose it, we can evict a previously chosen
 element with some probability. Since the stream could end right after
@@ -818,7 +818,7 @@ This version of reservoir sampling was published in 1994 by Kim-Hung
 Li, see [Reservoir-sampling algorithms of time complexity $$O(n(1 +
 \log(N/n)))$$](https://dl.acm.org/doi/10.1145/198429.198435).
 
-Other versions exists, including for sampling from non-uniform
+Other versions exist, including for sampling from non-uniform
 distributions. Your favorite LLM will happily explain all about them.
 
 ## Online shuffling
@@ -868,7 +868,7 @@ import numpy as np
 def permit(N):
     L = np.arange(N)
     for i in range(N):
-        j = i + rangrange(N - i)
+        j = i + randrange(N - i)
         L[i], L[j] = L[j], L[i]
         yield L[i]
 ```
@@ -958,7 +958,7 @@ reachable by this scheme is very close to $$0\%$$.
     `math.lgamma(2**64 + 1)` and convert $$\ln$$ to $$\log_{10}$$.
 
 So we will only ever get an absurdly tiny fraction of all possible
-permutations this way. How far away from truely random permutations
+permutations this way. How far away from truly random permutations
 are we with these _pseudorandom permutations_?
 
 This turns out to depend on how we measure that distance and on the
@@ -971,21 +971,21 @@ result known as the _Luby-Rackoff  theorem_.[^lubyrackoff]
     hash(right, key), right` for a number of rounds. Decryption is
     doing the same kind of operation in reverse.
 
-[^lubyrackoff]: Note though that the specific mathematical quarantee from
+[^lubyrackoff]: Note though that the specific mathematical guarantee from
     Luby-Rackoff does not map well to a large table that we shuffle
     completely since the bound is $$q^2 / 2^{d/2}$$ after $$q$$
     queries. For $$d=64$$ this is exhausted after $$q\approx 2^{16} =
     65536$$ queries. Unbalanced Feistel ciphers can help, as can other
     ciphers like
     [Speck64](https://en.wikipedia.org/wiki/Speck_(cipher)), which are
-    in the class where "no successful attack is publically known at
+    in the class where "no successful attack is publicly known at
     this point (but people tried)".
 
 ### Cheap parameterized permutations
 
 On the other end of the spectrum, very cheap parameterized permutations
 come from _mixers_ (or _finalizers_) of hash functions like
-MurmurHash3. A [very influencal 2011 blog post by David
+MurmurHash3. A [very influential 2011 blog post by David
 Stafford](https://zimbry.blogspot.com/2011/09/better-bit-mixing-improving-on.html)
 proposed using
 
@@ -1001,10 +1001,10 @@ uint64_t mix13(uint64_t x)
 }
 ```
 
-MurmurHash3 and this blog post was the starting point of all kinds of
+MurmurHash3 and this blog post were the starting point of all kinds of
 results around fast permutations. Stafford's suggestion made it into
 JDK 8 in 2013 and was also cited as canonical in _Fast Splittable
-Pseudorandom Number Generators_ by Steele, Lea and Flood's
+Pseudorandom Number Generators_ by Steele, Lea and Flood
 in 2014. Since 2018, Pelle Evensen had
 [several](http://mostlymangling.blogspot.com/2018/07/on-mixing-functions-in-fast-splittable.html)
 [blog
@@ -1014,6 +1014,10 @@ statistical properties but not others (e.g., `mix13` above sends an
 all zero buffer to zero; this can be fixed with extra xors). They are
 certainly not "cryptographically strong", but their statistical
 properties can be surprisingly good and they are extremely cheap.
+
+Much more can be said about random sampling and shuffling. But this blog
+post is long enough and making it longer will not illustrate the point
+any better.
 
 {% comment %}
 

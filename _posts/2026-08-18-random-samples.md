@@ -1,141 +1,20 @@
 ---
 layout: post
-title:  "Leetcode-style interviews and my favorite question"
+title:  "Random samples"
 ---
 
 * Table of contents
 {:toc}
 
-## A Leetcode-style interviewer's apology
-
-People love to hate leetcode-style interviews. On X, they are
-regularly described as a waste of time for all parties
-involved. People point out that real programming jobs are nothing like
-these artificial 30-60 minute situations, that software engineers can
-have decade-long careers without ever implementing the algorithms that
-are regularly discussed during these interviews, and that AI means
-encyclopedic knowledge of algorithms is even more useless than it
-was before.[^failure]
-
-[^failure]: Another reason some people dislike leetcode-style
-    questions is that they experienced them and did not end up getting
-    an offer. That happened to me too -- when I first applied to Google
-    in Munich after my math PhD, I was woefully underprepared and no
-    match for the L4 coding interviews (which were on the tough end,
-    one of them was asking to implement a parallel regex matching
-    engine). Leetcode-style questions certainly are not perfect and
-    end up having false negatives. However, precision is _much more_
-    important when hiring than recall is. That is true even though
-    getting rejected for a position one would have excelled in is sad.
-
-Some of that is true. And yet, the critics of leetcode-style
-interviews are mistaken. When faced with the _practical_ question of
-assessing within minutes whether a given candidate would be a useful
-co-worker, leetcode-style questions are hard to beat.
-
-Why is that? I don't think there is a single mechanism.
-It's easy to criticize leetcode-style questions since they assess a
-combination of skills and desiderata but don't nail any single
-one. Let's therefore describe what leetcode-interviews _do_ assess and
-why that's a good thing. To make matters more concrete, I'll then
-describe one of my favorite leetcode-style interview questions in detail.
-
-**Leetcode-style questions test if you can code.** It's stupid, but a
-good fraction of candidates will [fail even
-FizzBuzz](https://blog.codinghorror.com/why-cant-programmers-program/). They
-just cannot code. _Any_ interview that involves coding will find that;
-having a rule that says a specific interview is for coding exclusively
-helps get to fast failure for hopeless cases.
-
-**Leetcode-style questions can be prepared for.** That is the
-very business model of [leetcode.com](https://leetcode.com). Becoming
-good at these kinds of questions takes a lot of work. Combined with the
-supposed uselessness of the skill thereby acquired, this is used as an
-argument against them. But not so: One of the practical questions an
-interviewer has to answer is just how excited a given candidate is
-about the job, and about the occupation of programming for a living in
-the first place. Putting in weeks, or months, of prep time is a strong
-signal that the candidate is _interested in software_. That is a lot!
-In fact, the best programmers I know are _excited_ to discuss new
-little questions, not too different from how mathematicians discuss
-little exercises. Being interested in how to find unique triplets of
-array entries that sum to zero correlates with just being interested
-in computers and how they work. Sitting down and preparing for a job
-interview means being at least somewhat interested in the job and the
-company. That alone eliminates a large fraction of weak candidates.
-
-**Leetcode-style questions test intelligence.** While candidates
-sometimes try to brute-force these questions by remembering all
-possible answers, people with high IQ have a huge natural
-advantage. Smart people are generally useful, and assessing _how
-smart a candidate is_ is a core part of interviews (being smart covers
-a multitude of other flaws). That is also why universities find SAT
-results useful. Of course, measuring IQ directly via a test would
-presumably be more precise, but the US has a history of
-[disincentivizing](https://en.wikipedia.org/wiki/Griggs_v._Duke_Power_Co.)
-this since the outcomes are politically disfavored. And a
-pure IQ test would likely be less meaningful since leetcode-style
-questions cover more ground, including prior knowledge:
-
-**Leetcode-style questions test knowledge.**
-The contrast between rote memorization and skill is
-not as strict as it's sometimes made out to be, neither in software
-engineering nor in other areas such as math. Knowing what, e.g., a Bloom
-filter is is genuinely useful, as is knowing the name of the thing. Since
-practically nobody is able to re-derive meaningful parts of computer
-science from scratch by themselves (there is _some_ content to the
-field after all), knowing what
-exists and how to talk about it is a useful skill. During the actual
-work of a good software engineer, various design decisions and
-judgment calls about systems have to be made. Knowing the toolbox, and
-knowing it well, is essential to making these decisions well. This can
-be traded off with intelligence or other sources of good intuition
-about these practical problems, but ceteris paribus knowing more is
-better.
-
-Of course that depends on the type of software engineering role the
-candidate wants to fill. Folks writing database lookups for a Django
-app may not need to know Fenwick trees. However, that brings me to
-
-**AI's impact on software engineering.** I cannot foresee all
-consequences of coding models on the ecosystem but it seems likely it
-will change a lot and fast. It's possible the role won't
-exist at all in the near term, in which case all interview techniques
-are obsolete. It stands to reason though that the more routine, more
-obviously automatable tasks will be automated first. Who's got
-more job security, the guy who knows about Zobrist hashing or the
-hundredth CRUD engineer? I don't know if "be the knowledgeable engineer"
-is actionable advice -- since nobody decided to be somewhat
-disinterested, most people just are like that -- but "hire the
-knowledgeable engineer" is. Knowledgeable engineers work on harder, more interesting
-problems and are likely to at some point in their career engage with
-"low-level fundamentals". The blunt answer to the "I've never needed
-this" argument is ["but the good ones
-do"](https://www.smbc-comics.com/comic/why-i-couldn39t-be-a-math-teacher). And
-for what it's worth, several of the ideas described below did end up being
-relevant in my career.
-
-**Leetcode-style questions are an industry standard for a reason.**
-The artificialness of asking a problem from a predefined pool, again
-and again and again, is even more obvious to the interviewers than it
-is to the critics. Trying to do something smarter is a decades-old
-idea. In his 2015 book, the long-time Google head of recruitment
-Laszlo Bock described some of the ideas of early Google. They include
-nifty ideas like programming-related easter eggs in Google search and
-McKinsey-style brainteasers. Few if any of the cool ideas worked, and
-Google instead relied on ~four structured interviews from a shared pool
-with defined rubrics.[^google]
-
-[^google]: This was when Google was cool.
-
----
-
-I'm going to describe my favorite interview question. I used it
-many dozens of times when interviewing for xAI and other places,
+I'm going to describe my favorite interview question and then ad-lib a
+bit on it. The question has a somewhat mathematical bend but connects
+to several practical problems I had in my career.
+I used it many dozens of times when interviewing for xAI and other places,
 to the extent that it's slightly worn out (and unsurprisingly is
 on [actual
 leetcode](https://leetcode.com/problem-list/reservoir-sampling/)). However,
-as per the above, I don't think I am giving "too much away" by
+as per the [last blog post]({% post_url 2026-08-18-leetcode %}), I don't
+think I am giving "too much away" by
 describing it here, and I may well use this question again. If
 candidates read this, all the better -- we can dive in deep then. And
 if they have not, despite knowing I'd interview them, that's an ever so
@@ -652,8 +531,9 @@ and is not pleasant to implement.
     a double aka `float64`. Python's `random()` returns one of $$N =
     2^{53}$$ equally spaced doubles in $$[0,
     1)$$. The birthday threshold is $$\sqrt{2N\ln 2}$$ which is around
-    111M. But for this solution we have to worry about collisions
-    within the set of $$k$$ elements in the heap only.
+    111M. But for the heap solution we have to worry about collisions
+    at the selection boundary, which are very unlikely for realistic
+    stream lengths.
 
 
 #### Quickselect
@@ -840,12 +720,11 @@ Li, see [Reservoir-sampling algorithms of time complexity $$O(n(1 +
     $$2^{-53}$$. A full implementation should probably special-case
     both `w == 0.0` and `w == 1.0`.
 
-Other versions exist, including for sampling from non-uniform
-distributions. Your favorite LLM will happily explain all about them.
+There are other interesting variants of reservoir sampling, e.g.,
+sampling from non-uniform distributions. But let's end with something
+a bit farther afield that deserves to be better known.
 
 ## Online shuffling
-
-There is a related idea that is underappreciated.
 
 Let's say we have a large dataset (e.g., a table in SQL)
 which comes in the form
@@ -953,27 +832,35 @@ Since $$\mathtt{encrypt}(\dotid, \mathtt{k})$$ is one-to-one, each
 possible bit pattern is produced exactly once. `perm` is an actual
 permutation of the set of `uint64`s (a set of $$2^{64}$$ elements).
 
-This works as described if the (humongous) table has size exactly
-$$N = 2^n = 2^{64}$$. Realistically, it's smaller and we need some
-additional ideas.[^power] This is a great topic to discuss with an
-LLM!
+This works as described if the (implausibly large) table has size
+exactly $$N = 2^n = 2^{64}$$. Realistically, it's smaller and we need
+some additional ideas.
 
-[^power]: Let's say we have a block cipher for any power of two. How
-    can we use that to shuffle tables of _arbitrary_ size?
+Let's say we have a block cipher for any power of two and a table of
+any size. We can use as block size $$n$$ the smallest number such that
+$$2^n \ge$$ the table size. Worst case, this additional
+padding at the end is roughly half the range of the permutation. When
+we apply `perm` and hit the padded region, we will simply iterate
+`perm` until we get out of it -- since the permutation is one-to-one,
+that will eventually happen, and since the padded part is at most
+half, it happens with probability at least 0.5 every iteration. This
+trick is known as _cycle walking_.
+
+### Is 0% enough?
 
 Note that the permutation is parameterized only by the key `k`. If `k`
 has `m` bits, that means we can only produce $$2^m$$ different
 permutations, which is vastly fewer than the full number of
 permutations of the set of `uint64`s, which is $$(2^{64})!$$, a number
-that has about $$3.47 \times 10^{20}$$ digits.[^digits] By contrast,
+that has about $$3.47 \times 10^{20}$$ digits. By contrast,
 the number of atoms in the observable universe has about 80 digits!
-Combinatorics creates large numbers very fast. The actual fraction of
+Combinatorics creates large numbers very fast.[^digits] The actual fraction of
 permutations reachable by this scheme is very close to $$0\%$$.
 
-[^digits]: How do I know that number? It turns out the Log-gamma
+[^digits]: How do I know the digits of $$(2^{64})!$$? It turns out the Log-gamma
     function $$\ln\circ\,\Gamma$$ is a well understood object with a
     fast converging series representation. Since $$\Gamma(n + 1) =
-    n!$$ and Python has bignums, we can literally compute
+    n!$$, we can literally compute
     `math.lgamma(2**64 + 1)` and convert $$\ln$$ to $$\log_{10}$$.
 
 So we will only ever get an absurdly tiny fraction of all possible
@@ -995,17 +882,23 @@ result known as the _Luby-Rackoff theorem_.[^lubyrackoff]
     Luby-Rackoff does not map well to a large table that we shuffle
     completely since the bound is $$q^2 / 2^{n/2}$$ after $$q$$
     queries. For $$n=64$$ this is exhausted after $$q\approx 2^{16} =
-    65536$$ queries. Unbalanced Feistel ciphers can help, as can other
-    ciphers like
-    [Speck64](https://en.wikipedia.org/wiki/Speck_(cipher)), which are
-    in the class where "no successful attack is publicly known at
-    this point (but people tried)".
+    65536$$ queries. For better mathematical guarantees, unbalanced
+    Feistel ciphers can help, as can modern schemes like
+    [swap-or-not](https://www.cs.ucdavis.edu/~rogaway/papers/shuffle.html),
+    which survives for $$q$$ close to $$2^n$$. Alternatively,
+    one can use ciphers like
+    [Speck](https://en.wikipedia.org/wiki/Speck_(cipher)), which
+    have no formal guarantee but are deemed secure because no
+    successful attack is publicly known (but people
+    tried). Note though that for practical table sizes one
+    would need something unofficial like Speck40 to get the right
+    block size, which is likely just as good but has had fewer eyes on it.
 
 ### Cheap parameterized permutations
 
-On the other end of the spectrum, very cheap parameterized permutations
+On the other end of the spectrum, computationally cheap parameterized permutations
 come from _mixers_ (or _finalizers_) of hash functions like
-MurmurHash3. An [influential 2011 blog post by David
+MurmurHash3. A [very influential 2011 blog post by David
 Stafford](https://zimbry.blogspot.com/2011/09/better-bit-mixing-improving-on.html)
 proposed using
 

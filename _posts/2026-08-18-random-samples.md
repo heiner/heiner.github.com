@@ -10,8 +10,10 @@ I'm going to describe my favorite interview question and then ad-lib a
 bit on it. The question has a somewhat mathematical bent but connects
 to several practical problems I had in my career.
 I used it many dozens of times when interviewing for xAI and other places,
-to the extent that it's slightly worn out (and unsurprisingly is
-on [actual
+to the extent that it's slightly worn out (apparently it was asked at
+Google [going back to at least
+2005](https://x.com/cosminnegruseri/status/2089789693730951539?s=20)
+and unsurprisingly is on [actual
 leetcode](https://leetcode.com/problem-list/reservoir-sampling/)). However,
 as per the [last blog post]({% post_url 2026-08-18-leetcode %}), I don't
 think I am giving "too much away" by

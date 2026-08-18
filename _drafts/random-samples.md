@@ -19,7 +19,7 @@ was before.[^failure]
 
 [^failure]: Another reason some people dislike leetcode-style
     questions is that they experienced them and did not end up getting
-    an offer. That happened to me too - when I first applied at Google
+    an offer. That happened to me too - when I first applied to Google
     in Munich after my math PhD, I was woefully underprepared and no
     match for the L4 coding interviews (which were on the tough end,
     one of them was asking to implement a parallel regex matching
@@ -43,8 +43,8 @@ leetcode-style interview questions in large detail.
 
 **Leetcode-style questions can be prepared for.** In fact, that is the
 business model of [leetcode.com](https://leetcode.com). Becoming very
-good at these kind of questions takes a lot of work. Combined with the
-supposed uselessness of the skill thereby acquired this is used as an
+good at these kinds of questions takes a lot of work. Combined with the
+supposed uselessness of the skill thereby acquired, this is used as an
 argument against them. But not so: One of the practical questions an
 interviewer has to answer is just how excited a given candidate is
 about the job, and about the occupation of programming for a living in
@@ -111,7 +111,7 @@ relevant in my career.
 
 **Leetcode-style questions are an industry standard for a reason.**
 The artificialness of asking a problem from a predefined pool, again
-and again and again, is more obvious to the interviewers than even to
+and again and again, is even more obvious to the interviewers than to
 the critics. Trying to do something smarter is a decades-old idea. In
 2015, the long-time Google head of recruitment Laszlo Bock described
 some of the ideas of early Google in his book. They include nifty
@@ -308,7 +308,7 @@ Some people, myself included, find it natural to try
 to track already selected elements. In step `i`, one could attempt to
 sample from `randrange(N - i)` and then add the number of gaps already
 chosen left of `i`. While natural, this is complicated and yields at
-best some kind of tree structure and a $$O(k \log N)$$ solution, while
+best some kind of tree structure and an $$O(k \log N)$$ solution, while
 $$O(k)$$ should be and is possible.
 
 Some folks propose all kinds of dictionary/hash map approaches, most
@@ -391,8 +391,8 @@ full array and then shrinks from the left by one element each
 iteration. (Since the last random "choice" is choosing from the
 one-element `range(1)`, the loop could actually use `range(len(L) - 1)`.)
 
-This has the nice property that each to-be-filled slot is chosen,
-once, and then the algorithm sticks to its choice.
+This has the nice property that each to-be-filled slot is chosen
+once and then the algorithm sticks to its choice.
 
 It can be turned into a "partial shuffle" where one stops after `k`
 slots:
@@ -461,10 +461,10 @@ avoided by making a copy, but that means we are no longer $$O(k)$$.
 
 Can we avoid modifying the input? No simple change to the
 swapping-based solution will achieve that, because the algorithm uses
-the buffer as a scratchpad to keep track which of the $$N!$$
+the buffer as a scratchpad to keep track of which of the $$N!$$
 permutations has been selected.
 
-A $$O(k)$$ _space and time_ solution to this exercise could dispense
+An $$O(k)$$ _space and time_ solution to this exercise could dispense
 with the array altogether, since it really just selects $$k$$
 indices. One could simply ask:
 
@@ -496,7 +496,7 @@ This is known as _Floyd's algorithm_, due to R.W. Floyd, 1978 Turing
 Award winner and close collaborator of Donald Knuth at Stanford.
 
 It wasn't immediately obvious to me why this algorithm is correct. The
-fact that the math of "if seen already, chose one past the end" works
+fact that the math of "if seen already, choose the end" works
 is somewhat magical. For a discussion of Floyd's algorithm,
 check out ["A Sample of Brilliance" in Jon Bentley's _Programming
 Pearls_](https://dl.acm.org/doi/10.1145/30401.315746).
@@ -527,7 +527,7 @@ solutions we already saw, but perhaps we can do this in $$O(k)$$ space?
 
 #### Selection sampling
 
-Let's say we also get information of the eventual length of the
+Let's say we also get information about the eventual length of the
 stream. In that case, sampling $$k$$ out of the $$N$$ items we will
 see, naively, is just[^random0]
 
@@ -552,7 +552,7 @@ some variation.
 Sampling too much is easily fixable -- we can just stop after $$k$$
 samples. But it's unclear if that maintains uniformity, and anyway
 what can we do about sampling too little? What we should do is
-increasing the probability as we go along, for instance in a situation
+to increase the probability as we go along, for instance in a situation
 where we have sampled $$k - 1$$ elements and the stream only contains
 a single final element, that one has to be sampled with probability
 $$1$$.
@@ -700,8 +700,8 @@ correct for $$N = k + 1$$ as well? (You see where this is going.) For
 $$N = k + 1$$, what's the chance of any given element to be in the
 `results` array? It will be $$\frac{k}{k+1}$$. Essentially, _if_ we
 see another element after the first $$k$$ (which are guaranteed), what
-choice do we have? We can chose it or reject it with a certain
-probability, and if we chose it, we can evict a previously chosen
+choice do we have? We can choose it or reject it with a certain
+probability, and if we choose it, we can evict a previously chosen
 element with some probability. Since the stream could end right after
 that additional element, _its_ probability of being chosen has to be
 correct, namely `k / N` which is `k / stream_len_so_far` in this case.
@@ -717,7 +717,7 @@ def sample(it, k):
 
     for stream_len, e in enumerate(it, k + 1):  # Start with k + 1
         if random() < k / stream_len:
-            # Chose `e`.
+            # Choose `e`.
 
     return results
 ```
@@ -860,7 +860,7 @@ restarted from a checkpoint.
 
 Let's further say the number of samples $$N$$ is large enough such
 that even an array like `np.arange(N)` does not fit into the memory of
-a single machine (this will be true around hundred billion entries or
+a single machine (this will be true around a hundred billion entries or
 so).
 
 What we are asking for is equivalent to selecting one of the $$N!$$
@@ -873,7 +873,7 @@ for i in range(N):
 ```
 
 This is similar to the sampling question in that doing this requires a
-scratch buffer of size $$O(N)$$ to keep track what has been sampled so
+scratch buffer of size $$O(N)$$ to keep track of what has been sampled so
 far. For instance, this could be done like:
 
 ```python
@@ -1020,7 +1020,7 @@ MurmurHash3 and this blog post were the starting point of all kinds of
 results around fast permutations. Stafford's suggestion made it into
 JDK 8 in 2013 and was also cited as canonical in _Fast Splittable
 Pseudorandom Number Generators_ by Steele, Lea and Flood
-in 2014. Since 2018, Pelle Evensen had
+in 2014. Since 2018, Pelle Evensen has had
 [several](http://mostlymangling.blogspot.com/2018/07/on-mixing-functions-in-fast-splittable.html)
 [blog
 posts](http://mostlymangling.blogspot.com/2020/01/nasam-not-another-strange-acronym-mixer.html)

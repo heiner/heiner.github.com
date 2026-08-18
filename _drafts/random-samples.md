@@ -33,13 +33,13 @@ interviews are mistaken. When faced with the _practical_ question of
 assessing within minutes whether a given candidate would be a useful
 co-worker, leetcode-style questions are hard to beat.
 
-Why is that? I don't think there is a single explanation. One reason
+Why is that? I don't think there is a single mechanism. One reason
 it's easy to criticize leetcode-style questions is
 that they assess a combination of skills and desiderata but don't
 fully nail any single one. Let's therefore describe what
 leetcode-interviews _do_ assess and why that's a good thing. To make
 matters more concrete, I'll then describe one of my favorite
-leetcode-style interview questions in large detail.
+leetcode-style interview questions in detail.
 
 **Leetcode-style questions can be prepared for.** In fact, that is the
 business model of [leetcode.com](https://leetcode.com). Becoming very
@@ -48,7 +48,7 @@ supposed uselessness of the skill thereby acquired, this is used as an
 argument against them. But not so: One of the practical questions an
 interviewer has to answer is just how excited a given candidate is
 about the job, and about the occupation of programming for a living in
-the first place. Putting in weeks (or months) of prep time is a strong
+the first place. Putting in weeks, or months, of prep time is a strong
 signal that the candidate is _interested in software_. That is a lot!
 In fact, the best programmers I know are _excited_ to discuss new
 little questions, not too different from how mathematicians discuss
@@ -61,30 +61,31 @@ alone eliminates a large fraction of weak candidates.
 **Leetcode-style questions test intelligence.** While candidates
 sometimes try to brute-force these questions by remembering all
 possible answers, people with high IQ have a huge natural
-advantage here. Smart people are generally useful, and assessing how
-smart a candidate is is the main point of interviews (being smart covers
+advantage. Smart people are generally useful, and assessing _how
+smart a candidate is_ is the main point of interviews (being smart covers
 a multitude of other flaws). That is also why universities find SAT
 results useful. Of course, measuring IQ directly via a test would
-presumably work better, but the US has a history of
+presumably be more precise, but the US has a history of
 [disincentivizing](https://en.wikipedia.org/wiki/Griggs_v._Duke_Power_Co.)
 this since the outcomes are politically disfavored. And perhaps a
 pure IQ test would actually be worse since leetcode-style
 questions cover prior knowledge much more:
 
 **Leetcode-style questions test knowledge.**
-The relation between rote memorization and skill is
+The contrast between rote memorization and skill is
 not as strict as it's sometimes made out to be, neither in software
-engineering nor in other areas like math. Knowing what, e.g., a Bloom
+engineering nor in other areas such as math. Knowing what, e.g., a Bloom
 filter is is genuinely useful, as is knowing the name of the thing. Since
-practically nobody is able to re-derive all of computer science
-from scratch by themselves (there is _some_ content to the field,
+practically nobody is able to re-derive meaningful parts of computer
+science from scratch by themselves (there is _some_ content to the field,
 even if it's perhaps less than in math or physics), knowing what
 exists and how to talk about it is a useful skill. During the actual
 work of a good software engineer, various design decisions and
-decisions about systems have to be made. Knowing the toolbox well is
-essential to making good decisions here. This can be traded off with
-intelligence or other sources of good intuition about these practical
-problems, but ceteris paribus knowing more is better.
+judgment calls about systems have to be made. Knowing the toolbox, and
+knowing it well is essential to making these decisions well. This can
+be traded off with intelligence or other sources of good intuition
+about these practical problems, but ceteris paribus knowing more is
+better.
 
 Of course that depends on the type of software engineering role the
 candidate wants to fill. Folks writing database lookups for a Django
@@ -100,22 +101,22 @@ more job security, the guy that knows about Zobrist hashing or the
 hundredth CRUD engineer? I don't know if "be the knowledgeable engineer"
 is actionable advice (nobody decided to not be super interested, most
 people just are like that) but "hire the knowledgeable engineer"
-certainly is. Knowledgeable engineers work on harder, more interesting
+is. Knowledgeable engineers work on harder, more interesting
 problems and are more likely (in fact fairly likely) to engage with
 "fundamentals" (heaps, sorting and searching, etc.) as part of their
 career -- the blunt answer to the "I've never needed this" argument is
 ["but the good ones
-did"](https://www.smbc-comics.com/comic/why-i-couldn39t-be-a-math-teacher). And
+do"](https://www.smbc-comics.com/comic/why-i-couldn39t-be-a-math-teacher). And
 in fact, several of the ideas described below did end up being
 relevant in my career.
 
 **Leetcode-style questions are an industry standard for a reason.**
 The artificialness of asking a problem from a predefined pool, again
-and again and again, is even more obvious to the interviewers than to
-the critics. Trying to do something smarter is a decades-old idea. In
-2015, the long-time Google head of recruitment Laszlo Bock described
-some of the ideas of early Google in his book. They include nifty
-ideas like programming-related easter eggs in Google search and
+and again and again, is even more obvious to the interviewers than it
+is to the critics. Trying to do something smarter is a decades-old
+idea. In his 2015 book, the long-time Google head of recruitment
+Laszlo Bock described some of the ideas of early Google. They include
+nifty ideas like programming-related easter eggs in Google search and
 McKinsey-style brainteasers. Few if any of the cool ideas worked, and
 Google instead relied on ~four structured interviews from a shared pool
 with defined rubrics.[^google]
@@ -133,8 +134,8 @@ to the extent that it's slightly worn out. However, as per the above,
 I don't think I am giving "too much away" by describing it here, and
 I may well use this question again. If candidates read
 this, all the better -- we can dive in deep then. (And if they have
-not, despite knowing I'd interview them, that's ever so slightly some
-kind of signal too, albeit not very strong.)
+not, despite knowing I'd interview them, that's ever so slightly
+signal too, albeit not very strong.)
 
 I first heard this question when Greg Chanan interviewed me for FAIR
 in 2018. I probably did okay-but-not-great. I did end up getting

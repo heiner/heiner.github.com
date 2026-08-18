@@ -125,7 +125,7 @@ with defined rubrics.[^google]
 Just because leetcode-style interviews as a category are not bad does
 not mean every such interview is done well. In particular, within the
 set of leetcode-style coding questions there are further
-distinctions. I like questions with a lot of depth and width.
+distinctions. I like questions with a lot of depth and breadth.
 
 I'm going to describe my favorite interview question. I used it
 probably hundreds of times when interviewing for xAI and other places,
@@ -184,7 +184,7 @@ replaced).
 
 This opens the door to a first clarification: What is a "same element"
 for the purpose of this question? It's overall more interesting if
-there's no object identity check a la `__eq__` in Python here but
+there's no object equality check a la `__eq__` in Python here but
 instead all elements of the array can be assumed to be unique. This also
 implies their index is the only thing that matters, and what the
 elements of the array are is otherwise not important.
@@ -250,7 +250,7 @@ def sample(L, k):
 
 All of these are correct solutions, but they suffer from a similar
 problem. In order to delete an element of an array _while keeping
-$$O(1)$$ lookups in place_, deletion requires _shifting all latter
+$$O(1)$$ lookups in place_, deletion requires _shifting all later
 elements_ which is $$O(N)$$.
 
 In memory, an array is just a buffer that starts at `start_ptr` and ends at
@@ -258,9 +258,9 @@ In memory, an array is just a buffer that starts at `start_ptr` and ends at
 
 ```
 [ a b c d e f g h i j k l m ]
-  ^                       ^
-  start_ptr               |
-     start_ptr + buffer_len
+  ^                         ^
+  start_ptr                 |
+       start_ptr + buffer_len
 ```
 
 Looking up the element at index `i` just means resolving
@@ -371,8 +371,8 @@ Sometimes candidates find that "shuffle the list and take the first
 
 ```python
 def sample(L, k):
-   shuffle(L)
-   return L[:k]
+    shuffle(L)
+    return L[:k]
 ```
 
 The question is, of course, how to shuffle. A moment's reflection shows
@@ -581,7 +581,7 @@ return`. A moment's reflection shows that this algorithm always
 produces $$k$$ elements and is correct.
 
 This algorithm is Knuth's Algorithm S, "selection sampling" (from The
-Art of Computer Programming, Vol. 2, §3.4.2). It is short, sweet, and
+_Art of Computer Programming_, Vol. 2, §3.4.2). It is short, sweet, and
 "online" (we can yield instead of waiting for the stream to finish)
 and is the right approach for many applications, including handling
 classic magnetic tapes which are linear by nature.
@@ -654,7 +654,9 @@ While it doesn't apply in the streaming case, it's good to remember
 that quickselect is the standard algorithm for finding the $$k$$th
 smallest element in an unsorted list, or the $$k$$ smallest
 elements. However since it requires modifying the full array, it isn't
-the best approach for the problem at hand.
+the best approach for the problem at hand. (It also suffers from the
+same floating point collision issue.) It's still very good to know
+quickselect, which is why I mention it here.
 
 #### Reservoir sampling
 
@@ -722,8 +724,8 @@ def sample(it, k):
 
 This is almost the full algorithm. The remaining question is what to
 evict? Given the uniform sample we want to produce, it stands to
-reason that we want to evict all currently chosen elements in the pool
-`results` -- let's actually call it a reservoir -- with the same
+reason that we want to select elements for eviction from the pool
+`results` -- let's actually call it a reservoir -- with
 uniform probability:
 
 ```python
@@ -734,7 +736,7 @@ def sample(it, k):
 
     for stream_len, e in enumerate(it, k + 1):
         if random() < k / stream_len:
-           reservoir[randrange(k)] = e
+            reservoir[randrange(k)] = e
 
     return reservoir
 ```
@@ -750,7 +752,7 @@ def sample(it, k):
 
     for stream_len, e in enumerate(it, k + 1):
         if (i := randrange(stream_len)) < k:
-           reservoir[i] = e
+            reservoir[i] = e
 
     return reservoir
 ```
@@ -876,6 +878,7 @@ far. For instance, this could be done like:
 
 ```python
 import numpy as np
+from random import randrange
 
 def permit(N):
     L = np.arange(N)
@@ -959,9 +962,9 @@ has `m` bits, that means we can only produce $$2^m$$ different
 permutations, which is vastly fewer than the full number of
 permutations of the set of `uint64`s, which is $$(2^{64})!$$, a number
 that has about $$3.47 \times 10^{20}$$ digits.[^digits] By contrast,
-the number of atoms in the universe has about 80 digits! Combinatorics
-creates large numbers very fast. The actual fraction of permutations
-reachable by this scheme is very close to $$0\%$$.
+the number of atoms in the observable universe has about 80 digits!
+Combinatorics creates large numbers very fast. The actual fraction of
+permutations reachable by this scheme is very close to $$0\%$$.
 
 [^digits]: How do I know that number? It turns out the Log-gamma
     function $$\ln\circ\,\Gamma$$ is a well understood object with a
@@ -976,7 +979,7 @@ are we with these _pseudorandom permutations_?
 This turns out to depend on how we measure that distance and on the
 quality of the `encrypt` function. As one lead, check out [Feistel
 network](https://en.wikipedia.org/wiki/Feistel_cipher)[^feistel] and a
-result known as the _Luby-Rackoff  theorem_.[^lubyrackoff]
+result known as the _Luby-Rackoff theorem_.[^lubyrackoff]
 
 [^feistel]: The tl;dr on Feistel networks is: Split the input into its
     left and right part, then compute `right, left = left ^

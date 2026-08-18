@@ -9,12 +9,12 @@ title:  "Leetcode-style interviews and my favorite question"
 ## A Leetcode-style interviewer's apology
 
 People love to hate leetcode-style interviews. On X, they are
-regularly described as useless and a waste of time for all parties
+regularly described as a waste of time for all parties
 involved. People point out that real programming jobs are nothing like
-these artificial 30-60 minute interviews, that software engineers can
+these artificial 30-60 minute situations, that software engineers can
 have decade-long careers without ever implementing the algorithms that
 are regularly discussed during these interviews, and that AI means
-lexiographic knowledge of algorithms is even more useless than it
+encyclopedic knowledge of algorithms is even more useless than it
 was before.[^failure]
 
 [^failure]: Another reason some people dislike leetcode-style
@@ -33,13 +33,12 @@ interviews are mistaken. When faced with the _practical_ question of
 assessing within minutes whether a given candidate would be a useful
 co-worker, leetcode-style questions are hard to beat.
 
-Why is that? I don't think there is a single mechanism. One reason
-it's easy to criticize leetcode-style questions is
-that they assess a combination of skills and desiderata but don't
-fully nail any single one. Let's therefore describe what
-leetcode-interviews _do_ assess and why that's a good thing. To make
-matters more concrete, I'll then describe one of my favorite
-leetcode-style interview questions in detail.
+Why is that? I don't think there is a single mechanism.
+It's easy to criticize leetcode-style questions since they assess a
+combination of skills and desiderata but don't nail any single
+one. Let's therefore describe what leetcode-interviews _do_ assess and
+why that's a good thing. To make matters more concrete, I'll then
+describe one of my favorite leetcode-style interview questions in detail.
 
 **Leetcode-style questions test if you can code.** It's stupid, but a
 good fraction of candidates will [fail even
@@ -48,8 +47,8 @@ just cannot code. _Any_ interview that involves coding will find that;
 having a rule that says a specific interview is for coding exclusively
 helps get to fast failure for hopeless cases.
 
-**Leetcode-style questions can be prepared for.** In fact, that is the
-business model of [leetcode.com](https://leetcode.com). Becoming very
+**Leetcode-style questions can be prepared for.** That is the
+very business model of [leetcode.com](https://leetcode.com). Becoming
 good at these kinds of questions takes a lot of work. Combined with the
 supposed uselessness of the skill thereby acquired, this is used as an
 argument against them. But not so: One of the practical questions an
@@ -62,8 +61,8 @@ little questions, not too different from how mathematicians discuss
 little exercises. Being interested in how to find unique triplets of
 array entries that sum to zero correlates with just being interested
 in computers and how they work. Sitting down and preparing for a job
-interview means being at least somewhat interested in the job. That
-alone eliminates a large fraction of weak candidates.
+interview means being at least somewhat interested in the job and the
+company. That alone eliminates a large fraction of weak candidates.
 
 **Leetcode-style questions test intelligence.** While candidates
 sometimes try to brute-force these questions by remembering all
@@ -84,8 +83,8 @@ not as strict as it's sometimes made out to be, neither in software
 engineering nor in other areas such as math. Knowing what, e.g., a Bloom
 filter is is genuinely useful, as is knowing the name of the thing. Since
 practically nobody is able to re-derive meaningful parts of computer
-science from scratch by themselves (there is _some_ content to the field,
-even if it's perhaps less than in math or physics), knowing what
+science from scratch by themselves (there is _some_ content to the
+field after all), knowing what
 exists and how to talk about it is a useful skill. During the actual
 work of a good software engineer, various design decisions and
 judgment calls about systems have to be made. Knowing the toolbox, and
@@ -99,22 +98,21 @@ candidate wants to fill. Folks writing database lookups for a Django
 app may not need to know Fenwick trees. However, that brings me to
 
 **AI's impact on software engineering.** I cannot foresee all
-consequences of coding models on the ecosystem but it seems fairly
-certain it will change a lot and fast. It's possible the role won't
+consequences of coding models on the ecosystem but it seems likely it
+will change a lot and fast. It's possible the role won't
 exist at all in the near term, in which case all interview techniques
 are obsolete. It stands to reason though that the more routine, more
-obviously automatable tasks will in fact be automated first. Who's got
-more job security, the guy that knows about Zobrist hashing or the
+obviously automatable tasks will be automated first. Who's got
+more job security, the guy who knows about Zobrist hashing or the
 hundredth CRUD engineer? I don't know if "be the knowledgeable engineer"
-is actionable advice (nobody decided to not be super interested, most
-people just are like that) but "hire the knowledgeable engineer"
-is. Knowledgeable engineers work on harder, more interesting
-problems and are more likely (in fact fairly likely) to engage with
-"fundamentals" (heaps, sorting and searching, etc.) as part of their
-career -- the blunt answer to the "I've never needed this" argument is
-["but the good ones
+is actionable advice -- since nobody decided to be somewhat
+disinterested, most people just are like that -- but "hire the
+knowledgeable engineer" is. Knowledgeable engineers work on harder, more interesting
+problems and are likely to at some point in their career engage with
+"low-level fundamentals". The blunt answer to the "I've never needed
+this" argument is ["but the good ones
 do"](https://www.smbc-comics.com/comic/why-i-couldn39t-be-a-math-teacher). And
-in fact, several of the ideas described below did end up being
+for what it's worth, several of the ideas described below did end up being
 relevant in my career.
 
 **Leetcode-style questions are an industry standard for a reason.**
@@ -130,11 +128,6 @@ with defined rubrics.[^google]
 
 [^google]: This was when Google was cool.
 
-Just because leetcode-style interviews as a category are not bad does
-not mean every such interview is done well. In particular, within the
-set of leetcode-style coding questions there are further
-distinctions. I like questions with a lot of depth and breadth.
-
 ---
 
 I'm going to describe my favorite interview question. I used it
@@ -144,9 +137,9 @@ on [actual
 leetcode](https://leetcode.com/problem-list/reservoir-sampling/)). However,
 as per the above, I don't think I am giving "too much away" by
 describing it here, and I may well use this question again. If
-candidates read this, all the better -- we can dive in deep then. (And
-if they have not, despite knowing I'd interview them, that's ever so
-weak signal too.)
+candidates read this, all the better -- we can dive in deep then. And
+if they have not, despite knowing I'd interview them, that's an ever so
+weak signal too.
 
 I first heard this question when Greg Chanan interviewed me for FAIR
 in 2018. I probably did okay-but-not-great. I did end up getting
@@ -186,14 +179,14 @@ class="pre">&lt;</span> <span class="pre">1.0</span></code></dd>
     <tt>random.randrange(start, stop[, step])</tt> version, but we
     will use the one-argument version of `randrange` here.
 
-Some candidates want some explanation of the terms: "uniform" means
+Some candidates want an explanation of the terms: "uniform" means
 every entry of the array has the same chance of being sampled;
 "without replacement" means elements are discarded after being sampled
-and cannot be sampled again (in the "urn model", the balls taken out
+and cannot be sampled again: in the "urn model", the balls taken out
 of the urn are not being put back into the urn, so they are not being
-replaced).
+replaced.
 
-This opens the door to a first clarification: What is a "same element"
+This opens the door to another question: What is a "same element"
 for the purpose of this question? It's overall more interesting if
 there's no object equality check a la `__eq__` in Python here but
 instead all elements of the array can be assumed to be unique. This also
@@ -219,19 +212,18 @@ def sample(L, k):
     Guide](https://google.github.io/styleguide/pyguide.html) says. One
     of the advantages of leaving Google is to be _free_.
 
-This is very decent if `k/N` is a small number but catastrophically
+This is decent if `k/N` is a small number but catastrophically
 slow when `k` is close to `N`. However, in the case `k/N >= 0.5` one
-can just choose to sample _rejected_ instead of _selected_ items and
+can choose to sample _rejected_ instead of _selected_ items and
 arrive at a decent solution overall. This way, the algorithm makes
 progress in each iteration with probability $$\ge 0.5$$, which means the
 chance of _not_ making progress after $$m$$ steps decays exponentially
 in $$m$$. Note though that the worst case
 time complexity is still unbounded ("$$O(\infty)$$").
 
-That's a decent solution, good enough for most practical
-applications -- but not good enough for a coding interview. So let's
-say we are looking for a solution with deterministic
-complexity.
+That's good enough for most practical applications -- but not good
+enough for a coding interview. So let's say we are looking for a
+solution with deterministic complexity.
 
 ### Naive deletion
 
@@ -264,7 +256,7 @@ problem. In order to delete an element of an array _while keeping
 $$O(1)$$ lookups in place_, deletion requires _shifting all later
 elements_ which is $$O(N)$$.
 
-In memory, an array is just a buffer that starts at `start_ptr` and ends at
+In memory, an array is a buffer that starts at `start_ptr` and ends at
 `start_ptr + buffer_len`:
 
 ```
@@ -274,8 +266,8 @@ In memory, an array is just a buffer that starts at `start_ptr` and ends at
        start_ptr + buffer_len
 ```
 
-Looking up the element at index `i` just means resolving
-a pointer to `start_ptr + i`. This makes lookups $$O(1)$$ and very
+Looking up the element at index `i` means resolving
+a pointer to `start_ptr + i`. This makes lookups $$O(1)$$ and
 cheap even within that class.
 
 Deleting an element -- say, `g` -- creates a hole:
@@ -303,7 +295,7 @@ etc.
 This makes deletion shift $$N/2$$ elements on average and $$O(N)$$.
 
 Note that a Python `list` is also just such a buffer in memory with a
-"physical" capacity and a "logical" length. When it needs to grow
+physical capacity and a logical length. When it needs to grow
 beyond its capacity a new buffer is created and all elements (which
 are pointers of type `PyObject*`) are copied. Candidates often _think_ they
 don't know that that is the case but they typically can infer this once
@@ -319,7 +311,7 @@ Some people, myself included, find it natural to try
 to track already selected elements. In step `i`, one could attempt to
 sample from `randrange(N - i)` and then add the number of gaps already
 chosen left of `i`. While natural, this is complicated and yields at
-best some kind of tree structure and an $$O(k \log N)$$ solution, while
+best some kind of tree structure and an $$O(k \log k)$$ solution, while
 $$O(k)$$ should be and is possible.
 
 Some folks propose all kinds of dictionary/hash map approaches, most
@@ -328,7 +320,7 @@ interview, see below!). The fundamental problem is that arrays allow
 $$O(1)$$ lookup of the $$i$$th element but require $$O(N)$$ deletions,
 while hash maps _might_ allow for $$O(1)$$ deletions but looking up
 the $$i$$th element costs $$O(N)$$. Hash maps generally are somewhat
-overused by many programmers due to their convenience. Some
+overused due to their convenience. Some
 candidates have a really hard time giving them up for this problem.
 
 ### Swapping to the end
@@ -355,7 +347,7 @@ Note that `L[j] = L[N - i - 1]` can be a no-op if the sampled index
 `j` was the end.
 
 This is an example of a "swap with the end" trick that's useful more
-generally. With swapping instead of just moving one can also avoid the
+generally. With swapping instead of moving one can also avoid the
 `result` array:
 
 ```python
@@ -370,10 +362,10 @@ def sample(L, k):
 ```
 
 This is pretty short and $$O(k)$$ in time with essentially no extra
-space (assuming the slice at the end doesn't create a copy -- true if
+space, assuming the slice at the end doesn't create a copy -- true if
 `L` is an object like a NumPy array but not true for plain Python
-lists). If `k` is not zero, the slice at the end can be written
-as `L[-k :]` but that fails precisely when `k == 0`.
+lists. If `k` is nonzero, the slice at the end can be written
+as `L[-k :]` but that fails for `k == 0`.
 
 ### Via partial shuffle
 
@@ -386,7 +378,7 @@ def sample(L, k):
     return L[:k]
 ```
 
-The question is, of course, how to shuffle. A moment's reflection shows
+The question then is how to shuffle. A moment's reflection shows
 that "go through all slots and swap with a random one" is promising:
 
 ```python
@@ -421,8 +413,8 @@ the swapping-to-the-end solution, but easier to find for some people.
 #### A fun side quest
 
 Here's a side question: What if we don't stick with our choices, but
-instead allow the full array to be selected every time (this means
-that we potentially swap already chosen elements)?
+instead allow the full array to be selected every time? This way we
+potentially swap already chosen elements:
 
 ```python
 def alt_shuffle(L):
@@ -432,23 +424,21 @@ def alt_shuffle(L):
 ```
 
 As an algorithm, this feels worse -- for instance, the original
-`shuffle` allows us to `yield` results as they come (but we still need
-the buffer `L` to keep track of what we have chosen, see below for a
-discussion of that). But is it any worse otherwise? Is it correct? Are
-both `shuffle` and `alt_shuffle` correct, or only one of them? (Or,
-less plausibly, neither?)
+`shuffle` allows us to `yield` results as they come. But is it any
+worse otherwise? Is it correct? Are both `shuffle` and `alt_shuffle`
+correct, or only one of them? Or, less plausibly, neither?
 
 <details markdown="1">
 <summary>Click here to find out about <tt>shuffle</tt> vs. <tt>alt_shuffle</tt>.</summary>
 It turns out, `alt_shuffle` is wrong in that it doesn't result in a
 _uniform_ shuffle.
 
-This is true in general but one easy way to see this is to assume that
-$$k = N = p$$ for a prime number $$p > 2$$. The number of different random
-inputs from `randrange` for `shuffle` is exactly $$N(N-1)\cdots
-1 = N!$$. This is also the number of random permutations of $$N$$
-items; what this algorithm is doing is selecting one such permutation,
-step by step.
+This is true in general for $$N\ge 3$$ but one easy way to see this is
+to assume that $$k = N = p$$ for a prime number $$p > 2$$. The number
+of different random inputs from `randrange` for `shuffle` is exactly
+$$N(N-1)\cdots 1 = N!$$. This is also the number of random
+permutations of $$N$$ items; the algorithm is selecting
+one such permutation, step by step.
 
 For `alt_shuffle`, the number of different random inputs the
 algorithm uses is $$N^N$$. That is a vastly larger number than
@@ -513,8 +503,8 @@ check out ["A Sample of Brilliance" in Jon Bentley's _Programming
 Pearls_](https://dl.acm.org/doi/10.1145/30401.315746).
 
 Very few people will be able to derive something like that
-in the scope of a coding interview. In fact, only a handful of people
-even know this algorithm in the first place -- as far as I remember,
+in the scope of a coding interview. Only a handful of people
+even know this algorithm in the first place;
 nobody I ever interviewed did.
 
 ## Version 2: $$O(N)$$ solutions
@@ -540,7 +530,7 @@ solutions we already saw, but perhaps we can do this in $$O(k)$$ space?
 
 Let's say we also get information about the eventual length of the
 stream. In that case, sampling $$k$$ out of the $$N$$ items we will
-see, naively, is just[^random0]
+see, naively, is[^random0]
 
 ```python
 from random import random
@@ -591,10 +581,10 @@ Optionally, we could also short-circuit via something like `if not k:
 return`. A moment's reflection shows that this algorithm always
 produces $$k$$ elements and is correct.
 
-This algorithm is Knuth's Algorithm S, "selection sampling" (from The
-_Art of Computer Programming_, Vol. 2, §3.4.2). It is short, sweet, and
-"online" (we can yield instead of waiting for the stream to finish)
-and is the right approach for many applications, including handling
+This algorithm is Knuth's Algorithm S, "selection sampling" (from _The
+Art of Computer Programming_, Vol. 2, §3.4.2). It is short, sweet, and
+"online" -- we can yield instead of waiting for the stream to finish.
+It is the right approach for many applications, including handling
 classic magnetic tapes which are linear by nature.
 
 ### Streams of unknown length
@@ -649,15 +639,22 @@ Overall this algorithm is $$O(k) + O(N \log k)$$ in time.
 
 There is an issue with this approach though: It relies on each
 `random()` number being truly different from each other one. Since
-Python's `float`s don't have infinite precision (on a typical
-contemporary computer it will be a double aka `float64`), collisions
+Python's `float`s don't have infinite precision, collisions
 are possible and due to the birthday paradox are actually
-somewhat more likely than intuitively expected. If our streamed
+more likely than intuitively expected.[^birthday] If our streamed
 elements are not comparable, this will make the above algorithm crash
-at runtime -- and even if they are, uniformity will be violated. The
+at runtime -- and if they are, uniformity will be violated. The
 only real solution to this I can see is to modify the comparison to
 have random tie breaks which breaks the deterministic runtime behavior
 and is not pleasant to implement.
+
+[^birthday]: On a typical contemporary computer, a Python `float` is
+    a double aka `float64`. Python's `random()` returns one of $$N =
+    2^{53}$$ equally spaced doubles in $$[0,
+    1)$$. The birthday threshold is $$\sqrt{2N\ln 2}$$ which is around
+    111M. But for this solution we have to worry about collisions
+    within the set of $$k$$ elements in the heap only.
+
 
 #### Quickselect
 
@@ -710,7 +707,7 @@ This now is at least correct for the $$N = k$$ case. Can we make it
 correct for $$N = k + 1$$ as well? (You see where this is going.) For
 $$N = k + 1$$, what's the chance of any given element to be in the
 `results` array? It will be $$\frac{k}{k+1}$$. Essentially, _if_ we
-see another element after the first $$k$$ (which are guaranteed), what
+see another element after the guaranteed first $$k$$, what
 choice do we have? We can choose it or reject it with a certain
 probability, and if we choose it, we can evict a previously chosen
 element with some probability. Since the stream could end right after
@@ -752,8 +749,7 @@ def sample(it, k):
     return reservoir
 ```
 
-In fact, a slight optimization requires only a single random choice
-here:
+A slight optimization requires only a single random choice here:
 
 ```python
 from random import randrange
@@ -768,7 +764,7 @@ def sample(it, k):
     return reservoir
 ```
 
-That is a very neat algorithm. But is it correct? We arrived at it by
+That is a neat algorithm. But is it correct? We arrived at it by
 assuming something like this is possible; in particular, we chose the
 probabilities such that the final element's chance of ending in the
 chosen set is correct.
@@ -796,7 +792,7 @@ $$
 So the probabilities of the previous elements are updated in the
 correct way too.
 
-This magic algorithm is called _reservoir sampling_. It's a classic
+This algorithm is known as _reservoir sampling_. It's a classic
 from the literature; Knuth calls it Algorithm R in TAOCP Volume 2.
 
 #### Reservoir sampling with skipping ahead
@@ -865,14 +861,10 @@ which comes in the form
 ```
 
 We now want to do "online shuffling", i.e., go through the dataset in
-a random order, visiting each sample exactly once. We want to do that
-while being preemptible -- our algorithm can be stopped and later
-restarted from a checkpoint.
-
-Let's further say the number of samples $$N$$ is large enough such
-that even an array like `np.arange(N)` does not fit into the memory of
-a single machine (this will be true around a hundred billion entries or
-so).
+a random order, visiting each sample exactly once. We also want to be
+preemptible -- our algorithm can be stopped and later restarted from a
+checkpoint. Perhaps we would even like this to be _seekable_: Quickly
+asking for the entry that comes at position `i` of the shuffle.
 
 What we are asking for is equivalent to selecting one of the $$N!$$
 many permutations of $$N$$ items, then doing lookups of the form
@@ -899,15 +891,16 @@ def permit(N):
         yield L[i]
 ```
 
-However, this is a heavy amount of state for our checkpoint and
-requires special handling in our case where `np.arange(N)` exceeds the
-available memory.
+However, this is a heavy amount of state for our checkpoint: For a
+dataset of 1B entries we would use 8 GiB just for the
+`np.arange(N)`. It's also not quickly seekable in that the full array
+needs to be assembled before we can do lookups.
 
 ### Block ciphers
 
 If we want to deal with far less state (say, a few kilobytes), the
 problem cannot be solved _exactly_. But it can be
-solved approximately, and one can prove the approximation is very good.
+solved approximately, and one can prove the approximation is good.
 
 One trick is to use an idea from cryptography: A _block cipher_ is a
 symmetric encryption algorithm which takes a secret key `k` and buffers of
@@ -934,7 +927,7 @@ $$
 
 are bijections (one-to-one) and each is the inverse of the
 other. Here, $$\set{0, 1}^{n}$$ is the set of all buffers of 0s and 1s
-of length $$n$$ -- a set with $$2^n$$ elements.
+of length $$n$$, which is a set of $$2^n$$ elements.
 
 ### Pseudorandom permutations
 
@@ -960,7 +953,7 @@ Since $$\mathtt{encrypt}(\dotid, \mathtt{k})$$ is one-to-one, each
 possible bit pattern is produced exactly once. `perm` is an actual
 permutation of the set of `uint64`s (a set of $$2^{64}$$ elements).
 
-This works as described if the (very large) table has size exactly
+This works as described if the (humongous) table has size exactly
 $$N = 2^n = 2^{64}$$. Realistically, it's smaller and we need some
 additional ideas.[^power] This is a great topic to discuss with an
 LLM!
@@ -980,16 +973,17 @@ permutations reachable by this scheme is very close to $$0\%$$.
 [^digits]: How do I know that number? It turns out the Log-gamma
     function $$\ln\circ\,\Gamma$$ is a well understood object with a
     fast converging series representation. Since $$\Gamma(n + 1) =
-    n!$$ and Python has bignums, we can literally just compute
+    n!$$ and Python has bignums, we can literally compute
     `math.lgamma(2**64 + 1)` and convert $$\ln$$ to $$\log_{10}$$.
 
 So we will only ever get an absurdly tiny fraction of all possible
 permutations this way. How far away from truly random permutations
 are we with these _pseudorandom permutations_?
 
-This turns out to depend on how we measure that distance and on the
-quality of the `encrypt` function. As one lead, check out [Feistel
-network](https://en.wikipedia.org/wiki/Feistel_cipher)[^feistel] and a
+The answer depends on the quality of the `encrypt` function. In many
+scenarios, cryptographers could prove that one cannot actually tell
+the difference! To learn more, check out [Feistel
+networks](https://en.wikipedia.org/wiki/Feistel_cipher)[^feistel] and a
 result known as the _Luby-Rackoff theorem_.[^lubyrackoff]
 
 [^feistel]: The tl;dr on Feistel networks is: Split the input into its
@@ -1011,7 +1005,7 @@ result known as the _Luby-Rackoff theorem_.[^lubyrackoff]
 
 On the other end of the spectrum, very cheap parameterized permutations
 come from _mixers_ (or _finalizers_) of hash functions like
-MurmurHash3. A [very influential 2011 blog post by David
+MurmurHash3. An [influential 2011 blog post by David
 Stafford](https://zimbry.blogspot.com/2011/09/better-bit-mixing-improving-on.html)
 proposed using
 

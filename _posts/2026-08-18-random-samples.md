@@ -7,7 +7,7 @@ title:  "Random samples"
 {:toc}
 
 I'm going to describe my favorite interview question and then ad-lib a
-bit on it. The question has a somewhat mathematical bend but connects
+bit on it. The question has a somewhat mathematical bent but connects
 to several practical problems I had in my career.
 I used it many dozens of times when interviewing for xAI and other places,
 to the extent that it's slightly worn out (and unsurprisingly is
@@ -482,6 +482,7 @@ def sample(it, k):
 
     for e in it:
         # do things and add to results
+        ...
 
     return results
 ```
@@ -557,6 +558,7 @@ def sample(it, k):
 
     for e in it:
         # do things and add to results
+        ...
 
     return results
 ```
@@ -579,6 +581,7 @@ def sample(it, k):
 
     for e in it:
         # do things and add to results
+        ...
 
     return results
 ```
@@ -606,6 +609,7 @@ def sample(it, k):
     for stream_len, e in enumerate(it, k + 1):  # Start with k + 1
         if random() < k / stream_len:
             # Choose `e`.
+            ...
 
     return results
 ```
@@ -933,47 +937,3 @@ properties can be surprisingly good and they are extremely cheap.
 Much more can be said about random sampling and shuffling. But this blog
 post is long enough and making it longer will not illustrate the point
 any better.
-
-{% comment %}
-
-#### Feistel networks
-
-However, it turns out that slightly more costly variants give actual
-cryptographic guarantees. For instance, one can start from a strong hash
-function and build a block cipher via [Feistel
-networks](https://en.wikipedia.org/wiki/Feistel_cipher).[^feistel]
-This construction offers some guarantees, although the mathematical
-bounds only give strong security up to thousands of queries.
-
-[^feistel]: The tl;dr on Feistel networks is: Split the input into its
-    left and right part, then compute `right, left = left ^
-    hash(right, key), right` for a number of rounds. Decryption is
-    doing the same kind of operation in reverse.
-
-A result by Luby and Rackoff from 1988 shows that Feistel networks
-give strong cryptographic guarantees (assuming the pseudorandom
-hash function we use is strong enough, and we use it correctly, and
-we use at least four Feistel rounds).
-
-[^advantage]: Roughly speaking, the
-      cryptographic setup is that an attacker is attempting to classify a
-      black box which either does `encrypt` and `decrypt` Feistel operations
-      _or_ is a "real" permutation drawn uniformly from all $$2^{64}!$$ permutations,
-      plus its inverse. The attacker can make $$q$$ "queries" (forward or
-      backward operations of his choice) against the black box. Afterwards,
-      the attacker says whether he believes the black box to be of the
-      Feistel type or the "real" type. The _advantage_ measures what the
-      attacker gained from doing $$q$$ queries. If the attacker learned
-      nothing, the advantage is zero; if he can always tell the difference,
-      it is one. The Luby-Rackoff result is that the advantage of the best
-      attacker is bounded by roughly $$\frac{q^2}{2^{n/2}} + \varepsilon_h$$
-      where $$n = 64$$ is the block size and $$\varepsilon_h$$ is the best
-      distinguishing advantage against the underlying pseudorandom hash
-      function at comparable resources.
-
-In essence, this means a cryptographic attacker requires thousands of
-dedicated probes to tell the two cases apart. For our simple
-statistical purpose, the permutation looks close enough to having been
-chosen truly at random.
-
-{% endcomment %}

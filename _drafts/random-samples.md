@@ -14,12 +14,12 @@ involved. People point out that real programming jobs are nothing like
 these artificial 30-60 minute interviews, that software engineers can
 have decade-long careers without ever implementing the algorithms that
 are regularly discussed during these interviews, and that AI means
-lexicon-style knowledge of algorithms is even less required than it
+lexiographic knowledge of algorithms is even more useless than it
 was before.[^failure]
 
 [^failure]: Another reason some people dislike leetcode-style
     questions is that they experienced them and did not end up getting
-    an offer. That happened to me too - when I first applied to Google
+    an offer. That happened to me too -- when I first applied to Google
     in Munich after my math PhD, I was woefully underprepared and no
     match for the L4 coding interviews (which were on the tough end,
     one of them was asking to implement a parallel regex matching
@@ -60,21 +60,21 @@ alone eliminates a large fraction of weak candidates.
 
 **Leetcode-style questions test intelligence.** While candidates
 sometimes try to brute-force these questions by remembering all
-possible answers, people with a certain IQ have a huge natural
+possible answers, people with high IQ have a huge natural
 advantage here. Smart people are generally useful, and assessing how
 smart a candidate is is the main point of interviews (being smart covers
 a multitude of other flaws). That is also why universities find SAT
 results useful. Of course, measuring IQ directly via a test would
 presumably work better, but the US has a history of
 [disincentivizing](https://en.wikipedia.org/wiki/Griggs_v._Duke_Power_Co.)
-this since the outcomes are politically disfavorable. And perhaps a
-pure IQ test would actually be worse since Leetcode-style
+this since the outcomes are politically disfavored. And perhaps a
+pure IQ test would actually be worse since leetcode-style
 questions cover prior knowledge much more:
 
 **Leetcode-style questions test knowledge.**
 The relation between rote memorization and skill is
 not as strict as it's sometimes made out to be, neither in software
-engineering nor in other areas like math. Knowing what, e.g., a bloom
+engineering nor in other areas like math. Knowing what, e.g., a Bloom
 filter is is genuinely useful, as is knowing the name of the thing. Since
 practically nobody is able to re-derive all of computer science
 from scratch by themselves (there is _some_ content to the field,
@@ -153,10 +153,9 @@ Python standard library functions
 [`random.random`](https://docs.python.org/3/library/random.html#random.random)
 and
 [`random.randrange`](https://docs.python.org/3/library/random.html#random.randrange),
-with the following behavior[^randrange]
+with the following behavior:[^randrange]
 
 <dl>
-
 <dt><tt>random.random()</tt></dt>
 <dd>Return the next random floating-point number in the range <code
 class="docutils literal notranslate"><span class="pre">0.0</span>
@@ -360,7 +359,7 @@ def sample(L, k):
 
 This is pretty short and $$O(k)$$ in time with essentially no extra
 space (assuming the slice at the end doesn't create a copy -- true if
-`L` is an object like a Numpy array but not true for plain Python
+`L` is an object like a NumPy array but not true for plain Python
 lists). If `k` is not zero, the slice at the end can be written
 as `L[-k :]` but that fails precisely when `k == 0`.
 
@@ -1018,7 +1017,9 @@ uint64_t mix13(uint64_t x)
 
 MurmurHash3 and this blog post were the starting point of all kinds of
 results around fast permutations. Stafford's suggestion made it into
-JDK 8 in 2013 and was also cited as canonical in _Fast Splittable
+[JDK 8 in
+2013](https://github.com/openjdk/jdk/commit/231a351a47d4d3fb8034115584bef6847486bc68)
+and was also cited as canonical in _Fast Splittable
 Pseudorandom Number Generators_ by Steele, Lea and Flood
 in 2014. Since 2018, Pelle Evensen has had
 [several](http://mostlymangling.blogspot.com/2018/07/on-mixing-functions-in-fast-splittable.html)

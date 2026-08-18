@@ -41,6 +41,13 @@ leetcode-interviews _do_ assess and why that's a good thing. To make
 matters more concrete, I'll then describe one of my favorite
 leetcode-style interview questions in detail.
 
+**Leetcode-style questions test if you can code.** It's stupid, but a
+good fraction of candidates will [fail even
+FizzBuzz](https://blog.codinghorror.com/why-cant-programmers-program/). They
+just cannot code. _Any_ interview that involves coding will find that;
+having a rule that says a specific interview is for coding exclusively
+helps get to fast failure for hopeless cases.
+
 **Leetcode-style questions can be prepared for.** In fact, that is the
 business model of [leetcode.com](https://leetcode.com). Becoming very
 good at these kinds of questions takes a lot of work. Combined with the
@@ -62,14 +69,14 @@ alone eliminates a large fraction of weak candidates.
 sometimes try to brute-force these questions by remembering all
 possible answers, people with high IQ have a huge natural
 advantage. Smart people are generally useful, and assessing _how
-smart a candidate is_ is the main point of interviews (being smart covers
+smart a candidate is_ is a core part of interviews (being smart covers
 a multitude of other flaws). That is also why universities find SAT
 results useful. Of course, measuring IQ directly via a test would
 presumably be more precise, but the US has a history of
 [disincentivizing](https://en.wikipedia.org/wiki/Griggs_v._Duke_Power_Co.)
-this since the outcomes are politically disfavored. And perhaps a
-pure IQ test would actually be worse since leetcode-style
-questions cover prior knowledge much more:
+this since the outcomes are politically disfavored. And a
+pure IQ test would likely be less meaningful since leetcode-style
+questions cover more ground, including prior knowledge:
 
 **Leetcode-style questions test knowledge.**
 The contrast between rote memorization and skill is
@@ -82,7 +89,7 @@ even if it's perhaps less than in math or physics), knowing what
 exists and how to talk about it is a useful skill. During the actual
 work of a good software engineer, various design decisions and
 judgment calls about systems have to be made. Knowing the toolbox, and
-knowing it well is essential to making these decisions well. This can
+knowing it well, is essential to making these decisions well. This can
 be traded off with intelligence or other sources of good intuition
 about these practical problems, but ceteris paribus knowing more is
 better.
@@ -128,14 +135,18 @@ not mean every such interview is done well. In particular, within the
 set of leetcode-style coding questions there are further
 distinctions. I like questions with a lot of depth and breadth.
 
+---
+
 I'm going to describe my favorite interview question. I used it
-probably hundreds of times when interviewing for xAI and other places,
-to the extent that it's slightly worn out. However, as per the above,
-I don't think I am giving "too much away" by describing it here, and
-I may well use this question again. If candidates read
-this, all the better -- we can dive in deep then. (And if they have
-not, despite knowing I'd interview them, that's ever so slightly
-signal too, albeit not very strong.)
+many dozens of times when interviewing for xAI and other places,
+to the extent that it's slightly worn out (and unsurprisingly is
+on [actual
+leetcode](https://leetcode.com/problem-list/reservoir-sampling/)). However,
+as per the above, I don't think I am giving "too much away" by
+describing it here, and I may well use this question again. If
+candidates read this, all the better -- we can dive in deep then. (And
+if they have not, despite knowing I'd interview them, that's ever so
+weak signal too.)
 
 I first heard this question when Greg Chanan interviewed me for FAIR
 in 2018. I probably did okay-but-not-great. I did end up getting

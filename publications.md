@@ -9,6 +9,12 @@ permalink: /publications/
   <a href="https://scholar.google.com/citations?user=dE-JkuIAAAAJ" target="_blank">Google Scholar</a>
 </div>
 
+#### 2026
+
+* Martin Gebert, Heinrich Küttler
+  [**Szegő-type determinant asymptotics for generalized Hilbert matrices with edge eigenvalues**](https://arxiv.org/abs/2609.00255)
+  [arXiv:2609.00255](https://arxiv.org/abs/2609.00255)
+
 #### 2023
 
 * Inflection AI, Inc.
